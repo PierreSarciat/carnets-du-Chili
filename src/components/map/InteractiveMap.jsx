@@ -3,7 +3,7 @@ import './InteractiveMap.scss';
 import { RegionLabel } from '@components/RegionLabel/RegionLabel';
 import chileMap from '@assets/images/chile-map/chile-map.svg';
 import roseDesVents from '@assets/images/rose-des-vents/rose-des-vents.png';
-
+import { BASE_PATH } from "@/config";
 
 export function InteractiveMap({ onRegionHover }) {
     const regions = [
@@ -17,7 +17,7 @@ export function InteractiveMap({ onRegionHover }) {
             description: "Ancré au sud-ouest du Chili, dans les îles éparses du Pacifique, Chiloé est un monde à part. Ici, les fjords serpentent entre des collines verdoyantes. L’archipel, bercé par l’isolement et le mystère, préserve une culture unique, où les églises en bois coloré, les maisons sur pilotis et les récits du *Caleuche* tissent une toile envoûtante entre réalité et rêve.",
             photo_home:
             {
-                "previewSrc": "/assets/images/chiloe/thumb/CHILOE_6.webp",
+                "previewSrc": `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_6.webp`,
                 "alt": "CHILOE  6 "
             },
         },
@@ -28,7 +28,7 @@ export function InteractiveMap({ onRegionHover }) {
             description: "Le grand soufle du Sud: véritable continent rude et sauvage, jalonné de parcs nationaux, sa côte n' est qu'un dédale d' îles, de lagunes et de fjords. ",
             photo_home:
             {
-                "previewSrc": "/assets/images/patagonie/thumb/PATAGONIE 35.webp",
+                "previewSrc": "${BASE_PATH}/assets/images/patagonie/thumb/PATAGONIE 35.webp",
                 "alt": "CHILOE  6 "
             },
             x: 72,
