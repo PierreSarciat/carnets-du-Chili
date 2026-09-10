@@ -28,8 +28,8 @@ export function InteractiveMap({ onRegionHover }) {
             description: "Le grand soufle du Sud: véritable continent rude et sauvage, jalonné de parcs nationaux, sa côte n' est qu'un dédale d' îles, de lagunes et de fjords. ",
             photo_home:
             {
-                "previewSrc": "${BASE_PATH}/assets/images/patagonie/thumb/PATAGONIE 35.webp",
-                "alt": "CHILOE  6 "
+                "previewSrc": `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 35.webp`,
+                "alt": "Patagonie"
             },
             x: 72,
             y: 75,
@@ -41,7 +41,7 @@ export function InteractiveMap({ onRegionHover }) {
             title: "Puerto Williams",
             photo_home:
             {
-                "previewSrc": "/assets/images/puertowilliams/thumb/PUERTO WILLIAMS 8.webp",
+                "previewSrc": `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO WILLIAMS 8.webp`,
                 "alt": "CHILOE  6 "
             },
             description: "Ville la plus australe du globe, Puerto Williams sert de point de départ pour explorer les paysages extrêmes de l’Antarctique et du cap Horn, dans une ambiance unique alliant isolement, culture maritime et panoramas à couper le souffle.",
@@ -56,8 +56,8 @@ export function InteractiveMap({ onRegionHover }) {
             description: "Célèbre pour ses tours de granit impressionnantes, ce parc national, classé au patrimoine mondial de l'UNESCO, recèle des glaciers grandioses, des rivières d'un bleu étincelant et une faune sauvage exceptionnelle.",
             photo_home:
             {
-                "previewSrc": "/assets/images/torresdelpaine/thumb/TORRES DEL PAINE 2.webp",
-                "alt": "CHILOE  6 "
+                "previewSrc": `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES DEL PAINE 2.webp`,
+                "alt": "TORRES DEL PAINE "
             },
             x: 77,
             y: 86,
