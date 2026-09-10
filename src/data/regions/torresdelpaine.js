@@ -2,19 +2,12 @@ import { BASE_PATH } from '@/config';
 
 const torresdelpaine = {
   id: "torresdelpaine",
-  name: "torresdelpaine",
+  name: "torres del paine",
   subtitle: "",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
 
   photos: [
-    {
-      id: "img_8336",
-      thumbnailSrc: `${BASE_PATH}assets/images/torresdelpaine/thumb/IMG_8336.webp`,
-      previewSrc: `${BASE_PATH}assets/images/torresdelpaine/thumb/IMG_8336.webp`,
-      fullSrc: `${BASE_PATH}assets/images/torresdelpaine/full/IMG_8336.jpg`,
-      title: "IMG 8336",
-      alt: "IMG 8336"
-    },
+   
     {
       id: "torres-del-paine-1",
       thumbnailSrc: `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES DEL PAINE 1.webp`,
