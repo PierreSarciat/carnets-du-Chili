@@ -6,7 +6,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 export default defineConfig({
   plugins: [
     react(),
-     ViteImageOptimizer({
+    ViteImageOptimizer({
       test: /\.(webp)$/i, // Cible uniquement les WebP générés
       include: ['**/public/assets/images/**/thumb/**'],
       exclude: ['node_modules'],
@@ -15,14 +15,14 @@ export default defineConfig({
     }),
   ],
   base: "/carnets-du-Chili/",
-   resolve: {
+  resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@data': path.resolve(__dirname, './src/data'),
       '@assets': path.resolve(__dirname, './src/assets'),
-        },
+    },
   },
- 
+
 })
