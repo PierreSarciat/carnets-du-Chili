@@ -18,7 +18,9 @@ const router = createBrowserRouter([
             { path: '*', element: <NotFound /> } // ✅ Page 404
         ]
     },
-]);
+],
+    { basename: "/carnets-du-Chili", }
+);
 
 export default function Router() {
     return <RouterProvider router={router} />;
