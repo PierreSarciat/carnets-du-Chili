@@ -52,7 +52,7 @@ export default function Navbar() {
 
     return (
         <header className="navbar-container">
-            <div className="incipit">
+            <NavLink to="/" className="incipit">
                 <div className="logo-container">
                     <img
                         src={CompassRose}
@@ -64,7 +64,7 @@ export default function Navbar() {
                     <h1>CHILI</h1>
                     <p>Terres de contrastes</p>
                 </div>
-            </div>
+            </NavLink>
 
             <nav className="navbar" ref={navRef}>
                 <ul className="navbar-links">
