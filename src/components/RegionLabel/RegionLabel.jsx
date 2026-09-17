@@ -19,28 +19,26 @@ export function RegionLabel({
     lineColor = '#B89A73',
     onHover,
     onLeave,
+    onClick,
 }) {
 
-    // =====================================================
+    // =======================================
     // Référence du label
-    // =====================================================
+    // =======================================
 
     const labelRef = useRef(null);
 
 
-    // =====================================================
-    // Longueur calculée de la ligne
-    // =====================================================
+    // =======================================
+    // Longueur de la ligne
+    // =======================================
 
     const [lineLength, setLineLength] = useState(0);
 
 
-    // =====================================================
-    // Calcul de la distance entre :
-    //
-    // point fixe sur la carte
-    // et bord gauche du label
-    // =====================================================
+    // =======================================
+    // Calcul de la ligne
+    // =======================================
 
     useEffect(() => {
 
@@ -69,15 +67,14 @@ export function RegionLabel({
 
 
             // Position du bord gauche du label
-            // par rapport à l'overlay
 
             const labelLeft =
                 labelRect.left -
                 overlayRect.left;
 
 
-            // Distance entre le point de la carte
-            // et le bord gauche du label
+            // Distance entre le point fixe
+            // et le label
 
             const distance =
                 labelLeft - anchorPoint.x;
@@ -89,11 +86,9 @@ export function RegionLabel({
         };
 
 
-        // Première mesure
         updateLineLength();
 
 
-        // Observer les changements de taille
         const resizeObserver =
             new ResizeObserver(() => {
                 updateLineLength();
@@ -123,10 +118,6 @@ export function RegionLabel({
     }, [anchorPoint]);
 
 
-    // =====================================================
-    // Rendu
-    // =====================================================
-
     return (
 
         <div
@@ -137,30 +128,44 @@ export function RegionLabel({
             style={{
                 left: `${x}%`,
                 top: `${y}%`,
-                transform: 'translate(-50%, -50%)',
+                transform:
+                    'translate(-50%, -50%)',
             }}
 
+            // Desktop
             onMouseEnter={onHover}
             onMouseLeave={onLeave}
+
+            // Mobile
+            onClick={onClick}
         >
 
-            {/* Ligne */}
+            {/* =================================
+                Ligne
+            ================================= */}
 
             <div
                 className={`region-line region-line--${lineDirection}`}
 
                 style={{
-                    '--line-length': `${lineLength}px`,
-                    '--line-color': lineColor,
+                    '--line-length':
+                        `${lineLength}px`,
+
+                    '--line-color':
+                        lineColor,
                 }}
             />
 
 
-            {/* Label */}
+            {/* =================================
+                Label
+            ================================= */}
 
             <NavLink
                 to={`/region/${id}`}
                 className="region-label-link"
+
+                onClick={onClick}
             >
 
                 <span className="region-label">
