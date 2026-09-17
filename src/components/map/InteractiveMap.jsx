@@ -11,33 +11,61 @@ import { BASE_PATH } from '@/config';
 
 export function InteractiveMap({ onRegionHover }) {
 
-    // =====================================================
+    // =======================================
     // Références
-    // =====================================================
+    // =======================================
 
     const containerRef = useRef(null);
     const imageRef = useRef(null);
     const overlayRef = useRef(null);
 
 
-    // =====================================================
-    // Position réelle des points d'ancrage
-    //
-    // Exemple :
-    // {
-    //     chiloe: {
-    //         x: 135,
-    //         y: 380
-    //     }
-    // }
-    // =====================================================
+    // =======================================
+    // Détection mobile
+    // =======================================
 
-    const [anchorPositions, setAnchorPositions] = useState({});
+    const [isMobile, setIsMobile] = useState(
+        window.innerWidth <= 800
+    );
 
 
-    // =====================================================
+    useEffect(() => {
+
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth <= 800);
+        };
+
+        // Vérification initiale
+        checkIfMobile();
+
+        // Écoute des changements de largeur
+        window.addEventListener(
+            'resize',
+            checkIfMobile
+        );
+
+        // Nettoyage
+        return () => {
+            window.removeEventListener(
+                'resize',
+                checkIfMobile
+            );
+        };
+
+    }, []);
+
+
+    // =======================================
+    // Positions des points d'ancrage
+    // =======================================
+
+    const [anchorPositions, setAnchorPositions] =
+        useState({});
+
+
+    // =======================================
     // Données des régions
-    // =====================================================
+    // =======================================
 
     const regions = [
 
@@ -264,7 +292,6 @@ export function InteractiveMap({ onRegionHover }) {
                             const anchorPoint =
                                 anchorPositions[region.id];
 
-
                             return (
 
                                 <RegionLabel
@@ -280,17 +307,37 @@ export function InteractiveMap({ onRegionHover }) {
 
                                     lineColor="#B89A73"
 
-                                    onHover={() =>
-                                        onRegionHover(region)
+                                    // ==============================
+                                    // Desktop : hover
+                                    // ==============================
+
+                                    onHover={
+                                        !isMobile
+                                            ? () => onRegionHover(region)
+                                            : undefined
                                     }
 
-                                    onLeave={() =>
-                                        onRegionHover(null)
+                                    onLeave={
+                                        !isMobile
+                                            ? () => onRegionHover(null)
+                                            : undefined
+                                    }
+
+                                    // ==============================
+                                    // Mobile : click
+                                    // ==============================
+
+                                    onClick={
+                                        isMobile
+                                            ? (event) => {
+                                                event.preventDefault();
+                                                onRegionHover(region);
+                                            }
+                                            : undefined
                                     }
                                 />
                             );
                         })}
-
                     </div>
 
                 </div>

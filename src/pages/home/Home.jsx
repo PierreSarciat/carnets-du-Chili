@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+
 import { InteractiveMap } from '@/components/map/InteractiveMap';
 import BorderWithDot from "@components/BorderWithDot/BorderWithDot";
 import Carte from "@assets/icons/carte/carte.svg";
@@ -6,20 +7,74 @@ import { NavLink } from 'react-router-dom';
 
 import "./Home.scss";
 
+
 function Home() {
 
+    // =======================================
+    // États
+    // =======================================
+
     const [activeRegion, setActiveRegion] = useState(null);
+
+    const [isMobile, setIsMobile] = useState(
+        window.innerWidth <= 800
+    );
+
+
+    // =======================================
+    // Références
+    // =======================================
+
     const homeRef = useRef(null);
+
+    const descriptionRef = useRef(null);
+
+
+    // =======================================
+    // Détection mobile <= 800px
+    // =======================================
 
     useEffect(() => {
 
-        const navbar = document.querySelector(".navbar-container");
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth <= 800);
+        };
 
-        if (!navbar || !homeRef.current) return;
+        checkIfMobile();
+
+        window.addEventListener(
+            "resize",
+            checkIfMobile
+        );
+
+        return () => {
+            window.removeEventListener(
+                "resize",
+                checkIfMobile
+            );
+        };
+
+    }, []);
+
+
+    // =======================================
+    // Hauteur de la navbar
+    // =======================================
+
+    useEffect(() => {
+
+        const navbar =
+            document.querySelector(".navbar-container");
+
+        if (!navbar || !homeRef.current) {
+            return;
+        }
+
 
         const updateNavbarHeight = () => {
 
-            const height = navbar.getBoundingClientRect().height;
+            const height =
+                navbar.getBoundingClientRect().height;
 
             homeRef.current.style.setProperty(
                 "--navbar-height",
@@ -27,26 +82,72 @@ function Home() {
             );
         };
 
+
+        // Première mesure
         updateNavbarHeight();
 
-        const resizeObserver = new ResizeObserver(updateNavbarHeight);
+
+        // Observer les changements de hauteur
+        const resizeObserver =
+            new ResizeObserver(
+                updateNavbarHeight
+            );
 
         resizeObserver.observe(navbar);
 
-        window.addEventListener("resize", updateNavbarHeight);
+
+        window.addEventListener(
+            "resize",
+            updateNavbarHeight
+        );
+
 
         return () => {
+
             resizeObserver.disconnect();
-            window.removeEventListener("resize", updateNavbarHeight);
+
+            window.removeEventListener(
+                "resize",
+                updateNavbarHeight
+            );
         };
 
     }, []);
 
+
+    // =======================================
+    // Scroll automatique sur mobile
+    // =======================================
+
+    useEffect(() => {
+
+        if (
+            !activeRegion ||
+            !isMobile ||
+            !descriptionRef.current
+        ) {
+            return;
+        }
+
+
+        descriptionRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+
+    }, [activeRegion, isMobile]);
+
+
     return (
+
         <div
             ref={homeRef}
             className="global"
         >
+
+            {/* =================================
+                Présentation
+            ================================= */}
 
             <section className="presentation">
 
@@ -70,6 +171,11 @@ function Home() {
 
             </section>
 
+
+            {/* =================================
+                Carte
+            ================================= */}
+
             <section className="map-section">
 
                 <InteractiveMap
@@ -78,7 +184,15 @@ function Home() {
 
             </section>
 
-            <section className={`description ${activeRegion ? 'is-active' : ''}`}>
+
+            {/* =================================
+                Description
+            ================================= */}
+
+            <section
+                className={`description ${activeRegion ? 'is-active' : ''
+                    }`}
+            >
 
                 <div className="logo-carte">
 
@@ -91,34 +205,52 @@ function Home() {
 
                 </div>
 
+
                 {activeRegion ? (
+
                     <>
 
-                        <h2>{activeRegion.title}</h2>
+                        <h2>
+                            {activeRegion.title}
+                        </h2>
+
 
                         <BorderWithDot variant="home" />
+
 
                         <div className="region-photos">
 
                             {activeRegion?.photo_home?.previewSrc && (
+
                                 <img
-                                    src={activeRegion.photo_home.previewSrc}
-                                    alt={activeRegion.photo_home.alt || ''}
+                                    src={
+                                        activeRegion.photo_home.previewSrc
+                                    }
+                                    alt={
+                                        activeRegion.photo_home.alt || ''
+                                    }
                                     className="photo-preview"
                                 />
+
                             )}
 
                         </div>
 
-                        <p>
+
+                        <p ref={descriptionRef}>
                             {activeRegion.description}
                         </p>
+
 
                         <NavLink
                             to={`/region/${activeRegion.id}`}
                             className="explore-region-link"
                         >
-                            <h3>Explorer la région</h3>
+
+                            <h3>
+                                Explorer la région
+                            </h3>
+
                         </NavLink>
 
                     </>
@@ -126,7 +258,10 @@ function Home() {
                 ) : (
 
                     <p>
-                        Survolez un point sur la carte pour afficher sa description.
+                        {isMobile
+                            ? "Touchez un point de la carte pour découvrir la région."
+                            : "Survolez un point sur la carte pour afficher sa description."
+                        }
                     </p>
 
                 )}
@@ -136,5 +271,6 @@ function Home() {
         </div>
     );
 }
+
 
 export default Home;
