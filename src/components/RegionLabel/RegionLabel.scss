@@ -3,28 +3,45 @@
 // =======================================
 
 .region-label-container {
+
     position: absolute;
+
     text-decoration: none;
     text-wrap: nowrap;
+
     cursor: pointer;
+
     z-index: 10;
 
+
     // ===================================
-    // Hover commun
+    // Hover
     // ===================================
 
     &:hover {
+
         .region-label {
+
             color: var(--region-hover-color);
+
             transform: scale(1.05);
         }
 
+
         .region-line {
-            background-color: var(--region-hover-color);
+
+            background-color:
+                var(--region-hover-color);
+
 
             &::after {
-                background-color: var(--region-hover-color);
-                animation: region-pulse 1.2s ease-in-out infinite;
+
+                background-color:
+                    var(--region-hover-color);
+
+                animation:
+                    region-pulse
+                    1.2s ease-in-out infinite;
             }
         }
     }
@@ -36,15 +53,24 @@
 // =======================================
 
 @keyframes region-pulse {
+
     0%,
     100% {
+
         opacity: 0.6;
-        transform: translate(50%, -50%) scale(1);
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
     50% {
+
         opacity: 1;
-        transform: translate(50%, -50%) scale(1.25);
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.25);
     }
 }
 
@@ -54,8 +80,11 @@
 // =======================================
 
 .region-label-link {
+
     display: inline-block;
+
     color: inherit;
+
     text-decoration: none;
 }
 
@@ -65,11 +94,15 @@
 // =======================================
 
 .region-label {
+
     display: block;
+
     padding-left: 5px;
 
     color: var(--color-pastel-peach);
+
     font-size: 1rem;
+
     font-weight: 500;
 
     transition:
@@ -83,36 +116,44 @@
 // =======================================
 
 .region-line {
+
     position: absolute;
 
-    background-color: var(--color-pastel-peach);
-
     pointer-events: none;
+
+    background-color:
+        var(--line-color,
+        var(--color-pastel-peach));
 
     transition:
         background-color 0.3s ease;
 
+
+    // ===================================
+    // Point d'ancrage
+    // ===================================
+
     &::after {
+
         content: "";
 
         position: absolute;
+
         top: 50%;
-        left: -5%;
+        left: 0;
 
         width: 7px;
         height: 7px;
 
-        background-color: var(--color-pastel-peach);
+        background-color:
+            var(--line-color,
+            var(--color-pastel-peach));
 
         border-radius: 50%;
 
-        /*
-         * Positionnement du point sur la ligne.
-         * Ce translate est conservé dans les keyframes
-         * pour empêcher le point de se déplacer pendant
-         * la pulsation.
-         */
-        transform: translate(50%, -50%) scale(1);
+        transform:
+            translate(-50%, -50%)
+            scale(1);
 
         transition:
             background-color 0.3s ease;
@@ -125,11 +166,16 @@
 // =======================================
 
 .region-line--left {
+
     width: var(--line-length, 15px);
+
     height: 1px;
 
-    left: calc(-1 * var(--line-length, 15px));
+    left:
+        calc(-1 * var(--line-length, 15px));
+
     top: 50%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 }
