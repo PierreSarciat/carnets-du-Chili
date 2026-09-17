@@ -7,6 +7,10 @@
     gap: 50px;
     z-index: 1;
 
+    // =========================
+    // BACKGROUND
+    // =========================
+
     &::before {
         content: "";
         position: fixed;
@@ -44,9 +48,15 @@
         pointer-events: none;
     }
 
+
+    // =========================
+    // PRESENTATION
+    // =========================
+
     .presentation {
         display: flex;
         justify-content: center;
+        max-width: 100%;
         flex-direction: column;
         gap: 20px;
         margin-top: -100px;
@@ -58,86 +68,155 @@
         }
     }
 
+
+    // =========================
+    // CARTE
+    // =========================
+
     .map-section {
         position: relative;
         z-index: 1;
     }
-}
-.description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    height: 600px;
-    border: 2px dashed var(--color-carte);
-    position: relative; // Assure que le contenu est au-dessus du voile
-    z-index: 1; // Force le contenu à apparaître au-dessus du voile
 
-    .logo-carte {
+
+    // =========================
+    // DESCRIPTION
+    // =========================
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        height: 600px;
+
         border: 2px dashed var(--color-carte);
-        border-radius: 80px;
-        width: 80px;
-        padding: 10px;
-    }
 
-    p {
-        font-style: italic;
-        color: var(--color-carte);
-    }
-
-    &.is-active {
-        border-color: transparent;
+        position: relative;
+        z-index: 1;
 
         .logo-carte {
-            border-color: transparent;
-        }
-
-        .photo-preview {
-            width: 300px;
-            height: auto;
-            border: 5px solid white;
-            margin-top: 10px;
+            border: 2px dashed var(--color-carte);
+            border-radius: 80px;
+            width: 80px;
+            padding: 10px;
         }
 
         p {
-            display: flex;
-            text-align: center;
-            color: black;
-            padding-left: 20px;
-            border-left: 1px solid var(--color-carte-border);
+            font-style: italic;
+            color: var(--color-carte);
         }
 
-        .explore-region-link {
-            width: 100%;
-            text-decoration: none;
-            color: inherit;
+        &.is-active {
+            border-color: transparent;
 
-            h3 {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-                width: 100%;
-                color: var(--color-carte-border);
-
-                &::after {
-                    content: "";
-                    display: block;
-                    flex: 1;
-                    height: 1px;
-                    background-color: var(--border-color);
-                }
+            .logo-carte {
+                border-color: transparent;
             }
 
-            &:hover {
+            .photo-preview {
+                width: 300px;
+                height: auto;
+                border: 5px solid white;
+                margin-top: 10px;
+            }
+
+            p {
+                display: flex;
+                text-align: center;
+                color: black;
+                padding-left: 20px;
+                border-left: 1px solid var(--color-carte-border);
+            }
+
+            .explore-region-link {
+                width: 100%;
+                text-decoration: none;
+                color: inherit;
+
                 h3 {
-                    color: var(--color-pastel-peach);
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    width: 100%;
+                    color: var(--color-carte-border);
 
                     &::after {
-                        background-color: var(--color-pastel-peach);
+                        content: "";
+                        display: block;
+                        flex: 1;
+                        height: 1px;
+                        background-color: var(--border-color);
+                    }
+                }
+
+                &:hover {
+
+                    h3 {
+                        color: var(--color-pastel-peach);
+
+                        &::after {
+                            background-color: var(--color-pastel-peach);
+                        }
                     }
                 }
             }
+        }
+    }
+
+
+    // =========================
+    // TABLETTE
+    // =========================
+
+    @media (max-width: 1100px) {
+
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+
+        .presentation {
+            grid-column: 1 / -1;
+            margin-top: 0;
+        }
+
+        .map-section {
+            grid-column: 1;
+        }
+
+        .description {
+            grid-column: 2;
+        }
+    }
+
+
+    // =========================
+    // MOBILE
+    // =========================
+
+    @media (max-width: 800px) {
+
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 80px;
+
+        .presentation {
+            grid-column: 1;
+            padding: 30px 25px;
+        }
+
+        .map-section {
+            grid-column: 1;
+            padding: 20px 10px;
+        }
+
+        .description {
+            grid-column: 1;
+            width: calc(100% - 30px);
+            margin: 30px auto 50px;
+            height: auto;
+            min-height: 500px;
+            padding: 30px 20px;
         }
     }
 }
