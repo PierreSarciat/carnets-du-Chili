@@ -1,152 +1,417 @@
+// =======================================
+// NAVBAR
+// =======================================
+
 .navbar-container {
+
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
+
     padding: 15px 40px;
 
     display: flex;
+
     align-items: center;
 
     background: var(--background-color);
+
     backdrop-filter: blur(6px);
 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.08);
 
     z-index: 1000;
+
+    box-sizing: border-box;
 }
 
-/* ---------- Logo ---------- */
+
+// =======================================
+// Logo
+// =======================================
 
 .incipit {
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
+
     margin-right: 60px;
 
+    text-decoration: none;
+
+
     .logo {
+
         width: 50px;
         height: 50px;
+
         object-fit: contain;
     }
 
+
     .logo-texte {
+
         display: flex;
+
         flex-direction: column;
 
+
         h1 {
+
             margin: 0;
-            font-family: var(--font-title);
+
+            font-family:
+                var(--font-title);
+
             color: #3A312C;
+
             letter-spacing: 1px;
         }
 
+
         p {
+
             margin: 0;
-            font-family: var(--font-body);
+
+            font-family:
+                var(--font-body);
+
             font-style: italic;
+
             color: #6B5B4F;
         }
     }
 }
 
-/* ---------- Navigation ---------- */
+
+// =======================================
+// Navigation
+// =======================================
 
 .navbar {
+
     position: relative;
+
     flex: 1;
 }
+
+
+// =======================================
+// Liens
+// =======================================
+
 .navbar-links {
+
     display: flex;
+
     justify-content: flex-end;
+
     gap: 32px;
 
     list-style: none;
+
     margin: 0;
     padding: 0;
 }
+
+
 .navbar-links li {
+
     position: relative;
 }
+
+
 .navbar-links a {
+
     display: block;
+
     padding: 12px 0;
 
     text-decoration: none;
 
     color: #3A312C;
 
-    font-family: var(--font-body);
+    font-family:
+        var(--font-body);
+
     font-size: .82rem;
+
     font-weight: 600;
 
     letter-spacing: .08em;
 
-    transition: color .25s;
+    transition:
+        color .25s ease;
 }
+
 
 .navbar-links a:hover {
+
     color: #8C6A43;
 }
+
 
 .navbar-links a.active {
+
     color: #8C6A43;
 }
 
-/* ---------- Barre animée ---------- */
+
+// =======================================
+// Barre active
+// =======================================
 
 .navbar-border {
 
     position: absolute;
 
     bottom: 0;
+
     left: 0;
 
     width: 0;
+
     height: 1px;
 
     background: #8C6A43;
-
-    
 }
+
 
 .navbar-border::after {
 
-    content:"✦";
+    content: "✦";
 
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);  
 
-    color:var(--dot-color);
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: var(--dot-color);
 
     font-size: var(--dot-size);
 }
 
-/* ---------- Responsive ---------- */
 
-@media (max-width: 900px) {
+// =======================================
+// Hamburger
+// =======================================
+
+.hamburger {
+
+    display: none;
+
+    position: absolute;
+
+    top: 25px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 8px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 1100;
+}
+
+
+.hamburger span {
+
+    display: block;
+
+    width: 24px;
+
+    height: 2px;
+
+    margin: 5px auto;
+
+    background: #3A312C;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+
+// =======================================
+// Animation hamburger → X
+// =======================================
+
+.hamburger.is-open span:nth-child(1) {
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.hamburger.is-open span:nth-child(2) {
+
+    opacity: 0;
+}
+
+
+.hamburger.is-open span:nth-child(3) {
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+// =======================================
+// Responsive
+// =======================================
+
+@media (max-width: 1050px) {
 
     .navbar-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        min-height: 80px;
+
+        padding: 15px 20px;
     }
+
+
+    // -----------------------------------
+    // Logo
+    // -----------------------------------
 
     .incipit {
+
         margin-right: 0;
-        margin-bottom: 20px;
+
+        margin-bottom: 0;
     }
+
+
+    // -----------------------------------
+    // Hamburger
+    // -----------------------------------
+
+    .hamburger {
+
+        display: block;
+    }
+
+
+    // -----------------------------------
+    // Navigation
+    // -----------------------------------
 
     .navbar {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
         width: 100%;
+
+        background:
+            var(--background-color);
+
+        box-shadow:
+            0 8px 15px
+            rgba(0, 0, 0, 0.08);
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform:
+            translateY(-10px);
+
+        transition:
+            max-height .4s ease,
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
     }
+
+
+    // -----------------------------------
+    // Menu ouvert
+    // -----------------------------------
+
+    .navbar.is-open {
+
+        max-height: 500px;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform:
+            translateY(0);
+
+            --background-color: rgba(245, 238, 228, 1);
+    }
+
+
+    // -----------------------------------
+    // Liste
+    // -----------------------------------
 
     .navbar-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 18px;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        gap: 0;
+
+        padding: 15px 20px 20px;
     }
 
+
+    .navbar-links li {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    .navbar-links a {
+
+        padding: 14px 10px;
+
+        font-size: .85rem;
+    }
+
+
+    // -----------------------------------
+    // Barre active
+    // -----------------------------------
+
+    .navbar-border {
+
+        display: none;
+    }
 }
