@@ -7,6 +7,7 @@ import chileMap from '@assets/images/chile-map/chile-map.svg';
 import roseDesVents from '@assets/images/rose-des-vents/rose-des-vents.png';
 
 import { BASE_PATH } from '@/config';
+import { title } from 'framer-motion/client';
 
 
 export function InteractiveMap({ onRegionHover }) {
@@ -68,6 +69,31 @@ export function InteractiveMap({ onRegionHover }) {
     // =======================================
 
     const regions = [
+
+        {
+            id: 'santiago',
+            name: 'Santiago de Chile',
+            // Position du label
+            x: 79,
+            y: 42,
+
+            // Point fixe sur l'image
+            // à exprimer en % de l'image
+            anchorX: 52,
+            anchorY: 40,
+
+            title: 'Santiago de Chile',
+            description:
+                "Lorem ipsum",
+
+            photo_home: {
+                previewSrc:
+                    `${BASE_PATH}assets/images/santiago/thumb/Gran-Torre-Santiago.webp`,
+                alt: 'Santiago',
+            },
+
+
+        },
 
         {
             id: 'chiloe',
