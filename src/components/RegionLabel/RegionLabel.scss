@@ -40,8 +40,7 @@
                     var(--region-hover-color);
 
                 animation:
-                    region-pulse
-                    1.2s ease-in-out infinite;
+                    region-pulse 1.2s ease-in-out infinite;
             }
         }
     }
@@ -60,8 +59,7 @@
         opacity: 0.6;
 
         transform:
-            translate(-50%, -50%)
-            scale(1);
+            translate(-50%, -50%) scale(1);
     }
 
     50% {
@@ -69,8 +67,7 @@
         opacity: 1;
 
         transform:
-            translate(-50%, -50%)
-            scale(1.25);
+            translate(-50%, -50%) scale(1.25);
     }
 }
 
@@ -123,7 +120,7 @@
 
     background-color:
         var(--line-color,
-        var(--color-pastel-peach));
+            var(--color-pastel-peach));
 
     transition:
         background-color 0.3s ease;
@@ -147,13 +144,12 @@
 
         background-color:
             var(--line-color,
-            var(--color-pastel-peach));
+                var(--color-pastel-peach));
 
         border-radius: 50%;
 
         transform:
-            translate(-50%, -50%)
-            scale(1);
+            translate(-50%, -50%) scale(1);
 
         transition:
             background-color 0.3s ease;
@@ -178,4 +174,16 @@
 
     transform:
         translateY(-50%);
+}
+
+
+@media (max-width: 450px) {
+
+    .region-label {
+
+        font-size: 0.9rem;
+
+    }
+
+
 }
