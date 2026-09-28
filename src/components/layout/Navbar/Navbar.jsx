@@ -268,8 +268,6 @@ export default function Navbar() {
                             ACCUEIL
                         </NavLink>
                     </li>
-
-
                     <li>
                         <NavLink
                             to="/galerie"
@@ -277,6 +275,16 @@ export default function Navbar() {
                             GALERIE
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/region/santiago"
+                        >
+                            SANTIAGO DE CHILE
+                        </NavLink>
+                    </li>
+
+
+
 
 
                     <li>
@@ -302,6 +310,14 @@ export default function Navbar() {
                             to="/region/puertowilliams"
                         >
                             PUERTO WILLIAMS
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink
+                            to="/region/puntarenas"
+                        >
+                            Punta Arenas
                         </NavLink>
                     </li>
 

@@ -193,7 +193,31 @@ export function InteractiveMap({ onRegionHover }) {
                     `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES DEL PAINE 2.webp`,
                 alt: 'TORRES DEL PAINE',
             },
+        }, {
+            id: 'puntarenas',
+            name: 'Punta Arenas',
+            // Position du label
+            x: 75,
+            y: 92,
+
+            // Point fixe sur l'image
+            // à exprimer en % de l'image
+            anchorX: 50,
+            anchorY: 40,
+
+            title: 'Punta Arenas',
+            description:
+                "Lorem ipsum",
+
+            photo_home: {
+                previewSrc:
+                    `${BASE_PATH}assets/images/puntarenas/thumb/punta_arenas _5.webp`,
+                alt: 'Punta Arenas',
+            },
+
+
         },
+
     ];
 
 
@@ -343,11 +367,11 @@ export function InteractiveMap({ onRegionHover }) {
                                             : undefined
                                     }
 
-                                    onLeave={
-                                        !isMobile
-                                            ? () => onRegionHover(null)
-                                            : undefined
-                                    }
+                                    /*  onLeave={
+                                          !isMobile
+                                              ? () => onRegionHover(null)
+                                              : undefined
+                                      }*/
 
                                     // ==============================
                                     // Mobile : click
