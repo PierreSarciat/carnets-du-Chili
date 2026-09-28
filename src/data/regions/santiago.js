@@ -17,6 +17,14 @@ const santiago = {
       title: "Santiago de Chile",
       alt: " "
     },
+     {
+      id: "santiago-2",
+      thumbnailSrc: `${BASE_PATH}assets/images/santiago/thumb/campanile.webp`,
+      previewSrc: `${BASE_PATH}assets/images/santiago/thumb/campanile.webp`,
+      fullSrc: `${BASE_PATH}assets/images/santiago/full/campanile.jpg`,
+      title: "campanile",
+      alt: " "
+    },
 ]
 };
 

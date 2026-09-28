@@ -7,14 +7,7 @@ const puertowilliams = {
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
 
   photos: [
-    {
-      id: "puerto-williams-1",
-      thumbnailSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO WILLIAMS 1.webp`,
-      previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO WILLIAMS 1.webp`,
-      fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO WILLIAMS 1.jpg`,
-      title: "PUERTO WILLIAMS 1",
-      alt: "PUERTO WILLIAMS 1"
-    },
+   
     {
       id: "puerto-williams-2",
       thumbnailSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO WILLIAMS 2.webp`,
