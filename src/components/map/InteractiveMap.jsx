@@ -211,7 +211,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             photo_home: {
                 previewSrc:
-                    `${BASE_PATH}assets/images/punta arenas/thumb/punta_arenas _3.webp`,
+                    `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_3.webp`,
                 alt: 'Punta Arenas',
             },
 
