@@ -6,7 +6,7 @@ const chiloe = {
   name: "chiloe",
   subtitle: "Entre terre et océan",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    "Entte terre et océan.",
 
   photos: [
     {
