@@ -1,0 +1,17 @@
+.card{
+  position: relative;
+  z-index: 1;
+
+  .description{
+
+    display: flex;
+  }
+
+  .card_photo {
+        max-width: 200px;
+        max-height: 150px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}
