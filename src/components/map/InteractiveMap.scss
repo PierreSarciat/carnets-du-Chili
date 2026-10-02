@@ -5,20 +5,12 @@
 .interactive-map-container {
 
     position: relative;
-
+    margin-top: -100px;
     width: 400px;
-    max-width: 100%;
-
     height: 600px;
-
     background-color:
-        rgba(25, 25, 25, 0.54);
-
-    overflow: hidden;
-
-    display: block;
-
-    box-sizing: border-box;
+        rgba(25, 25, 25, 0.4);
+    
 }
 
 
@@ -156,12 +148,8 @@
         height: 600px;
     }
 
-  .chile-map-image{
+    .chile-map-image {
         max-width: 200px;
     }
-  
+
 }
-
-
-
-

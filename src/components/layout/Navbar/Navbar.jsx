@@ -317,7 +317,7 @@ export default function Navbar() {
                         <NavLink
                             to="/region/puntarenas"
                         >
-                            Punta Arenas
+                            PUNTA ARENAS
                         </NavLink>
                     </li>
 
