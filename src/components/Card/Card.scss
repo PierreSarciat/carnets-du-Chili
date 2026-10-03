@@ -1,17 +1,89 @@
-.card{
+.card {
   position: relative;
   z-index: 1;
+  margin-top: 30px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-  .description{
-
+  .description {
+    position: relative; // Ancre le ::before
+    padding: 20px;
     display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    // =======================================
+    // État actif : calque d'éclaircissement
+    // =======================================
+
+    &.is-active {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        pointer-events: none; // Ne bloque pas les clics
+        z-index: 0;
+      }
+
+      // =======================================
+      // Contenu placé au-dessus du calque
+      // =======================================
+
+      >* {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  .card_description {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000;
+    border-left: 1px solid var(--color-carte-border);
+    padding-left: 20px;
   }
 
   .card_photo {
-        max-width: 200px;
-        max-height: 150px;
-        width: auto;
-        height: auto;
-        object-fit: contain;
+    display: block;
+    width: 250px;
+    aspect-ratio: 36 / 24;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .card_link {
+    display: flex; // Aligne le h3 et la ligne horizontalement
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      display: block;
+      background-color: var(--border-color);
+    }
+
+  }
+}
+
+.card_logo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .card_logo__icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: rgba(245, 238, 228, 0.2);
     }
 }
