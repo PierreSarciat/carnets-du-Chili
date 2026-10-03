@@ -1,13 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './InteractiveMap.scss';
-
 import { RegionLabel } from '@components/RegionLabel/RegionLabel';
-
 import chileMap from '@assets/images/chile-map/chile-map.svg';
 import roseDesVents from '@assets/images/rose-des-vents/rose-des-vents.png';
-
 import { BASE_PATH } from '@/config';
-import { title } from 'framer-motion/client';
 
 
 export function InteractiveMap({ onRegionHover }) {
@@ -307,93 +303,86 @@ export function InteractiveMap({ onRegionHover }) {
             ref={containerRef}
         >
 
-            <div className="interactive-map-outer-border">
+            {/* Rose des vents */}
 
-                <div className="interactive-map-inner-border">
-
-                    {/* Rose des vents */}
-
-                    <img
-                        src={roseDesVents}
-                        alt="Rose des vents"
-                        className="rose-des-vents"
-                    />
+            <img
+                src={roseDesVents}
+                alt="Rose des vents"
+                className="rose-des-vents"
+            />
 
 
-                    {/* Carte */}
+            {/* Carte */}
 
-                    <img
-                        ref={imageRef}
-                        src={chileMap}
-                        alt="Carte du Chili"
-                        className="chile-map-image"
-                    />
+            <img
+                ref={imageRef}
+                src={chileMap}
+                alt="Carte du Chili"
+                className="chile-map-image"
+            />
 
 
-                    {/* Overlay */}
+            {/* Overlay */}
 
-                    <div
-                        className="regions-overlay"
-                        ref={overlayRef}
-                    >
+            <div
+                className="regions-overlay"
+                ref={overlayRef}
+            >
 
-                        {regions.map((region) => {
+                {regions.map((region) => {
 
-                            const anchorPoint =
-                                anchorPositions[region.id];
+                    const anchorPoint =
+                        anchorPositions[region.id];
 
-                            return (
+                    return (
 
-                                <RegionLabel
-                                    key={region.id}
+                        <RegionLabel
+                            key={region.id}
 
-                                    id={region.id}
-                                    name={region.name}
+                            id={region.id}
+                            name={region.name}
 
-                                    x={region.x}
-                                    y={region.y}
+                            x={region.x}
+                            y={region.y}
 
-                                    anchorPoint={anchorPoint}
+                            anchorPoint={anchorPoint}
 
-                                    lineColor="#B89A73"
+                            lineColor="#B89A73"
 
-                                    // ==============================
-                                    // Desktop : hover
-                                    // ==============================
+                            // ==============================
+                            // Desktop : hover
+                            // ==============================
 
-                                    onHover={
-                                        !isMobile
-                                            ? () => onRegionHover(region)
-                                            : undefined
+                            onHover={
+                                !isMobile
+                                    ? () => onRegionHover(region)
+                                    : undefined
+                            }
+
+                            /*  onLeave={
+                                  !isMobile
+                                      ? () => onRegionHover(null)
+                                      : undefined
+                              }*/
+
+                            // ==============================
+                            // Mobile : click
+                            // ==============================
+
+                            onClick={
+                                isMobile
+                                    ? (event) => {
+                                        event.preventDefault();
+                                        onRegionHover(region);
                                     }
-
-                                    /*  onLeave={
-                                          !isMobile
-                                              ? () => onRegionHover(null)
-                                              : undefined
-                                      }*/
-
-                                    // ==============================
-                                    // Mobile : click
-                                    // ==============================
-
-                                    onClick={
-                                        isMobile
-                                            ? (event) => {
-                                                event.preventDefault();
-                                                onRegionHover(region);
-                                            }
-                                            : undefined
-                                    }
-                                />
-                            );
-                        })}
-                    </div>
-
-                </div>
-
+                                    : undefined
+                            }
+                        />
+                    );
+                })}
             </div>
 
         </div>
+
     );
 }
