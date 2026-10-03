@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import svgr from 'vite-plugin-svgr';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
   plugins: [
     react(),
+    svgr(),
     ViteImageOptimizer({
       test: /\.(webp)$/i, // Cible uniquement les WebP générés
       include: ['**/public/assets/images/**/thumb/**'],
