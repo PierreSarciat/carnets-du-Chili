@@ -101,7 +101,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             // Point fixe sur l'image
             // à exprimer en % de l'image
-            anchorX: 36,
+            anchorX: 23,
             anchorY: 65,
 
             title: 'Chiloé',
@@ -126,7 +126,7 @@ export function InteractiveMap({ onRegionHover }) {
             y: 75,
 
             // Point fixe sur l'image
-            anchorX: 40,
+            anchorX: 35,
             anchorY: 10,
 
             title: 'Patagonie',
@@ -148,11 +148,11 @@ export function InteractiveMap({ onRegionHover }) {
 
             // Position du label
             x: 77,
-            y: 96,
+            y: 97,
 
             // Point fixe sur l'image
-            anchorX: 60,
-            anchorY: 96,
+            anchorX: 85,
+            anchorY: 100,
 
             title: 'Puerto Williams',
 
@@ -176,7 +176,7 @@ export function InteractiveMap({ onRegionHover }) {
             y: 86,
 
             // Point fixe sur l'image
-            anchorX: 42,
+            anchorX: 37,
             anchorY: 200,
 
             title: 'TORRES DEL PAINE',
