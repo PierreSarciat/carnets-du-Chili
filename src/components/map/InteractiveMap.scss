@@ -5,7 +5,6 @@
 .interactive-map-container {
 
     position: relative;
-    margin-top: -100px;
     width: 400px;
     height: 600px;
     background-color: rgba(25, 25, 25, 0.4);
@@ -80,11 +79,8 @@
 @media (max-width: 1100px) {
 
     .interactive-map-container {
-
         width: 100%;
-
         max-width: 400px;
-
         margin: 0 auto;
     }
 }
@@ -93,11 +89,8 @@
 @media (max-width: 800px) {
 
     .interactive-map-container {
-
         width: 100%;
-
         max-width: 400px;
-
         height: 600px;
     }
 

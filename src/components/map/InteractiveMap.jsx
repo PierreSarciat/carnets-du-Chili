@@ -80,7 +80,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             title: 'Santiago de Chile',
             description:
-                "Lorem ipsum",
+                "Entre horizon urbain et relief andin, capitale et principal centre urbain du Chili, Santiago s’étend entre la majestueuse cordillère des Andes à l’est et la cordillère de la Costa à l’ouest.",
 
             photo_home: {
                 previewSrc:
@@ -107,7 +107,7 @@ export function InteractiveMap({ onRegionHover }) {
             title: 'Chiloé',
 
             description:
-                "Ancré au sud-ouest du Chili, dans les îles éparses du Pacifique, Chiloé est un monde à part. Ici, les fjords serpentent entre des collines verdoyantes. L’archipel, bercé par l’isolement et le mystère, préserve une culture unique, où les églises en bois coloré, les maisons sur pilotis et les récits du *Caleuche* tissent une toile envoûtante entre réalité et rêve.",
+                " Ancré au sud-ouest du Chili, Chiloé est un monde à part. Au milieu de fjords verdoyants,  l'archipel préserve une culture unique, où les récits du Caleuche tissent une toile envoûtante.",
 
             photo_home: {
                 previewSrc:
@@ -132,7 +132,7 @@ export function InteractiveMap({ onRegionHover }) {
             title: 'Patagonie',
 
             description:
-                "Le grand souffle du Sud : véritable continent rude et sauvage, jalonné de parcs nationaux, sa côte n'est qu'un dédale d'îles, de lagunes et de fjords.",
+                " Le grand souffle du Sud: la Patagonie s'étend de l'estuaire de Reloncaví au cap Horn. Véritable continent rude et sauvage, jalonné de parcs nationaux, sa côte est un dédale d'îles et de fjords.",
 
             photo_home: {
                 previewSrc:
@@ -157,7 +157,7 @@ export function InteractiveMap({ onRegionHover }) {
             title: 'Puerto Williams',
 
             description:
-                "Ville la plus australe du globe, Puerto Williams sert de point de départ pour explorer les paysages extrêmes de l’Antarctique et du cap Horn, dans une ambiance unique alliant isolement, culture maritime et panoramas à couper le souffle.",
+                "Ville la plus australe du globe, Puerto Williams est la porte des paysages de l'Antarctique et du cap Horn. Son ambiance unique mêle isolement, culture maritime et panoramas grandioses.",
 
             photo_home: {
                 previewSrc:
@@ -182,7 +182,7 @@ export function InteractiveMap({ onRegionHover }) {
             title: 'TORRES DEL PAINE',
 
             description:
-                "Célèbre pour ses tours de granit impressionnantes, ce parc national, classé au patrimoine mondial de l'UNESCO, recèle des glaciers grandioses, des rivières d'un bleu étincelant et une faune sauvage exceptionnelle.",
+                "Célèbre pour ses tours de granit impressionnantes, ce parc national de l'UNESCO recèle des glaciers grandioses, des rivières d'un bleu étincelant et une faune sauvage exceptionnelle.",
 
             photo_home: {
                 previewSrc:
@@ -203,7 +203,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             title: 'Punta Arenas',
             description:
-                "Lorem ipsum",
+                "Ville la plus peuplée et cosmopolite du sud de la Patagonie, Punta Arenas s'ouvre sur le détroit de Magellan. Elle est l'un des principaux points de départ des expéditions australes. ",
 
             photo_home: {
                 previewSrc:
