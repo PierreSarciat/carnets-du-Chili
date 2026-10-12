@@ -39,6 +39,10 @@
     }
 }
 
+.intro {
+    display: flex;
+    flex-direction: column;
+}
 
 .presentation {
     display: flex;
@@ -58,7 +62,7 @@
 
 .map-section {
     display: flex;
-     justify-content: flex-end;
+    justify-content: flex-end;
     position: relative;
     z-index: 1;
 }
@@ -72,12 +76,12 @@
     .global {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-areas:            
+        grid-template-areas:
             "presentation"
             "map"
             "card";
-        gap: 0;
-        margin: 200px 20px;
+        gap: 20px;
+
     }
 
     .intro {
@@ -96,5 +100,5 @@
         padding: 30px 25px;
     }
 
-   
+
 }
