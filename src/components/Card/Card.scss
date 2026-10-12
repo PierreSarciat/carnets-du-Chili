@@ -8,7 +8,7 @@
   position: relative;
   grid-area: card;
   z-index: 1;
-  margin: 30px auto 50px;
+  margin: auto;
   padding: 15px;
   width: var(--card-width);
   height: var(--card-height);
@@ -21,7 +21,7 @@
     padding: 20px;
     display: flex;
     justify-content: center;
-    gap: 25px;
+   
 
     // =======================================
     // État actif : calque d'éclaircissement
@@ -96,7 +96,7 @@
   .card {
     width: var(--card-width-mobile);
     height: var(--card-height-mobile);
-    margin: 0px;
+    
   }
 
   .description {
