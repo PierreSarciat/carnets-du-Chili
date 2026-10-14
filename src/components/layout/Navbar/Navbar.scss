@@ -5,30 +5,19 @@
 .navbar-container {
 
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
-    padding: 15px 40px;
-
     display: flex;
-
     align-items: center;
-
     background: var(--background-color);
-
     backdrop-filter: blur(6px);
-
     box-shadow:
         0 2px 10px rgba(0, 0, 0, 0.08);
-
     z-index: 1000;
-
     box-sizing: border-box;
+    padding: 10px;
 }
-
 
 // =======================================
 // Logo
@@ -37,21 +26,15 @@
 .incipit {
 
     display: flex;
-
     align-items: center;
-
     gap: 15px;
-
     margin-right: 60px;
-
     text-decoration: none;
-
 
     .logo {
 
         width: 50px;
         height: 50px;
-
         object-fit: contain;
     }
 
@@ -59,32 +42,23 @@
     .logo-texte {
 
         display: flex;
-
         flex-direction: column;
-
 
         h1 {
 
             margin: 0;
-
             font-family:
                 var(--font-title);
-
             color: #3A312C;
-
             letter-spacing: 1px;
         }
-
 
         p {
 
             margin: 0;
-
             font-family:
                 var(--font-body);
-
             font-style: italic;
-
             color: #6B5B4F;
         }
     }
@@ -98,10 +72,8 @@
 .navbar {
 
     position: relative;
-
     flex: 1;
 }
-
 
 // =======================================
 // Liens
@@ -110,13 +82,9 @@
 .navbar-links {
 
     display: flex;
-
     justify-content: flex-end;
-
-    gap: 32px;
-
+    gap: 12px;
     list-style: none;
-
     margin: 0;
     padding: 0;
 }
@@ -131,22 +99,14 @@
 .navbar-links a {
 
     display: block;
-
     padding: 12px 0;
-
     text-decoration: none;
-
     color: #3A312C;
-
     font-family:
         var(--font-body);
-
     font-size: .82rem;
-
     font-weight: 600;
-
     letter-spacing: .08em;
-
     transition:
         color .25s ease;
 }
@@ -171,15 +131,10 @@
 .navbar-border {
 
     position: absolute;
-
     bottom: 0;
-
     left: 0;
-
     width: 0;
-
     height: 1px;
-
     background: #8C6A43;
 }
 
@@ -187,16 +142,11 @@
 .navbar-border::after {
 
     content: "✦";
-
     position: absolute;
-
     left: 50%;
-
     transform:
         translate(-50%, -50%);
-
     color: var(--dot-color);
-
     font-size: var(--dot-size);
 }
 
@@ -232,15 +182,10 @@
 .hamburger span {
 
     display: block;
-
     width: 24px;
-
     height: 2px;
-
     margin: 5px auto;
-
     background: #3A312C;
-
     transition:
         transform .3s ease,
         opacity .3s ease;
@@ -254,8 +199,7 @@
 .hamburger.is-open span:nth-child(1) {
 
     transform:
-        translateY(7px)
-        rotate(45deg);
+        translateY(7px) rotate(45deg);
 }
 
 
@@ -268,27 +212,25 @@
 .hamburger.is-open span:nth-child(3) {
 
     transform:
-        translateY(-7px)
-        rotate(-45deg);
+        translateY(-7px) rotate(-45deg);
 }
 
 
 // =======================================
 // Responsive
 // =======================================
+@media (max-width: 1350px) {
+
+    .navbar-links {
+        gap: 12px; // Réduire également l'espacement entre les liens
+    }
+
+    .navbar-links a {
+        font-size: 0.72rem; // Taille lisible pour tablette
+    }
+}
 
 @media (max-width: 1050px) {
-
-    .navbar-container {
-
-        flex-direction: row;
-
-        align-items: center;
-
-        min-height: 80px;
-
-        padding: 15px 20px;
-    }
 
 
     // -----------------------------------
@@ -331,8 +273,7 @@
             var(--background-color);
 
         box-shadow:
-            0 8px 15px
-            rgba(0, 0, 0, 0.08);
+            0 8px 15px rgba(0, 0, 0, 0.08);
 
         max-height: 0;
 
@@ -360,15 +301,12 @@
     .navbar.is-open {
 
         max-height: 500px;
-
         opacity: 1;
-
         visibility: visible;
-
         transform:
             translateY(0);
 
-            --background-color: rgba(245, 238, 228, 1);
+        --background-color: rgba(245, 238, 228, 1);
     }
 
 
@@ -379,13 +317,9 @@
     .navbar-links {
 
         flex-direction: column;
-
         align-items: center;
-
         justify-content: flex-start;
-
         gap: 0;
-
         padding: 15px 20px 20px;
     }
 
@@ -401,7 +335,6 @@
     .navbar-links a {
 
         padding: 14px 10px;
-
         font-size: .85rem;
     }
 
