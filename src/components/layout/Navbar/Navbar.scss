@@ -83,7 +83,7 @@
 
     display: flex;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -222,7 +222,7 @@
 @media (max-width: 1350px) {
 
     .navbar-links {
-        gap: 12px; // Réduire également l'espacement entre les liens
+        gap: 15px; // Réduire également l'espacement entre les liens
     }
 
     .navbar-links a {
