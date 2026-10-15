@@ -2,14 +2,20 @@
   position: relative;
   width: 100%;
 
-    &--home{
-     display: inline-block; 
+  &--home {
+    display: inline-block;
   }
 
-  &--title{
+  &--title {
     width: auto;
-        margin-inline: 100px;
-        margin-bottom: 20px;
+    margin-inline: 100px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 5s ease;
+
+    &.is-visible {
+      opacity: 1;
+    }
   }
 
   &__border {
@@ -17,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: -5px; /* Positionne la bordure en dessous du texte */
-    height: var(--border-width, 1px);
+    height: var(--border-width, 2px);
     background-color: var(--border-color, #3A312C);
   }
 
@@ -32,5 +38,4 @@
     font-size: var(--dot-size);
     background: transparent;
   }
-
 }
