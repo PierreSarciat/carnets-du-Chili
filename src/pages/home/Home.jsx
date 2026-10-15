@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { InteractiveMap } from '@/components/map/InteractiveMap';
 import BorderWithDot from '@components/BorderWithDot/BorderWithDot';
 import Card from '@components/Card/Card';
@@ -13,6 +14,9 @@ function Home() {
     // =======================================
 
     const [activeRegion, setActiveRegion] = useState(null);
+
+    const [titleDone, setTitleDone] = useState(false);
+
 
 
     // =======================================
@@ -99,9 +103,15 @@ function Home() {
 
                 <section className="presentation">
 
-                    <TypewriterTitle text="CARNETS DU CHILI" />
+                    <TypewriterTitle
+                        text="CARNETS DU CHILI"
+                        onComplete={() => setTitleDone(true)}
+                    />
 
-                    <BorderWithDot variant="title" />
+                    <BorderWithDot
+                        variant="title"
+                        className={titleDone ? 'is-visible' : ''}
+                    />
 
                     <p>
                         Sur plus de 4 300 kilomètres, le Chili déploie une symphonie de paysages à couper le souffle : déserts arides, fjords mystérieux, volcans majestueux et steppes infinies du Sud.
