@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { InteractiveMap } from '@/components/map/InteractiveMap';
 import BorderWithDot from '@components/BorderWithDot/BorderWithDot';
 import Card from '@components/Card/Card';
+import TypewriterTitle from "@/components/Animation/TypewriterTitle";
 import './Home.scss';
 
 
@@ -98,7 +99,7 @@ function Home() {
 
                 <section className="presentation">
 
-                    <h1>CARNETS DU CHILI</h1>
+                    <TypewriterTitle text="CARNETS DU CHILI" />
 
                     <BorderWithDot variant="title" />
 
