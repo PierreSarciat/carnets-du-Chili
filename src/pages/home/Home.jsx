@@ -125,7 +125,7 @@ function Home() {
                         Sa géographie, d'une singularité envoûtante, semble tout droit sortie de l'imagination d'un artiste qui aurait cédé aux élans les plus fous de sa créativité.
                     </p>
 
-                    <BorderWithDot variant="home" />
+                    <BorderWithDot className="animation-fade-blur-in" variant="home" />
 
                 </section>
 
