@@ -2,7 +2,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 
 import "./Navbar.scss";
-
 import CompassRose from "@assets/icons/rose-des-vents.png";
 
 
@@ -191,7 +190,7 @@ export default function Navbar() {
 
             <NavLink
                 to="/"
-                className="incipit"
+                className="incipit animation-fade-blur-in"
             >
 
                 <div className="logo-container">
@@ -253,8 +252,7 @@ export default function Navbar() {
             ================================= */}
 
             <nav
-                className={`navbar ${menuOpen ? "is-open" : ""
-                    }`}
+                className={`navbar animation-fade-blur-in ${menuOpen ? "is-open" : ""}`}
                 ref={navRef}
             >
 
