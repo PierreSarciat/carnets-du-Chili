@@ -54,6 +54,13 @@
     z-index: 1;
 
 
+    // =======================================
+    // Décalage initial puis mise en place
+    // =======================================
+
+
+    transform: translateX(300px);
+    animation: presentation-settle 2s 11s cubic-bezier(0.45, 0, 0.55, 1) forwards;
 
 
     p {
@@ -87,12 +94,22 @@
         }
     }
 
+    // =======================================
+    // Mise en place de la section
+    // =======================================
+
+    @keyframes presentation-settle {
+        to {
+
+            transform: translateX(0);
+
+        }
+    }
+
     h1 {
         text-align: center;
     }
 }
-
-
 
 .map-section {
     display: flex;
@@ -135,6 +152,8 @@
     .presentation {
         grid-area: presentation;
         padding: 30px 25px;
+        animation: none;
+        transform: none;
     }
 
 
