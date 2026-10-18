@@ -8,6 +8,24 @@ import CompassRose from "@assets/icons/rose-des-vents.png";
 export default function Navbar() {
 
     // =======================================
+    // Annulation de l'animation d'accueil
+    // =======================================
+
+    const cancelHomeIntro = () => {
+
+        // Cas navigation depuis une autre page
+        sessionStorage.setItem(
+            'skip-home-intro',
+            'true'
+        );
+
+        // Cas clic déjà sur l'accueil
+        window.dispatchEvent(
+            new CustomEvent('home:cancel-intro')
+        );
+    };
+
+    // =======================================
     // Références
     // =======================================
 
@@ -191,6 +209,7 @@ export default function Navbar() {
             <NavLink
                 to="/"
                 className="incipit animation-fade-blur-in"
+                onClick={cancelHomeIntro}
             >
 
                 <div className="logo-container">
@@ -262,6 +281,7 @@ export default function Navbar() {
                         <NavLink
                             to="/"
                             end
+                            onClick={cancelHomeIntro}
                         >
                             ACCUEIL
                         </NavLink>

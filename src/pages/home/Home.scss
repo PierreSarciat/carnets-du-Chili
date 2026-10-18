@@ -4,7 +4,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     z-index: 1;
-    gap: 50px;
+    text-align: center;
+    gap:50px;
 
 
     &::before {
@@ -49,7 +50,6 @@
 .presentation {
     display: flex;
     flex-direction: column;
-    text-align: center;
     gap: 20px;
     margin-top: -100px;
     position: relative;
@@ -60,14 +60,28 @@
     // Décalage initial puis mise en place
     // =======================================
 
+    // Position de départ : centrée horizontalement
+    // (marges de 80px + colonne de gauche :
+    // 50vw - (25vw + 40px) = 25vw - 40px)
 
-    transform: translateX(calc(25vw - 40px));
-    animation: presentation-settle 2s 11s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+    transform:
+        translateX(calc(25vw - 40px));
 
+    // Déclenchement à 11 secondes,
+    // courbe symétrique départ lent / arrivée lente
+
+    animation: presentation-settle 2s 11s
+        cubic-bezier(0.45, 0, 0.55, 1) forwards;
+
+
+    // =======================================
+    // Paragraphes
+    // =======================================
 
     p {
         opacity: 0;
-        animation: paragraph-fade-in 10s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation: paragraph-fade-in 10s
+            cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
         // Apparitions successives à partir de 5 secondes
         &:nth-of-type(1) {
@@ -83,7 +97,6 @@
         }
     }
 
-
     @keyframes paragraph-fade-in {
         from {
             opacity: 0;
@@ -96,15 +109,14 @@
         }
     }
 
+
     // =======================================
     // Mise en place de la section
     // =======================================
 
     @keyframes presentation-settle {
         to {
-
             transform: translateX(0);
-
         }
     }
 
@@ -112,6 +124,48 @@
         text-align: center;
     }
 }
+
+
+// =======================================
+// Intro annulée : affichage immédiat
+// =======================================
+
+.presentation.intro-cancelled {
+
+    animation: none;
+    transform: none;
+
+    // Les paragraphes doivent être
+    // explicitement révélés, sinon
+    // leur opacity: 0 de base les
+    // laisserait invisibles
+    p {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+// =======================================
+// Accessibilité
+// =======================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    .presentation {
+        animation: none;
+        transform: none;
+    }
+
+    .presentation p {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
 
 .map-section {
     display: flex;
@@ -123,6 +177,10 @@
 
 
 
+
+// =======================================
+// Responsive
+// =======================================
 
 @media (max-width: 1200px) {
 
@@ -154,6 +212,10 @@
     .presentation {
         grid-area: presentation;
         padding: 30px 25px;
+
+        // Le décalage initial et la mise
+        // en place n'ont pas de sens dans
+        // la disposition monocolonne
         animation: none;
         transform: none;
     }

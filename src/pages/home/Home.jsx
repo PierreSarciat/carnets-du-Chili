@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { InteractiveMap } from '@/components/map/InteractiveMap';
 import BorderWithDot from '@components/BorderWithDot/BorderWithDot';
 import Card from '@components/Card/Card';
@@ -16,6 +15,16 @@ function Home() {
     const [activeRegion, setActiveRegion] = useState(null);
 
     const [titleDone, setTitleDone] = useState(false);
+
+    // Annulation de l'intro si demandée
+    // depuis la navbar
+
+    const [introCancelled, setIntroCancelled] =
+        useState(
+            () =>
+                sessionStorage.getItem('skip-home-intro')
+                === 'true'
+        );
 
 
 
@@ -86,7 +95,45 @@ function Home() {
     }, []);
 
 
+    // =======================================
+    // Annulation de l'animation au clic navbar
+    // =======================================
 
+    useEffect(() => {
+
+        const handleCancel = () => {
+            setIntroCancelled(true);
+        };
+
+
+        window.addEventListener(
+            'home:cancel-intro',
+            handleCancel
+        );
+
+
+        return () => {
+
+            window.removeEventListener(
+                'home:cancel-intro',
+                handleCancel
+            );
+
+            // L'indicateur ne survit pas
+            // à la visite de la page :
+            // un chargement ultérieur
+            // rejouera l'animation
+            sessionStorage.removeItem(
+                'skip-home-intro'
+            );
+        };
+
+    }, []);
+
+
+    // =======================================
+    // Rendu
+    // =======================================
 
     return (
 
@@ -101,10 +148,17 @@ function Home() {
                     Présentation
                 ================================= */}
 
-                <section className="presentation">
+                <section
+                    className={
+                        introCancelled
+                            ? 'presentation intro-cancelled'
+                            : 'presentation'
+                    }
+                >
 
                     <TypewriterTitle
                         text="CARNETS DU CHILI"
+                        skip={introCancelled}
                         onComplete={() => setTitleDone(true)}
                     />
 
