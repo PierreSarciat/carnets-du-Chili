@@ -134,7 +134,7 @@ function Home() {
                     Description
                 ================================= */}
 
-                <Card
+                <Card className="animation-fade-blur-in"
                     activeRegion={activeRegion}
                     descriptionRef={descriptionRef}
                 />
@@ -146,7 +146,7 @@ function Home() {
                 Carte
             ================================= */}
 
-            <section className="map-section">
+            <section className="map-section animation-fade-blur-in">
 
                 <InteractiveMap
                     onRegionHover={setActiveRegion}

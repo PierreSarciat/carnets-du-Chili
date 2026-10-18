@@ -299,7 +299,7 @@ export function InteractiveMap({ onRegionHover }) {
     return (
 
         <div
-            className="interactive-map-container animation-fade-blur-in"
+            className="interactive-map-container "
             ref={containerRef}
         >
 

@@ -8,11 +8,12 @@ import Carte from '@assets/icons/carte/carte.svg?react';
 
 const Card = ({
     activeRegion,
-    descriptionRef
+    descriptionRef,
+    className = '',
 }) => {
 
     return (
-        <div className="card animation-fade-blur-in">
+        <div className={`card ${className}`}>
 
             <section
                 className={`description ${activeRegion ? 'is-active' : ''}`}
