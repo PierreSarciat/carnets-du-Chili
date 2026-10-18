@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     z-index: 1;
+    gap:50px;
 
 
     &::before {
