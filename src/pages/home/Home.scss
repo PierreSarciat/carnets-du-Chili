@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     z-index: 1;
-    gap:50px;
+    gap: 50px;
 
 
     &::before {
@@ -49,6 +49,7 @@
 .presentation {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 20px;
     margin-top: -100px;
     position: relative;
@@ -60,7 +61,7 @@
     // =======================================
 
 
-     transform: translateX(calc(25vw - 40px));
+    transform: translateX(calc(25vw - 40px));
     animation: presentation-settle 2s 11s cubic-bezier(0.45, 0, 0.55, 1) forwards;
 
 
