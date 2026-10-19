@@ -139,7 +139,11 @@ function Home() {
 
         <div
             ref={homeRef}
-            className="global"
+            className={
+                introCancelled
+                    ? 'global intro-cancelled'
+                    : 'global'
+            }
         >
 
             <div className="intro">
@@ -149,11 +153,8 @@ function Home() {
                 ================================= */}
 
                 <section
-                    className={
-                        introCancelled
-                            ? 'presentation intro-cancelled'
-                            : 'presentation'
-                    }
+                    className="presentation"
+
                 >
 
                     <TypewriterTitle

@@ -1,3 +1,23 @@
+.global.intro-cancelled {
+
+    .presentation {
+        animation: none;
+        transform: none;
+
+        p {
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .animation-fade-blur-in {
+        animation: none;
+        opacity: 1;
+        filter: none;
+    }
+}
+
 .global {
     position: relative;
     margin: 230px 80px;
@@ -5,7 +25,7 @@
     grid-template-columns: 1fr 1fr;
     z-index: 1;
     text-align: center;
-    gap:50px;
+    gap: 50px;
 
 
     &::before {
@@ -70,8 +90,7 @@
     // Déclenchement à 11 secondes,
     // courbe symétrique départ lent / arrivée lente
 
-    animation: presentation-settle 2s 11s
-        cubic-bezier(0.45, 0, 0.55, 1) forwards;
+    animation: presentation-settle 2s 11s cubic-bezier(0.45, 0, 0.55, 1) forwards;
 
 
     // =======================================
@@ -80,8 +99,7 @@
 
     p {
         opacity: 0;
-        animation: paragraph-fade-in 10s
-            cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation: paragraph-fade-in 10s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
         // Apparitions successives à partir de 5 secondes
         &:nth-of-type(1) {
@@ -125,26 +143,6 @@
     }
 }
 
-
-// =======================================
-// Intro annulée : affichage immédiat
-// =======================================
-
-.presentation.intro-cancelled {
-
-    animation: none;
-    transform: none;
-
-    // Les paragraphes doivent être
-    // explicitement révélés, sinon
-    // leur opacity: 0 de base les
-    // laisserait invisibles
-    p {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
-}
 
 
 // =======================================
