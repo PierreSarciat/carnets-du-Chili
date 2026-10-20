@@ -55,10 +55,12 @@ const Card = ({
                         {activeRegion?.photo_home?.previewSrc && (
 
                             <img
+                                key={activeRegion.photo_home.previewSrc}
                                 src={activeRegion.photo_home.previewSrc}
                                 alt={activeRegion.photo_home.alt || ''}
                                 className="card_photo"
                             />
+
 
                         )}
 

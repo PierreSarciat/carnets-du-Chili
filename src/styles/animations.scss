@@ -44,3 +44,18 @@
     }
 }
 
+
+// Apparition progressive .card_photo de la droite vers la gauche
+  
+
+@keyframes card-photo-in {
+
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}

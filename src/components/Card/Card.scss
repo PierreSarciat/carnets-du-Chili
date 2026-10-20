@@ -62,6 +62,8 @@
     aspect-ratio: 36 / 24;
     object-fit: cover;
     object-position: center;
+     animation: card-photo-in $trans-speed $trans-ease both;
+
   }
 
   .card_link {

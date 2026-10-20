@@ -30,16 +30,23 @@
 
   // Card
 
---card-width: 600px;          
---card-height: 250px;         
---card-width-tablet: 320px;   
---card-height-tablet: 480px;   
---card-width-mobile: 300px;    
---card-height-mobile: 100%;
+  --card-width: 600px;
+  --card-height: 250px;
+  --card-width-tablet: 320px;
+  --card-height-tablet: 480px;
+  --card-width-mobile: 300px;
+  --card-height-mobile: 100%;
 
 
   // Ombres
 
   // Transitions
 
+ 
+
 }
+
+ //Animations 
+
+  $trans-speed: 0.4s;
+  $trans-ease: ease-in-out;
