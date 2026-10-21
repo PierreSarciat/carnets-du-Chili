@@ -22,14 +22,14 @@ export function InteractiveMap({ onRegionHover }) {
     // =======================================
 
     const [isMobile, setIsMobile] = useState(
-        window.innerWidth <= 800
+        window.innerWidth <= 1200
     );
 
 
     useEffect(() => {
 
         const checkIfMobile = () => {
-            setIsMobile(window.innerWidth <= 800);
+            setIsMobile(window.innerWidth <= 1200);
         };
 
         // Vérification initiale
@@ -359,11 +359,11 @@ export function InteractiveMap({ onRegionHover }) {
                                     : undefined
                             }
 
-                            /*  onLeave={
-                                  !isMobile
-                                      ? () => onRegionHover(null)
-                                      : undefined
-                              }*/
+                            onLeave={
+                                !isMobile
+                                    ? () => onRegionHover(null)
+                                    : undefined
+                            }
 
                             // ==============================
                             // Mobile : click
