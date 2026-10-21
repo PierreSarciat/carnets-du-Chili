@@ -20,8 +20,8 @@
     position: relative; // Ancre le ::before
     padding: 20px;
     display: flex;
-    justify-content: center;
-   
+    
+
 
     // =======================================
     // État actif : calque d'éclaircissement
@@ -62,8 +62,8 @@
     aspect-ratio: 36 / 24;
     object-fit: cover;
     object-position: center;
-   
-    
+
+
 
   }
 
@@ -86,28 +86,15 @@
 
 .card_logo {
   width: 160px;
-  
+
 
   .card_logo__icon {
-   
+
     fill: rgba(245, 238, 228, 0.2);
   }
 }
 
-@media (max-width: 800px) {
 
-  .card {
-    width: var(--card-width-mobile);
-    height: var(--card-height-mobile);
-    
-  }
-
-  .description {
-    flex-direction: column-reverse;
-    align-items: center;
-
-  }
-}
 
 
 
@@ -116,15 +103,16 @@
 // =================================
 
 .card_photo_stack {
-    position: relative;
-    display: grid;
-    flex-shrink: 0;
-    overflow: hidden;
+  position: relative;
+  display: grid;
+  flex-shrink: 0;
+  overflow: hidden;
+  align-content: center;
 
-    // Les deux photos occupent la même cellule de grille
-    > .card_photo {
-        grid-area: 1 / 1;
-    }
+  // Les deux photos occupent la même cellule de grille
+  >.card_photo {
+    grid-area: 1 / 1;
+  }
 }
 
 
@@ -133,15 +121,15 @@
 // =================================
 
 .card_photo--incoming {
-    animation: card-photo-in $trans-speed $trans-ease both;
-    animation-delay: $trans-speed;
+  animation: card-photo-in $trans-speed $trans-ease both;
+  animation-delay: $trans-speed;
 }
 
 .card_photo--outgoing {
-    z-index: 0;
-    pointer-events: none;
-    animation: card-photo-out $trans-speed $trans-ease both;
-    
+  z-index: 0;
+  pointer-events: none;
+  animation: card-photo-out $trans-speed $trans-ease both;
+
 }
 
 
@@ -153,10 +141,34 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .card_photo--outgoing {
-        animation: none;
-        opacity: 0;
-        visibility: hidden;
-    }
+  .card_photo--outgoing {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 
+}
+
+
+.description.is-active .card_content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: card-content-in $trans-speed-card-content $trans-ease-card-content both;
+}
+
+
+
+@media (max-width: 800px) {
+
+  .card {
+    width: var(--card-width-mobile);
+    height: var(--card-height-mobile);
+
+  }
+
+  .description {
+    flex-direction: column-reverse;
+    gap:10px
+  }
 }

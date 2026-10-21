@@ -51,7 +51,10 @@ const Card = ({
 
                     <>
 
-                        <section className="card_content">
+                        <section
+                            className="card_content"
+                            key={activeRegion?.id}
+                        >
 
                             <h2 className="card_title">
                                 {activeRegion.title}
