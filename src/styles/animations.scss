@@ -45,17 +45,33 @@
 }
 
 
-// Apparition progressive .card_photo de la droite vers la gauche
+// Apparition progressive .card_photo in et out
   
 
 @keyframes card-photo-in {
 
     from {
-        transform: translateX(100%);
+        transform: translateX(80%);
+        opacity: 0;
     }
 
     to {
         transform: translateX(0);
+        opacity: 1;
+    }
+
+}
+
+@keyframes card-photo-out {
+
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(80%);
+        opacity: 0;
     }
 
 }

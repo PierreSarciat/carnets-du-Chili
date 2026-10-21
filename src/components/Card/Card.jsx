@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Card.scss';
@@ -11,6 +11,30 @@ const Card = ({
     descriptionRef,
     className = '',
 }) => {
+
+    // Photo précédente, conservée le temps de l'animation de sortie
+    const [outgoingPhoto, setOutgoingPhoto] = useState(null);
+
+    // Source de la photo affichée lors du rendu précédent
+    const previousPhotoRef = useRef(null);
+
+    useLayoutEffect(() => {
+
+        const previousSrc = previousPhotoRef.current;
+        const currentSrc = activeRegion?.photo_home?.previewSrc ?? null;
+
+        // Si la photo change, l'ancienne devient la photo sortante
+        if (previousSrc && previousSrc !== currentSrc) {
+            setOutgoingPhoto(previousSrc);
+        }
+
+        previousPhotoRef.current = currentSrc;
+
+    }, [activeRegion]);
+
+    // Retrait de la photo sortante une fois son animation terminée
+    const handleOutgoingEnd = () => setOutgoingPhoto(null);
+
 
     return (
         <div className={`card ${className}`}>
@@ -54,13 +78,32 @@ const Card = ({
 
                         {activeRegion?.photo_home?.previewSrc && (
 
-                            <img
-                                key={activeRegion.photo_home.previewSrc}
-                                src={activeRegion.photo_home.previewSrc}
-                                alt={activeRegion.photo_home.alt || ''}
-                                className="card_photo"
-                            />
+                            <div className="card_photo_stack">
 
+                                {/* Photo sortante : animée puis retirée */}
+
+                                {outgoingPhoto && (
+
+                                    <img
+                                        className="card_photo card_photo--outgoing"
+                                        src={outgoingPhoto}
+                                        alt=""
+                                        aria-hidden="true"
+                                        onAnimationEnd={handleOutgoingEnd}
+                                    />
+
+                                )}
+
+                                {/* Photo entrante : remontée à chaque changement */}
+
+                                <img
+                                    key={activeRegion.photo_home.previewSrc}
+                                    className="card_photo card_photo--incoming"
+                                    src={activeRegion.photo_home.previewSrc}
+                                    alt={activeRegion.photo_home.alt || ''}
+                                />
+
+                            </div>
 
                         )}
 

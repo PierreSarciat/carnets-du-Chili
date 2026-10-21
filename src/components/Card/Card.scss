@@ -62,7 +62,8 @@
     aspect-ratio: 36 / 24;
     object-fit: cover;
     object-position: center;
-     animation: card-photo-in $trans-speed $trans-ease both;
+   
+    
 
   }
 
@@ -106,4 +107,56 @@
     align-items: center;
 
   }
+}
+
+
+
+// =================================
+// Empilement photo entrante / sortante
+// =================================
+
+.card_photo_stack {
+    position: relative;
+    display: grid;
+    flex-shrink: 0;
+    overflow: hidden;
+
+    // Les deux photos occupent la même cellule de grille
+    > .card_photo {
+        grid-area: 1 / 1;
+    }
+}
+
+
+// =================================
+// Animations des photos
+// =================================
+
+.card_photo--incoming {
+    animation: card-photo-in $trans-speed $trans-ease both;
+    animation-delay: $trans-speed;
+}
+
+.card_photo--outgoing {
+    z-index: 0;
+    pointer-events: none;
+    animation: card-photo-out $trans-speed $trans-ease both;
+    
+}
+
+
+
+
+// =================================
+// Accessibilité
+// =================================
+
+@media (prefers-reduced-motion: reduce) {
+
+    .card_photo--outgoing {
+        animation: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
 }
