@@ -42,11 +42,13 @@
 
   // Transitions
 
- 
+
 
 }
 
- //Animations 
+//Animations 
 
-  $trans-speed: 0.3s;
-  $trans-ease: ease-in-out;
+$trans-speed: 0.5s;
+$trans-ease: ease-in;
+$trans-ease-card-content: ease-in-out;
+$trans-speed-card-content: 0.8s;
