@@ -16,6 +16,9 @@ export function InteractiveMap({ onRegionHover }) {
     const imageRef = useRef(null);
     const overlayRef = useRef(null);
 
+    // Dernière région survolée ou sélectionnée
+    const lastRegionRef = useRef(null);
+
 
     // =======================================
     // Détection mobile
@@ -53,6 +56,28 @@ export function InteractiveMap({ onRegionHover }) {
 
 
     // =======================================
+    // Gestion du survol des régions
+    // =======================================
+
+    // Une région activée n'est jamais désactivée :
+    // null n'est jamais transmis après le premier survol
+
+    const handleRegionHover = (region) => {
+        lastRegionRef.current = region;
+        onRegionHover(region);
+    };
+
+    const handleRegionLeave = () => {
+
+        // Le départ de la souris conserve la région
+        // en cours au lieu de la désactiver
+        if (lastRegionRef.current) {
+            onRegionHover(lastRegionRef.current);
+        }
+    };
+
+
+    // =======================================
     // Positions des points d'ancrage
     // =======================================
 
@@ -69,6 +94,7 @@ export function InteractiveMap({ onRegionHover }) {
         {
             id: 'santiago',
             name: 'Santiago de Chile',
+
             // Position du label
             x: 79,
             y: 42,
@@ -87,8 +113,6 @@ export function InteractiveMap({ onRegionHover }) {
                     `${BASE_PATH}assets/images/santiago/thumb/Gran-Torre-Santiago.webp`,
                 alt: 'Santiago',
             },
-
-
         },
 
         {
@@ -116,7 +140,6 @@ export function InteractiveMap({ onRegionHover }) {
             },
         },
 
-
         {
             id: 'patagonie',
             name: 'Patagonie',
@@ -140,7 +163,6 @@ export function InteractiveMap({ onRegionHover }) {
                 alt: 'Patagonie',
             },
         },
-
 
         {
             id: 'puertowilliams',
@@ -166,7 +188,6 @@ export function InteractiveMap({ onRegionHover }) {
             },
         },
 
-
         {
             id: 'torresdelpaine',
             name: 'Torres del Paine',
@@ -189,9 +210,12 @@ export function InteractiveMap({ onRegionHover }) {
                     `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES DEL PAINE 2.webp`,
                 alt: 'TORRES DEL PAINE',
             },
-        }, {
+        },
+
+        {
             id: 'puntarenas',
             name: 'Punta Arenas',
+
             // Position du label
             x: 75,
             y: 92,
@@ -202,6 +226,7 @@ export function InteractiveMap({ onRegionHover }) {
             anchorY: 40,
 
             title: 'Punta Arenas',
+
             description:
                 "Ville la plus peuplée et cosmopolite du sud de la Patagonie, Punta Arenas s'ouvre sur le détroit de Magellan. Elle est l'un des principaux points de départ des expéditions australes. ",
 
@@ -210,8 +235,6 @@ export function InteractiveMap({ onRegionHover }) {
                     `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_3.webp`,
                 alt: 'Punta Arenas',
             },
-
-
         },
 
     ];
@@ -355,13 +378,13 @@ export function InteractiveMap({ onRegionHover }) {
 
                             onHover={
                                 !isMobile
-                                    ? () => onRegionHover(region)
+                                    ? () => handleRegionHover(region)
                                     : undefined
                             }
 
                             onLeave={
                                 !isMobile
-                                    ? () => onRegionHover(null)
+                                    ? handleRegionLeave
                                     : undefined
                             }
 
@@ -373,7 +396,7 @@ export function InteractiveMap({ onRegionHover }) {
                                 isMobile
                                     ? (event) => {
                                         event.preventDefault();
-                                        onRegionHover(region);
+                                        handleRegionHover(region);
                                     }
                                     : undefined
                             }
