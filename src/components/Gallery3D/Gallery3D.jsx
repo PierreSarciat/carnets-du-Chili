@@ -7,7 +7,8 @@ import React, {
 import {
     Canvas,
     useFrame,
-    useLoader
+    useLoader,
+    useThree
 } from "@react-three/fiber";
 
 import { OrbitControls } from "@react-three/drei";
@@ -18,18 +19,49 @@ import "./Gallery3D.scss";
 
 
 /* =========================================================
-   COMPOSANT PHOTO 3D
+   PARAMÈTRES DU CARROUSEL
+========================================================= */
 
-   Chaque photo :
-   - est placée sur un cercle de 360°
-   - reste parfaitement plate
-   - est orientée vers le centre du cercle
+// Distance fixe voulue entre deux photos voisines.
+// Doit être supérieure à la largeur du plan (2.5)
+// pour éviter tout chevauchement.
+
+const PHOTO_SPACING = 3.2;
+
+// Distance supplémentaire entre le bord du cercle
+// et la position de repos de la caméra.
+
+const CAMERA_MARGIN = 7;
+
+
+/* =========================================================
+   RAYON ADAPTATIF
+
+   Garantit un espacement constant entre deux photos
+   quel que soit leur nombre :
+   distance = 2 × radius × sin(π / totalPhotos)
+========================================================= */
+
+function computeGalleryRadius(
+    totalPhotos
+) {
+
+    return PHOTO_SPACING /
+        (2 * Math.sin(Math.PI / totalPhotos));
+}
+
+
+/* =========================================================
+   PHOTO 3D
+
+   Une photo posée sur le cercle, orientée vers le centre.
 ========================================================= */
 
 function Photo3D({
     photo,
     index,
     totalPhotos,
+    radius,
     onPhotoClick,
     reducedMotion
 }) {
@@ -51,7 +83,8 @@ function Photo3D({
     // Configuration du cercle
     // =======================================
 
-    const radius = 10.5;
+    // Le rayon est calculé une seule fois
+    // dans Gallery3D puis transmis ici.
 
     const totalAngle = Math.PI * 2;
 
@@ -268,6 +301,7 @@ function Photo3D({
 
 function GalleryScene({
     photos,
+    radius,
     onPhotoClick,
     reducedMotion
 }) {
@@ -289,6 +323,8 @@ function GalleryScene({
                         photos.length
                     }
 
+                    radius={radius}
+
                     onPhotoClick={
                         onPhotoClick
                     }
@@ -301,7 +337,55 @@ function GalleryScene({
             ))}
 
         </>
+
     );
+}
+
+
+/* =========================================================
+   CAMÉRA ADAPTATIVE
+
+   Repositionne l'observateur à l'extérieur du cercle
+   dès que le rayon change (c'est-à-dire dès que le
+   nombre de photos change).
+========================================================= */
+
+function CameraAdjuster({
+    radius
+}) {
+
+    const { camera } = useThree();
+
+
+    useEffect(() => {
+
+        // Distance entre le centre et
+        // l'observateur : rayon + marge
+        // de sécurité.
+
+        const distance =
+            radius + CAMERA_MARGIN;
+
+
+        camera.position.set(
+            0,
+            0,
+            distance
+        );
+
+
+        // Le plan lointain s'adapte pour
+        // éviter les coupures d'affichage
+        // (clipping) sur les grands cercles.
+
+        camera.far = distance * 4;
+
+        camera.updateProjectionMatrix();
+
+    }, [camera, radius]);
+
+
+    return null;
 }
 
 
@@ -380,6 +464,24 @@ function Gallery3D({
 
 
     // =======================================
+    // Rayon du cercle
+    // =======================================
+
+    const radius =
+        computeGalleryRadius(
+            photos.length
+        );
+
+
+    // =======================================
+    // Distance caméra
+    // =======================================
+
+    const cameraDistance =
+        radius + CAMERA_MARGIN;
+
+
+    // =======================================
     // Rendu
     // =======================================
 
@@ -391,10 +493,14 @@ function Gallery3D({
             <Canvas
 
                 camera={{
-                    position: [0, 0, 17],
+                    position: [
+                        0,
+                        0,
+                        cameraDistance
+                    ],
                     fov: 60,
                     near: 0.2,
-                    far: 500,
+                    far: cameraDistance * 4,
                 }}
 
                 dpr={[1, 2]}
@@ -421,6 +527,17 @@ function Gallery3D({
 
 
                 {/* =================================
+                    CAMÉRA ADAPTATIVE
+                ================================= */}
+
+                <CameraAdjuster
+
+                    radius={radius}
+
+                />
+
+
+                {/* =================================
                     CONTRÔLES
                 ================================= */}
 
@@ -431,6 +548,19 @@ function Gallery3D({
                     enablePan={false}
 
                     enableRotate={true}
+
+                    // Verrouillage de la distance :
+                    // l'observateur ne peut jamais
+                    // pénétrer dans le cercle.
+
+                    minDistance={
+                        radius + 2
+                    }
+
+                    maxDistance={
+                        radius +
+                        CAMERA_MARGIN * 4
+                    }
 
                     minPolarAngle={
                         Math.PI / 2 - 0.1
@@ -454,6 +584,8 @@ function Gallery3D({
                 <GalleryScene
 
                     photos={photos}
+
+                    radius={radius}
 
                     onPhotoClick={
                         onPhotoClick
