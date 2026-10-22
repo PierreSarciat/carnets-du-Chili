@@ -64,7 +64,7 @@ export function InteractiveMap({ onRegionHover }) {
         if (card) {
             card.scrollIntoView({
                 behavior: 'smooth',
-                block: 'start',   // ou 'center' selon votre mise en page
+                block: 'center',
             });
         }
     };
