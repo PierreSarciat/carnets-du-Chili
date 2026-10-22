@@ -37,7 +37,10 @@ const Card = ({
 
 
     return (
-        <div className={`card ${className}`}>
+        <div
+            id="region-card"
+            className={`card ${className}`}
+        >
 
             <section
                 className={`description ${activeRegion ? 'is-active' : ''}`}

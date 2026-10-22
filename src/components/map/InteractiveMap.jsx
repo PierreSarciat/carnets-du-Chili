@@ -8,9 +8,8 @@ import { BASE_PATH } from '@/config';
 
 export function InteractiveMap({ onRegionHover }) {
 
-    // =======================================
-    // Références
-    // =======================================
+
+    // Références   
 
     const containerRef = useRef(null);
     const imageRef = useRef(null);
@@ -20,9 +19,8 @@ export function InteractiveMap({ onRegionHover }) {
     const lastRegionRef = useRef(null);
 
 
-    // =======================================
-    // Détection mobile
-    // =======================================
+
+    // Détection mobile   
 
     const [isMobile, setIsMobile] = useState(
         window.innerWidth <= 1200
@@ -55,12 +53,26 @@ export function InteractiveMap({ onRegionHover }) {
     }, []);
 
 
-    // =======================================
-    // Gestion du survol des régions
-    // =======================================
 
-    // Une région activée n'est jamais désactivée :
-    // null n'est jamais transmis après le premier survol
+    // Scroll vers la card (mode click)
+
+
+    const scrollToCard = () => {
+
+        const card = document.getElementById('region-card');
+
+        if (card) {
+            card.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',   // ou 'center' selon votre mise en page
+            });
+        }
+    };
+
+
+
+    // Gestion du survol des régions
+
 
     const handleRegionHover = (region) => {
         lastRegionRef.current = region;
@@ -69,25 +81,20 @@ export function InteractiveMap({ onRegionHover }) {
 
     const handleRegionLeave = () => {
 
-        // Le départ de la souris conserve la région
-        // en cours au lieu de la désactiver
         if (lastRegionRef.current) {
             onRegionHover(lastRegionRef.current);
         }
     };
 
 
-    // =======================================
     // Positions des points d'ancrage
-    // =======================================
 
     const [anchorPositions, setAnchorPositions] =
         useState({});
 
 
-    // =======================================
     // Données des régions
-    // =======================================
+
 
     const regions = [
 
@@ -240,9 +247,8 @@ export function InteractiveMap({ onRegionHover }) {
     ];
 
 
-    // =====================================================
+
     // Calcul des positions réelles des points
-    // =====================================================
 
     useEffect(() => {
 
@@ -315,9 +321,6 @@ export function InteractiveMap({ onRegionHover }) {
     }, []);
 
 
-    // =====================================================
-    // Rendu
-    // =====================================================
 
     return (
 
@@ -388,15 +391,17 @@ export function InteractiveMap({ onRegionHover }) {
                                     : undefined
                             }
 
-                            // ==============================
-                            // Mobile : click
-                            // ==============================
 
                             onClick={
                                 isMobile
                                     ? (event) => {
                                         event.preventDefault();
+
+                                        // Active la région -> card is active
                                         handleRegionHover(region);
+
+                                        // Défile jusqu'à la card
+                                        scrollToCard();
                                     }
                                     : undefined
                             }
