@@ -4,8 +4,12 @@ const patagonie = {
   id: "patagonie",
   name: "patagonie",
   subtitle: "",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+   quote: {
+        text: "Les côtes occidentales de la Terre de Feu s'égrènent en une multitude d'îles, entre lesquelles serpentent des canaux mystérieux qui vont se perdre là-bas, au bout du monde.",
+        original: "Las costas occidentales de la Tierra del Fuego se desgranan en numerosas islas, entre las cuales culebrean canales misteriosos que van a perderse allá en el fin del mundo.",
+        author: "Francisco Coloane",
+        source: "Cabo de Hornos, 1941",
+    },
 
   photos: [
     {

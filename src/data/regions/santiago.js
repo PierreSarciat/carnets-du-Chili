@@ -5,8 +5,12 @@ const santiago = {
   id: "santiago",
   name: "Santiago de Chile",
   subtitle: "",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  quote: {
+        text: "Santiago, je ne nie point ta neige, ton soleil d'avril, tes dons noirs. ",
+        original: "Santiago, no niego tu nieve, tu sol de Abril, tus dones negros.  ",
+        author: "Pablo Neruda",
+        source: "Canta Santiago, Aún, 1969",
+    },
 
   photos: [
     {

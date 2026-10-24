@@ -5,8 +5,12 @@ const chiloe = {
   id: "chiloe",
   name: "chiloe",
   subtitle: "Entre terre et océan",
-  description:
-    "Entte terre et océan.",
+  quote: {
+        text: "Il pleuvait ; il pleuvait sur les îles. Ainsi le territoire demeurait tel une main verte, tel un gant dont les doigts flottaient parmi les algues marines. ",
+        original: "Llovía; llovía en las islas. Así se mantenía el territorio como una mano verde, como un guante cuyos dedos flotaban entre algas marinas. ",
+        author: "Pablo Neruda",
+        source: "Hacia las islas, Canto General, 1950",
+    },
 
   photos: [
     {

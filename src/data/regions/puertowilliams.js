@@ -4,7 +4,12 @@ const puertowilliams = {
   id: "puertowilliams",
   name: "puerto williams",
   subtitle: "",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  quote: {
+        text: "Ce promontoire tragique qui parraine le duel constant des deux océans les plus vastes du monde.",
+        original: "Ese trágico promontorio que apadrina el duelo constante de los dos océanos más grandes del mundo.",
+        author: "Francisco Coloane",
+        source: "Cabo de Hornos, 1941",
+    },
 
   photos: [
    

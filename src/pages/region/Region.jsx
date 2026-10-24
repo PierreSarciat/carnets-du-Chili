@@ -9,7 +9,7 @@ function Region() {
     const region = regions.find((r) => r.id === regionId);
 
     // Extraire `photos` ici, avant de l'utiliser dans les fonctions
-    const { name, subtitle, description, photos = [] } = region || {};
+    const { name, subtitle, quote, photos = [] } = region || {};
 
     // État pour gérer la modale et la photo sélectionnée
     const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
@@ -68,7 +68,19 @@ function Region() {
             <div className='region-container-description'>
                 <h1>{name}</h1>
                 <h2>{subtitle}</h2>
-                <p>{description}</p>
+
+                {quote && (
+                    <blockquote className="region-quote">
+                        <p className="region-quote-text">« {quote.text} »
+                            <footer className="region-quote-footer">
+                                — {quote.author}, {quote.source}
+                            </footer>
+                        </p>
+                    </blockquote>
+
+                )}
+
+
             </div>
 
 
@@ -81,65 +93,67 @@ function Region() {
             </div>
 
             {/* Modale avec carrousel */}
-            {isModalOpen && selectedPhotoIndex !== null && (
-                <div className="modal-overlay" onClick={closeModal}>
-                    <div
-                        className="modal-content"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Bouton de fermeture */}
-                        <button className="modal-close" onClick={closeModal}>
-                            &times;
-                        </button>
-
-                        {/* Bouton Précédent */}
-                        <button
-                            className="modal-nav modal-prev"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                goToPrevPhoto();
-                            }}
-                            disabled={selectedPhotoIndex === 0}
+            {
+                isModalOpen && selectedPhotoIndex !== null && (
+                    <div className="modal-overlay" onClick={closeModal}>
+                        <div
+                            className="modal-content"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            &#10094;
-                        </button>
-                        <p>{photos[selectedPhotoIndex].fullSrc}</p>
-                        {/* Image en plein écran */}
-                        <img
-                            src={photos[selectedPhotoIndex].fullSrc || photos[selectedPhotoIndex].previewSrc}
-                            alt={photos[selectedPhotoIndex].alt || "Photo en plein écran"}
-                            className="modal-image"
-                        />
+                            {/* Bouton de fermeture */}
+                            <button className="modal-close" onClick={closeModal}>
+                                &times;
+                            </button>
 
-                        {/* Bouton Suivant */}
-                        <button
-                            className="modal-nav modal-next"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                goToNextPhoto();
-                            }}
-                            disabled={selectedPhotoIndex === photos.length - 1}
-                        >
-                            &#10095;
-                        </button>
+                            {/* Bouton Précédent */}
+                            <button
+                                className="modal-nav modal-prev"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    goToPrevPhoto();
+                                }}
+                                disabled={selectedPhotoIndex === 0}
+                            >
+                                &#10094;
+                            </button>
+                            <p>{photos[selectedPhotoIndex].fullSrc}</p>
+                            {/* Image en plein écran */}
+                            <img
+                                src={photos[selectedPhotoIndex].fullSrc || photos[selectedPhotoIndex].previewSrc}
+                                alt={photos[selectedPhotoIndex].alt || "Photo en plein écran"}
+                                className="modal-image"
+                            />
 
-                        {/* Informations de la photo */}
-                        <div className="modal-info">
-                            <h3>{photos[selectedPhotoIndex].title}</h3>
-                            <p>{photos[selectedPhotoIndex].description}</p>
-                            {photos[selectedPhotoIndex].technicalNotes && (
-                                <p className="technical-notes">
-                                    {photos[selectedPhotoIndex].technicalNotes}
+                            {/* Bouton Suivant */}
+                            <button
+                                className="modal-nav modal-next"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    goToNextPhoto();
+                                }}
+                                disabled={selectedPhotoIndex === photos.length - 1}
+                            >
+                                &#10095;
+                            </button>
+
+                            {/* Informations de la photo */}
+                            <div className="modal-info">
+                                <h3>{photos[selectedPhotoIndex].title}</h3>
+                                <p>{photos[selectedPhotoIndex].description}</p>
+                                {photos[selectedPhotoIndex].technicalNotes && (
+                                    <p className="technical-notes">
+                                        {photos[selectedPhotoIndex].technicalNotes}
+                                    </p>
+                                )}
+                                <p>
+                                    {selectedPhotoIndex + 1} / {photos.length}
                                 </p>
-                            )}
-                            <p>
-                                {selectedPhotoIndex + 1} / {photos.length}
-                            </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }
 

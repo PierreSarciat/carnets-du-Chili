@@ -4,7 +4,12 @@ const torresdelpaine = {
   id: "torresdelpaine",
   name: "torres del paine",
   subtitle: "",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+   quote: {
+        text: "Car ainsi s'aiment les choses : les plages, les déserts, les cordillères, les forêts les plus australes, les glaciers et toutes les eaux qui s'ouvrent en se touchant.",
+        original: "Porque así se aman las cosas, las playas, los desiertos, las cordilleras, los bosques de más al sur, los glaciares y todas las aguas que se abren tocándose.",
+        author: "Raúl Zurita",
+        source: "Del amor de Chile, 1987",
+    },
 
   photos: [
    
