@@ -47,21 +47,17 @@
 
     transform: translateY(-50%);
 
-    border: 1px solid rgba(
-        58,
-        49,
-        44,
-        0.45
-    );
+    border: 1px solid rgba(58,
+            49,
+            44,
+            0.45);
 
     border-radius: 50%;
 
-    background: rgba(
-        245,
-        238,
-        228,
-        0.78
-    );
+    background: rgba(245,
+            238,
+            228,
+            0.78);
 
     color: #3a312c;
 
@@ -77,35 +73,22 @@
 
 
     &:hover {
-        background: rgba(
-            245,
-            238,
-            228,
-            0.96
-        );
+        background: rgba(245,
+                238,
+                228,
+                0.96);
 
         transform:
-            translateY(-50%)
-            scale(1.08);
+            translateY(-50%) scale(1.08);
     }
 
 
     &:active {
         transform:
-            translateY(-50%)
-            scale(0.94);
+            translateY(-50%) scale(0.94);
     }
 }
 
-
-.gallery3d-prev {
-    left: 25px;
-}
-
-
-.gallery3d-next {
-    right: 25px;
-}
 
 
 /* =====================================================
@@ -114,46 +97,21 @@
 
 .gallery3d-counter {
     position: absolute;
-
     left: 50%;
     bottom: 20px;
-
     transform: translateX(-50%);
-
     padding: 6px 14px;
-
     border-radius: 20px;
-
-    background: rgba(
-        245,
-        238,
-        228,
-        0.78
-    );
+    background: rgba(245,
+            238,
+            228,
+            0.78);
 
     color: #3a312c;
-
     font-family: var(--font-body);
-
     font-size: 14px;
-
     z-index: 20;
-
     pointer-events: none;
-}
-
-
-/* =====================================================
-   ACCESSIBILITÉ
-===================================================== */
-
-@media (
-    prefers-reduced-motion: reduce
-) {
-
-    .gallery3d-button {
-        transition: none;
-    }
 }
 
 
@@ -179,23 +137,6 @@
         height: 430px;
     }
 
-
-    .gallery3d-button {
-        width: 40px;
-        height: 40px;
-
-        font-size: 20px;
-    }
-
-
-    .gallery3d-prev {
-        left: 10px;
-    }
-
-
-    .gallery3d-next {
-        right: 10px;
-    }
 
 
     .gallery3d-counter {
