@@ -4,8 +4,12 @@ const puntarenas = {
   id: "puntarenas",
   name: "punta arenas",
   subtitle: "",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+   quote: {
+        text: "Et dans la plaine blanche, à l'horizon infini, je regarde mourir d'immenses couchants douloureux.",
+        original: "Y en la llanura blanca, de horizonte infinito, miro morir inmensos ocasos dolorosos. ",
+        author: "Gabriela Mistral",
+        source: "Desolación , Paisajes de la Patagonia, 1922 ",
+    },
 
   photos: [
 

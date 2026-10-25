@@ -5,10 +5,10 @@ const patagonie = {
   name: "patagonie",
   subtitle: "",
    quote: {
-        text: "Les côtes occidentales de la Terre de Feu s'égrènent en une multitude d'îles, entre lesquelles serpentent des canaux mystérieux qui vont se perdre là-bas, au bout du monde.",
-        original: "Las costas occidentales de la Tierra del Fuego se desgranan en numerosas islas, entre las cuales culebrean canales misteriosos que van a perderse allá en el fin del mundo.",
-        author: "Francisco Coloane",
-        source: "Cabo de Hornos, 1941",
+        text: "Vent de Patagonie, jamais tu ne tues l'herbe que tu harcèles.",
+        original: "Viento patagón, la hierba que tú hostigas nunca matas.",
+        author: " Gabriela Mistral",
+        source: "La hierba , Poema de Chile, 1967",
     },
 
   photos: [
