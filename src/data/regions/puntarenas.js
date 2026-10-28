@@ -4,6 +4,7 @@ const puntarenas = {
   id: "puntarenas",
   name: "punta arenas",
   subtitle: "",
+   background: `${BASE_PATH}assets/images/punta_arenas/background/background-punta-arenas.webp`,
    quote: {
         text: "Et dans la plaine blanche, à l'horizon infini, je regarde mourir d'immenses couchants douloureux.",
         original: "Y en la llanura blanca, de horizonte infinito, miro morir inmensos ocasos dolorosos. ",

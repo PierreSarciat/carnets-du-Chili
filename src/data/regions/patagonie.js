@@ -4,6 +4,7 @@ const patagonie = {
   id: "patagonie",
   name: "patagonie",
   subtitle: "",
+   background: `${BASE_PATH}assets/images/patagonie/background/background-patagonie.webp`,
    quote: {
         text: "Vent de Patagonie, jamais tu ne tues l'herbe que tu harcèles.",
         original: "Viento patagón, la hierba que tú hostigas nunca matas.",

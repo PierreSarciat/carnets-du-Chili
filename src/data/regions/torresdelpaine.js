@@ -4,6 +4,7 @@ const torresdelpaine = {
   id: "torresdelpaine",
   name: "torres del paine",
   subtitle: "",
+   background: `${BASE_PATH}assets/images/torresdelpaine/background/background-torres-del-paine.webp`,
    quote: {
         text: "Car ainsi s'aiment les choses : les plages, les déserts, les cordillères, les forêts les plus australes, les glaciers et toutes les eaux qui s'ouvrent en se touchant.",
         original: "Porque así se aman las cosas, las playas, los desiertos, las cordilleras, los bosques de más al sur, los glaciares y todas las aguas que se abren tocándose.",

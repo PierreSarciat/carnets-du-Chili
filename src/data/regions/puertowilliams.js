@@ -4,6 +4,7 @@ const puertowilliams = {
   id: "puertowilliams",
   name: "puerto williams",
   subtitle: "",
+   background: `${BASE_PATH}assets/images/puertowilliams/background/background-puerto-williams.webp`,
   quote: {
         text: "Ce promontoire tragique qui parraine le duel constant des deux océans les plus vastes du monde.",
         original: "Ese trágico promontorio que apadrina el duelo constante de los dos océanos más grandes del mundo.",
