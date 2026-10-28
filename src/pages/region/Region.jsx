@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_PATH } from "@/config";
 import { regions } from "../../data/regions";
 import Gallery3D from "../../components/Gallery3D/Gallery3D";
 import "./Region.scss";
@@ -9,7 +10,12 @@ function Region() {
     const region = regions.find((r) => r.id === regionId);
 
     // Extraire `photos` ici, avant de l'utiliser dans les fonctions
-    const { name, subtitle, quote, photos = [] } = region || {};
+    const { name, subtitle, quote, photos = [], background } = region || {};
+
+    // Fond dédié si la région en déclare un, sinon fond général
+    const backgroundImage = `url("${background
+        ?? `${BASE_PATH}assets/backgroundImage/BACKGROUND.webp`
+        }")`;
 
     // État pour gérer la modale et la photo sélectionnée
     const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
@@ -64,7 +70,8 @@ function Region() {
     }
 
     return (
-        <div className="region-container">
+        <div className="region-container"
+            style={{ "--region-background-image": backgroundImage }}>
             <div className='region-container-description'>
                 <h1>{name}</h1>
                 <h2>{subtitle}</h2>
