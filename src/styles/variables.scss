@@ -10,7 +10,9 @@
   --color-pastel-straw: #E6D3A3;
   --color-pastel-terracotta: #D8A48F;
   --color-pastel-pearl: #D1C7B7;
-  --background-color: rgba(245, 238, 228, 0.7);
+  --background-color: rgba(182, 150, 92, 0.5);
+  --background-color-region:rgba(222, 197, 151, 0.41);
+
   --region-hover-color: #997b5d;
   --color-carte: #e0d6d2;
   --color-carte-border: #6B4F37;
@@ -38,7 +40,9 @@
   --card-height-mobile: 100%;
 
 
-  // Ombres
+  // Filtres
+
+  --filter: sepia(12%) saturate(55%) brightness(90%) contrast(50%);
 
   // Transitions
 

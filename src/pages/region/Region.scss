@@ -16,7 +16,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        filter: sepia(12%) saturate(55%) brightness(72%) contrast(90%);
+        filter:var(--filter);
         z-index: 0;
         pointer-events: none;
     }
@@ -28,7 +28,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(207, 186, 156, 0.72);
+       background-color: var(--background-color-region);
         z-index: 1;
         pointer-events: none;
     }
