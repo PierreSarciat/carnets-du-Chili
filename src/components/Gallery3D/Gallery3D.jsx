@@ -33,6 +33,22 @@ const PHOTO_SPACING = 3.2;
 
 const CAMERA_MARGIN = 7;
 
+// Dimensions du plan photo.
+
+const PHOTO_WIDTH = 2.5;
+const PHOTO_HEIGHT = 3.5;
+
+// Paramètres de l'ombre projetée derrière chaque photo :
+// dépassement du plan d'ombre autour de la photo,
+// décalage de l'ombre (x, y), retrait en profondeur,
+// et intensité (opacité).
+
+const SHADOW_MARGIN = 0.1;
+const SHADOW_OFFSET_X = 0.05;
+const SHADOW_OFFSET_Y = -0.07;
+const SHADOW_OFFSET_Z = 0.5;
+const SHADOW_OPACITY = 0.08;
+
 
 /* =========================================================
    RAYON ADAPTATIF
@@ -42,10 +58,7 @@ const CAMERA_MARGIN = 7;
    distance = 2 × radius × sin(π / totalPhotos)
 ========================================================= */
 
-function computeGalleryRadius(
-    totalPhotos
-) {
-
+function computeGalleryRadius(totalPhotos) {
     return PHOTO_SPACING /
         (2 * Math.sin(Math.PI / totalPhotos));
 }
@@ -54,7 +67,8 @@ function computeGalleryRadius(
 /* =========================================================
    PHOTO 3D
 
-   Une photo posée sur le cercle, orientée vers le centre.
+   Une photo posée sur le cercle, orientée vers le centre,
+   accompagnée d'un plan d'ombre en retrait.
 ========================================================= */
 
 function Photo3D({
@@ -66,7 +80,8 @@ function Photo3D({
     reducedMotion
 }) {
 
-    const meshRef = useRef(null);
+    const groupRef = useRef(null);
+    const materialRef = useRef(null);
 
 
     // =======================================
@@ -82,9 +97,6 @@ function Photo3D({
     // =======================================
     // Configuration du cercle
     // =======================================
-
-    // Le rayon est calculé une seule fois
-    // dans Gallery3D puis transmis ici.
 
     const totalAngle = Math.PI * 2;
 
@@ -128,13 +140,11 @@ function Photo3D({
 
     useFrame(() => {
 
-        if (!meshRef.current) {
+        if (!groupRef.current) {
             return;
         }
 
-
-        const mesh =
-            meshRef.current;
+        const group = groupRef.current;
 
 
         // -----------------------------------
@@ -151,10 +161,10 @@ function Photo3D({
         // Position X
         // -----------------------------------
 
-        mesh.position.x +=
+        group.position.x +=
             (
                 targetX -
-                mesh.position.x
+                group.position.x
             ) * interpolation;
 
 
@@ -162,10 +172,10 @@ function Photo3D({
         // Position Y
         // -----------------------------------
 
-        mesh.position.y +=
+        group.position.y +=
             (
                 targetY -
-                mesh.position.y
+                group.position.y
             ) * interpolation;
 
 
@@ -173,10 +183,10 @@ function Photo3D({
         // Position Z
         // -----------------------------------
 
-        mesh.position.z +=
+        group.position.z +=
             (
                 targetZ -
-                mesh.position.z
+                group.position.z
             ) * interpolation;
 
 
@@ -184,16 +194,15 @@ function Photo3D({
         // Rotation Y
         // -----------------------------------
 
-        mesh.rotation.y +=
+        group.rotation.y +=
             (
                 targetRotationY -
-                mesh.rotation.y
+                group.rotation.y
             ) * interpolation;
 
+        group.rotation.x = 0;
 
-        mesh.rotation.x = 0;
-
-        mesh.rotation.z = 0;
+        group.rotation.z = 0;
 
 
         // -----------------------------------
@@ -201,8 +210,7 @@ function Photo3D({
         // -----------------------------------
 
         const currentScale =
-            mesh.scale.x;
-
+            group.scale.x;
 
         const newScale =
             currentScale +
@@ -211,8 +219,7 @@ function Photo3D({
                 currentScale
             ) * interpolation;
 
-
-        mesh.scale.set(
+        group.scale.set(
             newScale,
             newScale,
             newScale
@@ -220,15 +227,15 @@ function Photo3D({
 
 
         // -----------------------------------
-        // Opacité
+        // Opacité de la photo
         // -----------------------------------
 
-        if (mesh.material) {
+        if (materialRef.current) {
 
-            mesh.material.opacity +=
+            materialRef.current.opacity +=
                 (
                     targetOpacity -
-                    mesh.material.opacity
+                    materialRef.current.opacity
                 ) * interpolation;
         }
 
@@ -241,8 +248,8 @@ function Photo3D({
 
     return (
 
-        <mesh
-            ref={meshRef}
+        <group
+            ref={groupRef}
 
             position={[
                 targetX,
@@ -265,30 +272,64 @@ function Photo3D({
         >
 
             {/* =================================
-                PHOTO PLANE PARFAITEMENT PLAT
+                OMBRE
+
+                Plan noir légèrement plus grand
+                que la photo, décalé vers le bas
+                et en retrait derrière elle.
             ================================= */}
 
-            <planeGeometry
-                args={[
-                    2.5,
-                    3.5
+            <mesh
+                position={[
+                    SHADOW_OFFSET_X,
+                    SHADOW_OFFSET_Y,
+                    SHADOW_OFFSET_Z
                 ]}
-            />
+            >
+
+                <planeGeometry
+                    args={[
+                        PHOTO_WIDTH + SHADOW_MARGIN * 2,
+                        PHOTO_HEIGHT + SHADOW_MARGIN * 2
+                    ]}
+                />
+
+                <meshBasicMaterial
+                    color="#000000"
+                    transparent
+                    opacity={SHADOW_OPACITY}
+                    side={THREE.DoubleSide}
+                    toneMapped={false}
+                />
+
+            </mesh>
 
 
-            <meshBasicMaterial
-                map={texture}
+            {/* =================================
+                PHOTO
+            ================================= */}
 
-                transparent
+            <mesh>
 
-                opacity={targetOpacity}
+                <planeGeometry
+                    args={[
+                        PHOTO_WIDTH,
+                        PHOTO_HEIGHT
+                    ]}
+                />
 
-                side={THREE.DoubleSide}
+                <meshBasicMaterial
+                    ref={materialRef}
+                    map={texture}
+                    transparent
+                    opacity={targetOpacity}
+                    side={THREE.DoubleSide}
+                    toneMapped={false}
+                />
 
-                toneMapped={false}
-            />
+            </mesh>
 
-        </mesh>
+        </group>
     );
 }
 
@@ -319,19 +360,13 @@ function GalleryScene({
 
                     index={index}
 
-                    totalPhotos={
-                        photos.length
-                    }
+                    totalPhotos={photos.length}
 
                     radius={radius}
 
-                    onPhotoClick={
-                        onPhotoClick
-                    }
+                    onPhotoClick={onPhotoClick}
 
-                    reducedMotion={
-                        reducedMotion
-                    }
+                    reducedMotion={reducedMotion}
                 />
 
             ))}
@@ -350,9 +385,7 @@ function GalleryScene({
    nombre de photos change).
 ========================================================= */
 
-function CameraAdjuster({
-    radius
-}) {
+function CameraAdjuster({ radius }) {
 
     const { camera } = useThree();
 
@@ -366,13 +399,11 @@ function CameraAdjuster({
         const distance =
             radius + CAMERA_MARGIN;
 
-
         camera.position.set(
             0,
             0,
             distance
         );
-
 
         // Le plan lointain s'adapte pour
         // éviter les coupures d'affichage
@@ -415,7 +446,6 @@ function Gallery3D({
                 "(prefers-reduced-motion: reduce)"
             );
 
-
         const updatePreference = () => {
 
             setReducedMotion(
@@ -423,15 +453,12 @@ function Gallery3D({
             );
         };
 
-
         updatePreference();
-
 
         mediaQuery.addEventListener(
             "change",
             updatePreference
         );
-
 
         return () => {
 
@@ -468,9 +495,7 @@ function Gallery3D({
     // =======================================
 
     const radius =
-        computeGalleryRadius(
-            photos.length
-        );
+        computeGalleryRadius(photos.length);
 
 
     // =======================================
@@ -488,7 +513,6 @@ function Gallery3D({
     return (
 
         <div className="gallery3d">
-
 
             <Canvas
 
@@ -512,17 +536,10 @@ function Gallery3D({
 
             >
 
-                <ambientLight
-                    intensity={0.5}
-                />
-
+                <ambientLight intensity={0.5} />
 
                 <pointLight
-                    position={[
-                        10,
-                        10,
-                        10
-                    ]}
+                    position={[10, 10, 10]}
                 />
 
 
@@ -553,9 +570,7 @@ function Gallery3D({
                     // l'observateur ne peut jamais
                     // pénétrer dans le cercle.
 
-                    minDistance={
-                        radius + 2
-                    }
+                    minDistance={radius + 2}
 
                     maxDistance={
                         radius +
@@ -587,13 +602,9 @@ function Gallery3D({
 
                     radius={radius}
 
-                    onPhotoClick={
-                        onPhotoClick
-                    }
+                    onPhotoClick={onPhotoClick}
 
-                    reducedMotion={
-                        reducedMotion
-                    }
+                    reducedMotion={reducedMotion}
 
                 />
 
@@ -619,10 +630,8 @@ function Gallery3D({
 
             </div>
 
-
         </div>
     );
 }
-
 
 export default Gallery3D;
