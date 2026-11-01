@@ -611,9 +611,6 @@ function Gallery3D({
             </Canvas>
 
 
-
-
-
         </div>
     );
 }
