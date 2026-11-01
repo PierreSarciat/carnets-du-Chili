@@ -10,7 +10,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background: var(--background-color);
+    background: var(--background-color-navbar);
     backdrop-filter: blur(6px);
     box-shadow:
         0 2px 10px rgba(0, 0, 0, 0.08);
@@ -268,39 +268,7 @@
     // Navigation
     // -----------------------------------
 
-    .navbar {
-
-        position: absolute;
-
-        top: 100%;
-
-        left: 0;
-
-        width: 100%;
-
-        background:
-            var(--background-color);
-
-        box-shadow:
-            0 8px 15px rgba(0, 0, 0, 0.08);
-
-        max-height: 0;
-
-        overflow: hidden;
-
-        opacity: 0;
-
-        visibility: hidden;
-
-        transform:
-            translateY(-10px);
-
-        transition:
-            max-height .4s ease,
-            opacity .3s ease,
-            transform .3s ease,
-            visibility .3s ease;
-    }
+   
 
 
     // -----------------------------------
@@ -315,7 +283,7 @@
         transform:
             translateY(0);
 
-        --background-color: rgba(245, 238, 228, 1);
+       
     }
 
 
