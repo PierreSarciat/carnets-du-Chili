@@ -612,23 +612,7 @@ function Gallery3D({
 
 
 
-            {/* =================================================
-               COMPTEUR
-            ================================================= */}
 
-            <div
-
-                className="gallery3d-counter"
-
-                aria-live="polite"
-
-            >
-
-                {currentIndex + 1}
-                {" / "}
-                {photos.length}
-
-            </div>
 
         </div>
     );
