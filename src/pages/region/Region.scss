@@ -66,8 +66,27 @@
     font-size: 1.1em;
     opacity: 0.8;
     margin: 0;
-    background-color: rgba(207, 186, 156, 0.8);
+    background-color: var(--background-color-region-text);
+    backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+   /* -webkit-mask-image:
+        linear-gradient(to right,
+            transparent 0, #000 5px,
+            #000 calc(100% - 5px), transparent 100%),
+        linear-gradient(to bottom,
+            transparent 0, #000 5px,
+            #000 calc(100% - 5px), transparent 100%);
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+        linear-gradient(to right,
+            transparent 0, #000 5px,
+            #000 calc(100% - 5px), transparent 100%),
+        linear-gradient(to bottom,
+            transparent 0, #000 5px,
+            #000 calc(100% - 5px), transparent 100%);
+    mask-composite: intersect;*/
 }
 
 
