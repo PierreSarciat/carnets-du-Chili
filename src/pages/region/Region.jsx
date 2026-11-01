@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, {
+    useState,
+    useEffect,
+    useLayoutEffect,
+    useRef
+} from "react";
+
 import { useParams } from "react-router-dom";
 import { BASE_PATH } from "@/config";
 import { regions } from "../../data/regions";
 import Gallery3D from "../../components/Gallery3D/Gallery3D";
 import "./Region.scss";
 
+
 function Region() {
+
     const { regionId } = useParams();
     const region = regions.find((r) => r.id === regionId);
 
@@ -17,9 +25,75 @@ function Region() {
         ?? `${BASE_PATH}assets/backgroundImage/BACKGROUND.webp`
         }")`;
 
-    // État pour gérer la modale et la photo sélectionnée
+
+    // =======================================
+    // Référence du conteneur principal
+    // =======================================
+
+    const regionRef = useRef(null);
+
+
+    // =======================================
+    // Hauteur de la navbar
+    // =======================================
+
+    useLayoutEffect(() => {
+
+        const navbar = document.querySelector('.navbar-container');
+        const container = regionRef.current;
+
+        if (!container) return;
+
+        const updateNavbarHeight = () => {
+
+            const height = navbar
+                ? navbar.getBoundingClientRect().height
+                : 0;
+
+            container.style.setProperty(
+                '--navbar-height',
+                `${height}px`
+            );
+        };
+
+        // Première mesure
+        updateNavbarHeight();
+
+        // Observer les changements de hauteur de la navbar
+        const resizeObserver = navbar
+            ? new ResizeObserver(updateNavbarHeight)
+            : null;
+
+        if (resizeObserver && navbar) {
+            resizeObserver.observe(navbar);
+        }
+
+        // Écoute des redimensionnements
+        window.addEventListener(
+            'resize',
+            updateNavbarHeight
+        );
+
+        return () => {
+
+            resizeObserver?.disconnect();
+
+            window.removeEventListener(
+                'resize',
+                updateNavbarHeight
+            );
+        };
+
+    }, []);
+
+
+    // =======================================
+    // État de la modale
+    // =======================================
+
     const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     // Fonction pour ouvrir la modale avec une photo
     const openModal = (index) => {
@@ -27,10 +101,12 @@ function Region() {
         setIsModalOpen(true);
     };
 
+
     // Fonction pour fermer la modale
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
 
     // Fonction pour naviguer vers la photo précédente
     const goToPrevPhoto = () => {
@@ -39,6 +115,7 @@ function Region() {
         }
     };
 
+
     // Fonction pour naviguer vers la photo suivante
     const goToNextPhoto = () => {
         if (selectedPhotoIndex < photos.length - 1) {
@@ -46,73 +123,110 @@ function Region() {
         }
     };
 
+
     // Gestion des touches clavier
     useEffect(() => {
+
         const handleKeyDown = (e) => {
+
             if (!isModalOpen) return;
+
             if (e.key === "ArrowLeft") {
                 goToPrevPhoto();
+
             } else if (e.key === "ArrowRight") {
                 goToNextPhoto();
+
             } else if (e.key === "Escape") {
                 closeModal();
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
+
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         };
+
     }, [isModalOpen, selectedPhotoIndex, photos.length]);
+
 
     if (!region) {
         return <div>Région introuvable : {regionId}</div>;
     }
 
+
     return (
-        <div className="region-container"
-            style={{ "--region-background-image": backgroundImage }}>
+
+        <div
+            ref={regionRef}
+            className="region-container"
+            style={{
+                "--region-background-image": backgroundImage
+            }}
+        >
+
             <div className='region-container-description'>
+
                 <h1>{name}</h1>
                 <h2>{subtitle}</h2>
 
                 {quote && (
                     <blockquote className="region-quote">
-                        <p className="region-quote-text">« {quote.text} »
+
+                        <p className="region-quote-text">
+                            « {quote.text} »
+
                             <footer className="region-quote-footer">
                                 — {quote.author}, {quote.source}
                             </footer>
                         </p>
+
                     </blockquote>
-
                 )}
-
 
             </div>
 
 
             {/* Galerie de photos */}
+
             <div className="region-gallery-3d">
+
                 <Gallery3D
                     photos={photos}
                     onPhotoClick={openModal}
                 />
+
             </div>
 
+
             {/* Modale avec carrousel */}
+
             {
                 isModalOpen && selectedPhotoIndex !== null && (
-                    <div className="modal-overlay" onClick={closeModal}>
+
+                    <div
+                        className="modal-overlay"
+                        onClick={closeModal}
+                    >
+
                         <div
                             className="modal-content"
                             onClick={(e) => e.stopPropagation()}
                         >
+
                             {/* Bouton de fermeture */}
-                            <button className="modal-close" onClick={closeModal}>
+
+                            <button
+                                className="modal-close"
+                                onClick={closeModal}
+                            >
                                 &times;
                             </button>
 
+
                             {/* Bouton Précédent */}
+
                             <button
                                 className="modal-nav modal-prev"
                                 onClick={(e) => {
@@ -123,44 +237,75 @@ function Region() {
                             >
                                 &#10094;
                             </button>
-                            <p>{photos[selectedPhotoIndex].fullSrc}</p>
+
+
+                            <p>
+                                {photos[selectedPhotoIndex].fullSrc}
+                            </p>
+
+
                             {/* Image en plein écran */}
+
                             <img
-                                src={photos[selectedPhotoIndex].fullSrc || photos[selectedPhotoIndex].previewSrc}
-                                alt={photos[selectedPhotoIndex].alt || "Photo en plein écran"}
+                                src={
+                                    photos[selectedPhotoIndex].fullSrc ||
+                                    photos[selectedPhotoIndex].previewSrc
+                                }
+                                alt={
+                                    photos[selectedPhotoIndex].alt ||
+                                    "Photo en plein écran"
+                                }
                                 className="modal-image"
                             />
 
+
                             {/* Bouton Suivant */}
+
                             <button
                                 className="modal-nav modal-next"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     goToNextPhoto();
                                 }}
-                                disabled={selectedPhotoIndex === photos.length - 1}
+                                disabled={
+                                    selectedPhotoIndex === photos.length - 1
+                                }
                             >
                                 &#10095;
                             </button>
 
+
                             {/* Informations de la photo */}
+
                             <div className="modal-info">
-                                <h3>{photos[selectedPhotoIndex].title}</h3>
-                                <p>{photos[selectedPhotoIndex].description}</p>
+
+                                <h3>
+                                    {photos[selectedPhotoIndex].title}
+                                </h3>
+
+                                <p>
+                                    {photos[selectedPhotoIndex].description}
+                                </p>
+
                                 {photos[selectedPhotoIndex].technicalNotes && (
                                     <p className="technical-notes">
                                         {photos[selectedPhotoIndex].technicalNotes}
                                     </p>
                                 )}
+
                                 <p>
                                     {selectedPhotoIndex + 1} / {photos.length}
                                 </p>
+
                             </div>
+
                         </div>
+
                     </div>
                 )
             }
-        </div >
+
+        </div>
     );
 }
 

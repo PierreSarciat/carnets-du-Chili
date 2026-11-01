@@ -11,12 +11,18 @@
     &::before {
         content: "";
         position: fixed;
-        inset: 0; // équivalent de top/right/bottom/left: 0
+
+        // Début du fond sous la navbar
+        top: var(--navbar-height, 0px);
+        left: 0;
+        right: 0;
+        bottom: 0;
+
         background-image: var(--region-background-image);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        filter:var(--filter);
+        filter: var(--filter);
         z-index: 0;
         pointer-events: none;
     }
@@ -28,7 +34,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-       background-color: var(--background-color-region);
+        background-color: var(--background-color-region);
         z-index: 1;
         pointer-events: none;
     }
@@ -82,7 +88,6 @@
 }
 
 
-
 /* Modale */
 .modal-overlay {
     position: fixed;
@@ -115,6 +120,7 @@
     margin: 0 auto;
     border-radius: 4px;
 }
+
 
 /* Boutons de navigation */
 .modal-nav {
@@ -153,6 +159,7 @@
     right: 20px;
 }
 
+
 /* Bouton de fermeture */
 .modal-close {
     position: absolute;
@@ -165,6 +172,7 @@
     cursor: pointer;
     z-index: 1001;
 }
+
 
 /* Informations de la photo */
 .modal-info {
