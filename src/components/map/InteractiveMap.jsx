@@ -166,7 +166,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             photo_home: {
                 previewSrc:
-                    `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 35.webp`,
+                    `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_50.webp`,
                 alt: 'Patagonie',
             },
         },
@@ -214,7 +214,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             photo_home: {
                 previewSrc:
-                    `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES DEL PAINE 2.webp`,
+                    `${BASE_PATH}assets/images/torresdelpaine/thumb/TORRES_DEL_PAINE_2.webp`,
                 alt: 'TORRES DEL PAINE',
             },
         },
