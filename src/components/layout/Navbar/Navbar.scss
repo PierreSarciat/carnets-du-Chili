@@ -34,7 +34,7 @@
     margin-right: 60px;
     text-decoration: none;
 
-  
+
 
     .logo {
 
@@ -241,6 +241,9 @@
 
 @media (max-width: 1050px) {
 
+    .navbar-container {
+        display: block;
+    }
 
     // -----------------------------------
     // Logo
@@ -267,9 +270,20 @@
     // -----------------------------------
     // Navigation
     // -----------------------------------
+    .navbar {
 
-   
-
+        overflow: hidden;
+        opacity: 0;
+        max-height: 0;
+        visibility: hidden;
+        transform:
+            translateY(-10px);
+        transition:
+            max-height .4s ease,
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
+    }
 
     // -----------------------------------
     // Menu ouvert
@@ -283,7 +297,7 @@
         transform:
             translateY(0);
 
-       
+
     }
 
 
