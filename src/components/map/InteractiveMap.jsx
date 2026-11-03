@@ -190,7 +190,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             photo_home: {
                 previewSrc:
-                    `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO WILLIAMS 8.webp`,
+                    `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_8.webp`,
                 alt: 'Puerto Williams',
             },
         },
