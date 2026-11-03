@@ -1,9 +1,9 @@
-import { BASE_PATH } from '@/config';
+import { BASE_PATH } from "@/config";
 
 const patagonie = {
-  id: "patagonie",
-  name: "patagonie",
-  subtitle: "",
+    id: "patagonie",
+    name: "patagonie",
+    subtitle: "",
    background: `${BASE_PATH}assets/images/patagonie/background/background-patagonie.webp`,
    quote: {
         text: "Vent de Patagonie, jamais tu ne tues l'herbe que tu harcèles.",
@@ -12,432 +12,361 @@ const patagonie = {
         source: "La hierba , Poema de Chile, 1967",
     },
 
+
+
+
+
+
+
+
+
+
+
   photos: [
     {
-      id: "48427371 575653596210904 5943862355409502208",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 0.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 0.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 0.jpeg`,
-      title: "48427371 575653596210904 5943862355409502208",
-      alt: "48427371 575653596210904 5943862355409502208",
+      id: "patagonie-0",
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_0.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_0.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_0.jpg`,
+      title: "Patagonie 0",
+      alt: "Patagonie 0"
     },
     {
       id: "patagonie-1",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 1.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 1.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 1.jpg`,
-      title: "PATAGONIE 1",
-      alt: "PATAGONIE 1"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_1.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_1.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_1.jpg`,
+      title: "Patagonie 1",
+      alt: "Patagonie 1"
     },
     {
       id: "patagonie-2",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 2.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 2.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 2.JPG`,
-      title: "PATAGONIE 2",
-      alt: "PATAGONIE 2"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_2.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_2.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_2.JPG`,
+      title: "Patagonie 2",
+      alt: "Patagonie 2"
     },
     {
       id: "patagonie-3",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 3.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 3.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 3.JPG`,
-      title: "PATAGONIE 3",
-      alt: "PATAGONIE 3"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_3.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_3.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_3.JPG`,
+      title: "Patagonie 3",
+      alt: "Patagonie 3"
     },
     {
       id: "patagonie-4",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 4.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 4.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 4.jpg`,
-      title: "PATAGONIE 4",
-      alt: "PATAGONIE 4"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_4.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_4.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_4.jpg`,
+      title: "Patagonie 4",
+      alt: "Patagonie 4"
     },
     {
       id: "patagonie-5",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 5.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 5.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 5.jpg`,
-      title: "PATAGONIE 5",
-      alt: "PATAGONIE 5"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_5.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_5.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_5.jpg`,
+      title: "Patagonie 5",
+      alt: "Patagonie 5"
     },
     {
       id: "patagonie-6",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 6.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 6.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 6.JPG`,
-      title: "PATAGONIE 6",
-      alt: "PATAGONIE 6"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_6.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_6.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_6.JPG`,
+      title: "Patagonie 6",
+      alt: "Patagonie 6"
     },
     {
       id: "patagonie-8",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 8.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 8.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 8.JPG`,
-      title: "PUERTO WILLIAMS 8",
-      alt: "PUERTO WILLIAMS 8"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_8.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_8.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_8.JPG`,
+      title: "Patagonie 8",
+      alt: "Patagonie 8"
     },
     {
       id: "patagonie-9",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 9.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 9.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 9.jpg`,
-      title: "PATAGONIE 9",
-      alt: "PATAGONIE 9"
-    },
-    {
-      id: "patagonie-10",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 10.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 10.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 10.JPG`,
-      title: "PATAGONIE 10",
-      alt: "PATAGONIE 10"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_9.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_9.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_9.jpg`,
+      title: "Patagonie 9",
+      alt: "Patagonie 9"
     },
     {
       id: "patagonie-11",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 11.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 11.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 11.JPG`,
-      title: "PATAGONIE 11",
-      alt: "PATAGONIE 11"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_11.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_11.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_11.JPG`,
+      title: "Patagonie 11",
+      alt: "Patagonie 11"
     },
     {
       id: "patagonie-12",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 12.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 12.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 12.JPG`,
-      title: "PATAGONIE 12",
-      alt: "PATAGONIE 12"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_12.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_12.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_12.JPG`,
+      title: "Patagonie 12",
+      alt: "Patagonie 12"
     },
     {
       id: "patagonie-13",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 13.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 13.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 13.JPG`,
-      title: "PATAGONIE 13",
-      alt: "PATAGONIE 13"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_13.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_13.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_13.JPG`,
+      title: "Patagonie 13",
+      alt: "Patagonie 13"
     },
     {
       id: "patagonie-14",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 14.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 14.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 14.JPG`,
-      title: "PATAGONIE 14",
-      alt: "PATAGONIE 14"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_14.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_14.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_14.JPG`,
+      title: "Patagonie 14",
+      alt: "Patagonie 14"
     },
     {
       id: "patagonie-15",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 15.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 15.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 15.JPG`,
-      title: "PATAGONIE 15",
-      alt: "PATAGONIE 15"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_15.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_15.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_15.JPG`,
+      title: "Patagonie 15",
+      alt: "Patagonie 15"
     },
-    
     {
       id: "patagonie-17",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 17.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 17.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 17.JPG`,
-      title: "PATAGONIE 17",
-      alt: "PATAGONIE 17"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_17.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_17.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_17.JPG`,
+      title: "Patagonie 17",
+      alt: "Patagonie 17"
     },
     {
       id: "patagonie-18",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 18.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 18.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 18.JPG`,
-      title: "PATAGONIE 18",
-      alt: "PATAGONIE 18"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_18.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_18.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_18.JPG`,
+      title: "Patagonie 18",
+      alt: "Patagonie 18"
     },
     {
       id: "patagonie-19",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 19.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 19.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 19.JPG`,
-      title: "PATAGONIE 19",
-      alt: "PATAGONIE 19"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_19.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_19.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_19.JPG`,
+      title: "Patagonie 19",
+      alt: "Patagonie 19"
     },
     {
       id: "patagonie-20",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 20.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 20.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 20.jpg`,
-      title: "PATAGONIE 20",
-      alt: "PATAGONIE 20"
-    },
-    {
-      id: "patagonie-21",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 21.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 21.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 21.JPG`,
-      title: "PATAGONIE 21",
-      alt: "PATAGONIE 21"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_20.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_20.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_20.jpg`,
+      title: "Patagonie 20",
+      alt: "Patagonie 20"
     },
     {
       id: "patagonie-22",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 22.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 22.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 22.JPG`,
-      title: "PATAGONIE 22",
-      alt: "PATAGONIE 22"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_22.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_22.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_22.JPG`,
+      title: "Patagonie 22",
+      alt: "Patagonie 22"
     },
     {
       id: "patagonie-23",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 23.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 23.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 23.JPG`,
-      title: "PATAGONIE 23",
-      alt: "PATAGONIE 23"
-    },
-    {
-      id: "patagonie-24",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 24.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 24.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 24.JPG`,
-      title: "PATAGONIE 24",
-      alt: "PATAGONIE 24"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_23.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_23.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_23.JPG`,
+      title: "Patagonie 23",
+      alt: "Patagonie 23"
     },
     {
       id: "patagonie-25",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 25.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 25.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 25.JPG`,
-      title: "PATAGONIE 25",
-      alt: "PATAGONIE 25"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_25.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_25.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_25.JPG`,
+      title: "Patagonie 25",
+      alt: "Patagonie 25"
     },
     {
       id: "patagonie-26",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 26.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 26.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 26.JPG`,
-      title: "PATAGONIE 26",
-      alt: "PATAGONIE 26"
-    },
-    {
-      id: "patagonie-27",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 27.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 27.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 27.JPG`,
-      title: "PATAGONIE 27",
-      alt: "PATAGONIE 27"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_26.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_26.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_26.JPG`,
+      title: "Patagonie 26",
+      alt: "Patagonie 26"
     },
     {
       id: "patagonie-28",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 28.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 28.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 28.JPG`,
-      title: "PATAGONIE 28",
-      alt: "PATAGONIE 28"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_28.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_28.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_28.JPG`,
+      title: "Patagonie 28",
+      alt: "Patagonie 28"
     },
     {
       id: "patagonie-29",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 29.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 29.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 29.JPG`,
-      title: "PATAGONIE 29",
-      alt: "PATAGONIE 29"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_29.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_29.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_29.JPG`,
+      title: "Patagonie 29",
+      alt: "Patagonie 29"
     },
     {
       id: "patagonie-30",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 30.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 30.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 30.JPG`,
-      title: "PATAGONIE 30",
-      alt: "PATAGONIE 30"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_30.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_30.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_30.JPG`,
+      title: "Patagonie 30",
+      alt: "Patagonie 30"
     },
     {
       id: "patagonie-31",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 31.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 31.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 31.JPG`,
-      title: "PATAGONIE 31",
-      alt: "PATAGONIE 31"
-    },
-    {
-      id: "patagonie-32",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 32.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 32.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 32.jpg`,
-      title: "PATAGONIE 32",
-      alt: "PATAGONIE 32"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_31.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_31.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_31.JPG`,
+      title: "Patagonie 31",
+      alt: "Patagonie 31"
     },
     {
       id: "patagonie-33",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 33.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 33.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 33.jpg`,
-      title: "PATAGONIE 33",
-      alt: "PATAGONIE 33"
-    },
-    {
-      id: "patagonie-34",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 34.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 34.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 34.jpg`,
-      title: "PATAGONIE 34",
-      alt: "PATAGONIE 34"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_33.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_33.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_33.jpg`,
+      title: "Patagonie 33",
+      alt: "Patagonie 33"
     },
     {
       id: "patagonie-35",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 35.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 35.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 35.JPG`,
-      title: "PATAGONIE 35",
-      alt: "PATAGONIE 35"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_35.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_35.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_35.JPG`,
+      title: "Patagonie 35",
+      alt: "Patagonie 35"
     },
     {
       id: "patagonie-37",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 37.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 37.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 37.JPG`,
-      title: "PATAGONIE 37",
-      alt: "PATAGONIE 37"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_37.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_37.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_37.JPG`,
+      title: "Patagonie 37",
+      alt: "Patagonie 37"
     },
     {
       id: "patagonie-38",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 38.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 38.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 38.jpg`,
-      title: "PATAGONIE 38",
-      alt: "PATAGONIE 38"
-    },
-    {
-      id: "patagonie-39",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 39.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 39.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 39.JPG`,
-      title: "PATAGONIE 39",
-      alt: "PATAGONIE 39"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_38.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_38.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_38.jpg`,
+      title: "Patagonie 38",
+      alt: "Patagonie 38"
     },
     {
       id: "patagonie-40",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 40.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 40.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 40.JPG`,
-      title: "PATAGONIE 40",
-      alt: "PATAGONIE 40"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_40.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_40.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_40.JPG`,
+      title: "Patagonie 40",
+      alt: "Patagonie 40"
     },
     {
       id: "patagonie-41",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 41.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 41.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 41.JPG`,
-      title: "PATAGONIE 41",
-      alt: "PATAGONIE 41"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_41.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_41.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_41.JPG`,
+      title: "Patagonie 41",
+      alt: "Patagonie 41"
     },
     {
       id: "patagonie-42",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 42.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 42.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 42.JPG`,
-      title: "PATAGONIE 42",
-      alt: "PATAGONIE 42"
-    },
-    {
-      id: "patagonie-43",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 43.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 43.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 43.JPG`,
-      title: "PATAGONIE 43",
-      alt: "PATAGONIE 43"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_42.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_42.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_42.JPG`,
+      title: "Patagonie 42",
+      alt: "Patagonie 42"
     },
     {
       id: "patagonie-44",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 44.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 44.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 44.JPG`,
-      title: "PATAGONIE 44",
-      alt: "PATAGONIE 44"
-    },
-    {
-      id: "patagonie-45",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 45.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 45.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 45.jpg`,
-      title: "PATAGONIE 45",
-      alt: "PATAGONIE 45"
-    },
-    {
-      id: "patagonie-46",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 46.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 46.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 46.JPG`,
-      title: "PATAGONIE 46",
-      alt: "PATAGONIE 46"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_44.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_44.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_44.JPG`,
+      title: "Patagonie 44",
+      alt: "Patagonie 44"
     },
     {
       id: "patagonie-47",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 47.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 47.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 47.jpg`,
-      title: "PATAGONIE 47",
-      alt: "PATAGONIE 47"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_47.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_47.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_47.jpg`,
+      title: "Patagonie 47",
+      alt: "Patagonie 47"
     },
     {
       id: "patagonie-48",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 48.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 48.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 48.JPG`,
-      title: "PATAGONIE 48",
-      alt: "PATAGONIE 48"
-    },
-    {
-      id: "patagonie-49",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 49.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 49.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 49.jpg`,
-      title: "PATAGONIE 49",
-      alt: "PATAGONIE 49"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_48.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_48.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_48.JPG`,
+      title: "Patagonie 48",
+      alt: "Patagonie 48"
     },
     {
       id: "patagonie-50",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 50.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 50.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 50.JPG`,
-      title: "PATAGONIE 50",
-      alt: "PATAGONIE 50"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_50.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_50.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_50.JPG`,
+      title: "Patagonie 50",
+      alt: "Patagonie 50"
     },
     {
       id: "patagonie-51",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 51.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 51.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 51.JPG`,
-      title: "PATAGONIE 51",
-      alt: "PATAGONIE 51"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_51.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_51.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_51.JPG`,
+      title: "Patagonie 51",
+      alt: "Patagonie 51"
     },
     {
       id: "patagonie-52",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 52.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 52.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 52.JPG`,
-      title: "PATAGONIE 52",
-      alt: "PATAGONIE 52"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_52.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_52.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_52.JPG`,
+      title: "Patagonie 52",
+      alt: "Patagonie 52"
     },
     {
       id: "patagonie-53",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 53.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 53.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 53.JPG`,
-      title: "PATAGONIE 53",
-      alt: "PATAGONIE 53"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_53.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_53.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_53.JPG`,
+      title: "Patagonie 53",
+      alt: "Patagonie 53"
     },
     {
       id: "patagonie-54",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 54.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 54.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 54.JPG`,
-      title: "PATAGONIE 54",
-      alt: "PATAGONIE 54"
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_54.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_54.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_54.JPG`,
+      title: "Patagonie 54",
+      alt: "Patagonie 54"
     },
     {
       id: "patagonie-55",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 55.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE 55.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE 55.JPG`,
-      title: "PATAGONIE 55",
-      alt: "PATAGONIE 55"
-    }
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_55.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_55.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_55.JPG`,
+      title: "Patagonie 55",
+      alt: "Patagonie 55"
+    },
+    {
+      id: "patagonie-patagonie16g",
+      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE16G.webp`,
+      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE16G.webp`,
+      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE16G.JPG`,
+      title: "Patagonie 16G",
+      alt: "Patagonie 16G"
+    },
   ]
 };
 
