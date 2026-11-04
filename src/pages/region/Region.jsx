@@ -209,44 +209,27 @@ function Region() {
                         className="modal-overlay"
                         onClick={closeModal}
                     >
+                        {/* Bouton Précédent */}
 
+                        <button
+                            className="modal-nav modal-prev"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                goToPrevPhoto();
+                            }}
+                            disabled={selectedPhotoIndex === 0}
+                        >
+                            &#10094;
+                        </button>
                         <div
                             className="modal-content"
                             onClick={(e) => e.stopPropagation()}
                         >
 
-                            {/* Bouton de fermeture */}
-
-                            <button
-                                className="modal-close"
-                                onClick={closeModal}
-                            >
-                                &times;
-                            </button>
-
-
-                            {/* Bouton Précédent */}
-
-                            <button
-                                className="modal-nav modal-prev"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    goToPrevPhoto();
-                                }}
-                                disabled={selectedPhotoIndex === 0}
-                            >
-                                &#10094;
-                            </button>
-
-
-                            <p>
-                                {photos[selectedPhotoIndex].fullSrc}
-                            </p>
-
-
                             {/* Image en plein écran */}
 
                             <img
+                                key={photos[selectedPhotoIndex].id}
                                 src={
                                     photos[selectedPhotoIndex].fullSrc ||
                                     photos[selectedPhotoIndex].previewSrc
@@ -258,49 +241,51 @@ function Region() {
                                 className="modal-image"
                             />
 
-
-                            {/* Bouton Suivant */}
-
-                            <button
-                                className="modal-nav modal-next"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    goToNextPhoto();
-                                }}
-                                disabled={
-                                    selectedPhotoIndex === photos.length - 1
-                                }
-                            >
-                                &#10095;
-                            </button>
-
-
-                            {/* Informations de la photo */}
+                            {/* compteur */}
 
                             <div className="modal-info">
 
-                                <h3>
-                                    {photos[selectedPhotoIndex].title}
-                                </h3>
-
-                                <p>
-                                    {photos[selectedPhotoIndex].description}
-                                </p>
-
-                                {photos[selectedPhotoIndex].technicalNotes && (
-                                    <p className="technical-notes">
-                                        {photos[selectedPhotoIndex].technicalNotes}
-                                    </p>
-                                )}
-
-                                <p>
-                                    {selectedPhotoIndex + 1} / {photos.length}
-                                </p>
+                                <div
+                                    className="modal-dots"
+                                    role="group"
+                                    aria-label="Position dans la galerie"
+                                >
+                                    {photos.map((photo, index) => (
+                                        <button
+                                            key={photo.id}
+                                            type="button"
+                                            className={
+                                                index === selectedPhotoIndex
+                                                    ? "modal-dash active"
+                                                    : "modal-dash"
+                                            }
+                                            onClick={() => setSelectedPhotoIndex(index)}
+                                            aria-label={`Afficher la photo ${index + 1}`}
+                                            aria-current={
+                                                index === selectedPhotoIndex ? "true" : undefined
+                                            }
+                                        />
+                                    ))}
+                                </div>
 
                             </div>
 
                         </div>
 
+                        {/* Bouton Suivant */}
+
+                        <button
+                            className="modal-nav modal-next"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                goToNextPhoto();
+                            }}
+                            disabled={
+                                selectedPhotoIndex === photos.length - 1
+                            }
+                        >
+                            &#10095;
+                        </button>
                     </div>
                 )
             }
