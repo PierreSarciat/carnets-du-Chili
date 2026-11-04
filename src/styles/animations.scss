@@ -92,3 +92,15 @@
     }
 
 }
+
+// zoom photo full
+
+@keyframes zoomin {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+
+}
