@@ -89,7 +89,7 @@
     // Déclenchement à 11 secondes,
     // courbe symétrique départ lent / arrivée lente
 
-    animation: presentation-settle 2s 11s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+    animation: presentation-settle 2s 11s   cubic-bezier(0.45, 0, 0.55, 1)forwards;
 
 
     // =======================================
@@ -170,8 +170,20 @@
     position: relative;
     z-index: 1;
     margin-top: -100px;
+     transition:
+            max-height .4s ease,
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
 }
 
+.card.animation-fade-blur-in{
+     transition:
+            max-height .4s ease,
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
+}
 
 
 
