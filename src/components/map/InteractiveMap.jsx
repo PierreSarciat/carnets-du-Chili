@@ -142,7 +142,7 @@ export function InteractiveMap({ onRegionHover }) {
 
             photo_home: {
                 previewSrc:
-                    `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_6.webp`,
+                    `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_14.webp`,
                 alt: 'CHILOÉ',
             },
         },
