@@ -154,19 +154,18 @@ function Region() {
     };
 
 
-    // Fonction pour naviguer vers la photo précédente
+    // Fonction pour naviguer vers la photo précédente ou suivante
+
     const goToPrevPhoto = () => {
-        if (selectedPhotoIndex > 0) {
-            setSelectedPhotoIndex(selectedPhotoIndex - 1);
-        }
+        setSelectedPhotoIndex((currentIndex) =>
+            (currentIndex - 1 + photos.length) % photos.length
+        );
     };
 
-
-    // Fonction pour naviguer vers la photo suivante
     const goToNextPhoto = () => {
-        if (selectedPhotoIndex < photos.length - 1) {
-            setSelectedPhotoIndex(selectedPhotoIndex + 1);
-        }
+        setSelectedPhotoIndex((currentIndex) =>
+            (currentIndex + 1) % photos.length
+        );
     };
 
 
@@ -256,6 +255,21 @@ function Region() {
                         className="modal-overlay"
                         onClick={closeModal}
                     >
+                        {/* Bouton Précédent */}
+
+                        <button
+                            type="button"
+                            className="modal-nav modal-prev"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                goToPrevPhoto();
+                            }}
+                            aria-label="Photo précédente"
+                        >
+                            &#10094;
+                        </button>
+
+
                         <div
                             className="modal-content"
                             onClick={(e) => e.stopPropagation()}
@@ -335,6 +349,20 @@ function Region() {
 
                         </div>
 
+
+                        {/* Bouton Suivant */}
+
+                        <button
+                            type="button"
+                            className="modal-nav modal-next"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                goToNextPhoto();
+                            }}
+                            aria-label="Photo suivante"
+                        >
+                            &#10095;
+                        </button>
                     </div>
                 )
             }
