@@ -252,4 +252,17 @@
     .modal-image {
         animation: none;
     }
+}  
+
+
+@media (max-width: 900px) {
+
+ .modal-nav {
+        display: none;
+    }
+
+    .modal-content {
+        touch-action: pan-y;
+    }
 }
+

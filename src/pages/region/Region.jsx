@@ -200,6 +200,45 @@ function Region() {
         return <div>Région introuvable : {regionId}</div>;
     }
 
+    // =======================================
+    // Navigation tactile : balayage horizontal
+    // (mobile : remplace les flèches)
+    // =======================================
+
+    const touchStartRef = useRef(null);
+
+
+    const handleTouchStart = (e) => {
+        touchStartRef.current = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY,
+        };
+    };
+
+
+    const handleTouchEnd = (e) => {
+
+        if (touchStartRef.current === null) return;
+
+        const deltaX =
+            e.changedTouches[0].clientX - touchStartRef.current.x;
+        const deltaY =
+            e.changedTouches[0].clientY - touchStartRef.current.y;
+
+        touchStartRef.current = null;
+
+        // Mouvement majoritairement vertical : ignoré
+        if (Math.abs(deltaX) < Math.abs(deltaY)) return;
+
+        // Balayage trop court : ignoré
+        const SWIPE_THRESHOLD = 50;
+
+        if (deltaX < -SWIPE_THRESHOLD) {
+            goToNextPhoto();   // balayage vers la gauche : suivante
+        } else if (deltaX > SWIPE_THRESHOLD) {
+            goToPrevPhoto();   // balayage vers la droite : précédente
+        }
+    };
 
     return (
 
@@ -273,6 +312,8 @@ function Region() {
                         <div
                             className="modal-content"
                             onClick={(e) => e.stopPropagation()}
+                            onTouchStart={handleTouchStart}
+                            onTouchEnd={handleTouchEnd}
                         >
 
                             {/* Image en plein écran */}
