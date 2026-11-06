@@ -95,6 +95,52 @@ function Region() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
 
+    // =======================================
+    // Référence de l'overlay (élément passé
+    // en plein écran) et état du plein écran
+    // =======================================
+
+    const overlayRef = useRef(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+
+    // =======================================
+    // Bascule plein écran / fenêtré
+    // =======================================
+
+    const toggleFullscreen = () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            overlayRef.current?.requestFullscreen();
+        }
+    };
+
+
+    // =======================================
+    // Suivi de l'état plein écran
+    // =======================================
+
+    useEffect(() => {
+
+        const onFullscreenChange = () =>
+            setIsFullscreen(Boolean(document.fullscreenElement));
+
+        document.addEventListener(
+            "fullscreenchange",
+            onFullscreenChange
+        );
+
+        return () => {
+            document.removeEventListener(
+                "fullscreenchange",
+                onFullscreenChange
+            );
+        };
+
+    }, []);
+
+
     // Fonction pour ouvrir la modale avec une photo
     const openModal = (index) => {
         setSelectedPhotoIndex(index);
@@ -206,21 +252,10 @@ function Region() {
                 isModalOpen && selectedPhotoIndex !== null && (
 
                     <div
+                        ref={overlayRef}
                         className="modal-overlay"
                         onClick={closeModal}
                     >
-                        {/* Bouton Précédent */}
-
-                        <button
-                            className="modal-nav modal-prev"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                goToPrevPhoto();
-                            }}
-                            disabled={selectedPhotoIndex === 0}
-                        >
-                            &#10094;
-                        </button>
                         <div
                             className="modal-content"
                             onClick={(e) => e.stopPropagation()}
@@ -239,6 +274,34 @@ function Region() {
                                     "Photo en plein écran"
                                 }
                                 className="modal-image"
+                            />
+
+                            {/* Bouton plein écran */}
+
+                            <button
+                                type="button"
+                                className="btn-fullscreen"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleFullscreen();
+                                }}
+                                aria-label={
+                                    isFullscreen
+                                        ? "Quitter le plein écran"
+                                        : "Afficher en plein écran"
+                                }
+                            />
+
+                            {/* Bouton de fermeture */}
+
+                            <button
+                                type="button"
+                                className="modal-close"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    closeModal();
+                                }}
+                                aria-label="Fermer la visionneuse"
                             />
 
                             {/* compteur */}
@@ -272,20 +335,6 @@ function Region() {
 
                         </div>
 
-                        {/* Bouton Suivant */}
-
-                        <button
-                            className="modal-nav modal-next"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                goToNextPhoto();
-                            }}
-                            disabled={
-                                selectedPhotoIndex === photos.length - 1
-                            }
-                        >
-                            &#10095;
-                        </button>
                     </div>
                 )
             }
