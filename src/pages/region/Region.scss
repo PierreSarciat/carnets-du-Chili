@@ -164,7 +164,7 @@
 }
 
 .modal-close,
- .btn-fullscreen {
+.btn-fullscreen {
     position: fixed;
     top: 1.25rem;
     width: 1em;
@@ -200,6 +200,29 @@
     animation: zoomin 10s linear infinite alternate;
 }
 
+.modal-image-description {
+    position: relative; // Point d'ancrage de la description
+    display: block;
+    max-width: 100%;
+}
+
+.modal-description {
+    position: absolute; // Sort du flux : se superpose à l'image
+    bottom: 1rem;
+    right: 1rem;
+    margin: 0;
+    opacity: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 15px;
+    text-align: center;
+}
+
+.modal-image-description:hover .modal-description {
+    opacity: 1;
+}
 
 .modal-dots {
     display: flex;
@@ -252,12 +275,12 @@
     .modal-image {
         animation: none;
     }
-}  
+}
 
 
 @media (max-width: 900px) {
 
- .modal-nav {
+    .modal-nav {
         display: none;
     }
 
@@ -265,4 +288,3 @@
         touch-action: pan-y;
     }
 }
-

@@ -317,19 +317,30 @@ function Region() {
                         >
 
                             {/* Image en plein écran */}
-
-                            <img
+                            <div
+                                className="modal-image-description"
                                 key={photos[selectedPhotoIndex].id}
-                                src={
-                                    photos[selectedPhotoIndex].fullSrc ||
-                                    photos[selectedPhotoIndex].previewSrc
-                                }
-                                alt={
-                                    photos[selectedPhotoIndex].alt ||
-                                    "Photo en plein écran"
-                                }
-                                className="modal-image"
-                            />
+                            >
+                                <img
+                                    key={photos[selectedPhotoIndex].id}
+                                    src={
+                                        photos[selectedPhotoIndex].fullSrc ||
+                                        photos[selectedPhotoIndex].previewSrc
+                                    }
+                                    alt={
+                                        photos[selectedPhotoIndex].alt ||
+                                        "Photo en plein écran"
+                                    }
+                                    className="modal-image"
+                                />
+                                {/* Description incrustée : bas droite, au survol */}
+
+                                {photos[selectedPhotoIndex].description && (
+                                    <p className="modal-description">
+                                        {photos[selectedPhotoIndex].description}
+                                    </p>
+                                )}
+                            </div>
 
                             {/* Bouton plein écran */}
 
