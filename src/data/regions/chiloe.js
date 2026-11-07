@@ -82,6 +82,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_9.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_9.JPG`,
       title: "Chiloé 9",
+      description:`Chapelle de Quemay sur l'île Coldita`,
       alt: "Chiloé 9"
     },
     {
@@ -89,7 +90,7 @@ const chiloe = {
       thumbnailSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_10.webp`,
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_10.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_10.JPG`,
-      title: "Chiloé 10",
+      title: "Chiloé 10",     
       alt: "Chiloé 10"
     },
     {
@@ -98,6 +99,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_12.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_12.JPG`,
       title: "Chiloé 12",
+       description:`Cuisine traditionnelle de l'île de Chiloé centrée autour du fogón chilote (le foyer ouvert)`,
       alt: "Chiloé 12"
     },
     {
@@ -114,6 +116,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_14.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_14.JPG`,
       title: "Chiloé 14",
+      description:`Palafitos, maisons traditionnelles en bois sur pilotis, situées dans la ville de Castro. `,
       alt: "Chiloé 14"
     },
     {
@@ -122,6 +125,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_16.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_16.JPG`,
       title: "Chiloé 16",
+      description:`Portique de la Casa Pastoral avec sa façade en bardeaux de bois (tejuelas) située à côté de l'église Saint-François à Castro. `,
       alt: "Chiloé 16"
     },
     {
@@ -130,6 +134,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_17.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_17.JPG`,
       title: "Chiloé 17",
+      description:`Eglise en bois de Cucao, côte sud-ouest de la Grande Île `,
       alt: "Chiloé 17"
     },
     {
@@ -138,6 +143,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_18.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_18.JPG`,
       title: "Chiloé 18",
+      description:`Église d'Aituy.`,
       alt: "Chiloé 18"
     },
     {
@@ -154,6 +160,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_22.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_22.JPG`,
       title: "Chiloé 22",
+      description:`Marché municipal de Chonchi, dans la région des Lacs`,
       alt: "Chiloé 22"
     },
     {
@@ -162,6 +169,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_23.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_23.JPG`,
       title: "Chiloé 23",
+      description:`Eglise Saint-Charles-Borromée, située à Chonchi `,
       alt: "Chiloé 23"
     },
     {
@@ -170,6 +178,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_24.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_24.JPG`,
       title: "Chiloé 24",
+      description:`Église Notre-Dame-de-Lorette d'Achao, sur l'île de Quinchao. Bâtie vers 1740, elle est la plus ancienne église de l'archipel.`,
       alt: "Chiloé 24"
     },
     {

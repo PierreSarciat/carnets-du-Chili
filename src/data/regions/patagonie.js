@@ -24,19 +24,12 @@ const patagonie = {
 
   photos: [
     {
-      id: "patagonie-0",
-      thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_0.webp`,
-      previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_0.webp`,
-      fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_0.jpg`,
-      title: "Patagonie 0",
-      alt: "Patagonie 0"
-    },
-    {
       id: "patagonie-1",
       thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_1.webp`,
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_1.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_1.jpg`,
       title: "Patagonie 1",
+      description:` Drapeau du Chili et drapeau portant le blason de la région d'Aysén flottant devant des montagnes enneigées`,
       alt: "Patagonie 1"
     },
     {
@@ -45,6 +38,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_2.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_2.JPG`,
       title: "Patagonie 2",
+      description:`Caleta Tortel, à l'embouchure du fleuve Baker et des fjords de la Patagonie australe.`,
       alt: "Patagonie 2"
     },
     {
@@ -53,6 +47,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_3.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_3.JPG`,
       title: "Patagonie 3",
+      description:`Cerro Castillo, 2 318m, situé dans le parc national du même nom dans la région d'Aysén`,
       alt: "Patagonie 3"
     },
     {
@@ -61,6 +56,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_4.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_4.jpg`,
       title: "Patagonie 4",
+      description:`Cerro Castillo et les lacets de la route Carretera Austral.`,
       alt: "Patagonie 4"
     },
     {
@@ -69,6 +65,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_5.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_5.jpg`,
       title: "Patagonie 5",
+      description:`Paredón de las Manos: ces empreintes de mains en peinture rouge, datées de 3 000 à 5 000 ans ont été réalisées par les Tehuelches, un peuple nomade de Patagonie.`,
       alt: "Patagonie 5"
     },
     {
@@ -85,6 +82,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_8.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_8.JPG`,
       title: "Patagonie 8",
+      description:`Cathédrales de marbre (Capillas de Mármol), situées sur le lac General Carrera`,
       alt: "Patagonie 8"
     },
     {
@@ -101,6 +99,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_11.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_11.JPG`,
       title: "Patagonie 11",
+      description:`Canyon du Rio Baker le long de la Carretera Austral`,
       alt: "Patagonie 11"
     },
     {
@@ -109,6 +108,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_12.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_12.JPG`,
       title: "Patagonie 12",
+      description:`Caleta Tortel, buste du capitaine général Bernardo O'Higgins Riquelme.`,
       alt: "Patagonie 12"
     },
     {
@@ -117,6 +117,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_13.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_13.JPG`,
       title: "Patagonie 13",
+      description:`Caleta Tortel, réseau de passerelles et d' escaliers en bois sur pilotis.`,
       alt: "Patagonie 13"
     },
     {
@@ -133,6 +134,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_15.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_15.JPG`,
       title: "Patagonie 15",
+       description:`Il n'y a pas de rues pour les voitures dans ce village. Les habitants se déplacent exclusivement à pied sur des kilomètres de passerelles, de ponts et d'escaliers en bois`,
       alt: "Patagonie 15"
     },
     {
@@ -141,6 +143,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_17.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_17.JPG`,
       title: "Patagonie 17",
+      description:`Isla de los Muertos, située dans le delta du fleuve Baker, dans la région d'Aysén.`,
       alt: "Patagonie 17"
     },
     {
@@ -149,6 +152,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_18.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_18.JPG`,
       title: "Patagonie 18",
+      description:` Caleta Tortel, dans la région d'Aysén`,
       alt: "Patagonie 18"
     },
     {
@@ -157,6 +161,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_19.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_19.JPG`,
       title: "Patagonie 19",
+      description:`Padre Antonio Ronchi, ferry qui assure la traversée sur la Carretera Austral entre Puerto Yungay et Río Bravo à travers le fiord Mitchell.`,
       alt: "Patagonie 19"
     },
     {
@@ -165,6 +170,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_20.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_20.jpg`,
       title: "Patagonie 20",
+      description:`Village de Villa O'Higgins, point final méridional de la route Carretera Austral`,
       alt: "Patagonie 20"
     },
     {
@@ -173,6 +179,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_22.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_22.JPG`,
       title: "Patagonie 22",
+      description:`Moutons de race Corriedale, emblématique des élevages d'estancias de la Patagonie, élevée à la fois pour sa viande et sa laine épaisse.`,
       alt: "Patagonie 22"
     },
     {
@@ -181,6 +188,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_23.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_23.JPG`,
       title: "Patagonie 23",
+      description:`Carretera Austral`,
       alt: "Patagonie 23"
     },
     {
@@ -205,6 +213,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_28.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_28.JPG`,
       title: "Patagonie 28",
+       description:`Carretera Austral`,
       alt: "Patagonie 28"
     },
     {
@@ -213,6 +222,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_29.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_29.JPG`,
       title: "Patagonie 29",
+      description:`Vallée du Río Bravo, le long de la Carretera Austral.`,
       alt: "Patagonie 29"
     },
     {
@@ -221,6 +231,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_30.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_30.JPG`,
       title: "Patagonie 30",
+      description:`Laguna Verde, région d'Aysén.`,
       alt: "Patagonie 30"
     },
     {
@@ -237,6 +248,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_33.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_33.jpg`,
       title: "Patagonie 33",
+      description:`Gaucho, qui porte traditionnellement un béret ou une boina, et utilise une cravache pour diriger l'animal.`,
       alt: "Patagonie 33"
     },
     {
@@ -366,6 +378,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE16G.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE16G.JPG`,
       title: "Patagonie 16G",
+      description:`Le site commémore une tragédie survenue en 1906, où environ 120 ouvriers (venus notamment de Chiloé) ont été abandonnés et sont morts des suites de la faim, du froid et du scorbut`,
       alt: "Patagonie 16G"
     },
   ]
