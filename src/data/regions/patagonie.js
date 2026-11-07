@@ -332,6 +332,7 @@ const patagonie = {
       thumbnailSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_52.webp`,
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_52.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_52.JPG`,
+      description:`Sur la rive occidentale du lac General Carrera, Puerto Río Tranquilo est un paisible village au bout de la Carretera Austral`,
       title: "Patagonie 52",
       alt: "Patagonie 52"
     },

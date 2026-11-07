@@ -29,6 +29,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_3.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_3.JPG`,
       title: "Chiloé 3",
+      description:`Achevée en 1912, l'église San Francisco de Castro allie bois précieux de Chiloé et architecture néogothique.`,
       alt: "Chiloé 3"
     },
     {
@@ -37,6 +38,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_4.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_4.JPG`,
       title: "Chiloé 4",
+      description:"Quatorze églises en bois de l'archipel de Chiloé, édifiées du XVIIe au XVIIIe siècle par les Jésuites et les Franciscains, figurent au patrimoine mondial de l'Unesco pour leur architecture mestizo mêlant traditions européennes et amérindiennes.",
       alt: "Chiloé 4"
     },
     {
@@ -45,6 +47,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_5.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_5.JPG`,
       title: "Chiloé 5",
+      description:`Façade typique de l'architecture chilote, entièrement recouverte de tejuelas, ces bardeaux d'alerce façonnés à la main et disposés ici en écailles de poisson.`,
       alt: "Chiloé 5"
     },
     {
@@ -53,6 +56,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_6.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_6.JPG`,
       title: "Chiloé 6",
+      description:`Eglise Notre-Dame-du-Patronage de Tenaún, construite en 1842.`,
       alt: "Chiloé 6"
     },
     {
@@ -69,6 +73,7 @@ const chiloe = {
       previewSrc: `${BASE_PATH}assets/images/chiloe/thumb/CHILOE_8.webp`,
       fullSrc: `${BASE_PATH}assets/images/chiloe/full/CHILOE_8.JPG`,
       title: "Chiloé 8",
+      description:` La pêche artisanale et l'aquaculture constituent les piliers économiques et culturels essentiels des communautés côtières.`,
       alt: "Chiloé 8"
     },
     {
