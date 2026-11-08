@@ -13,15 +13,6 @@ const patagonie = {
     },
 
 
-
-
-
-
-
-
-
-
-
   photos: [
     {
       id: "patagonie-1",
@@ -205,6 +196,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_26.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_26.JPG`,
       title: "Patagonie 26",
+       description:`Carretera Austral`,
       alt: "Patagonie 26"
     },
     {
@@ -273,6 +265,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_38.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_38.jpg`,
       title: "Patagonie 38",
+      description:`Canyon du Río Ibáñez avec en arrière-plan le Cerro Castillo.`,
       alt: "Patagonie 38"
     },
     {
@@ -281,6 +274,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_40.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_40.JPG`,
       title: "Patagonie 40",
+      description:`Alpaga.`,
       alt: "Patagonie 40"
     },
     {
@@ -289,6 +283,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_41.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_41.JPG`,
       title: "Patagonie 41",
+      description:`Pont Presidente Ibáñez , à Puerto Aysén.`,
       alt: "Patagonie 41"
     },
     {
@@ -329,6 +324,7 @@ const patagonie = {
       previewSrc: `${BASE_PATH}assets/images/patagonie/thumb/PATAGONIE_50.webp`,
       fullSrc: `${BASE_PATH}assets/images/patagonie/full/PATAGONIE_50.JPG`,
       title: "Patagonie 50",
+      description:`Cerro Castillo dans  le massif de Torres del Paine, encadré par des buissons de Notro (ou arbre de feu du Chili). `,
       alt: "Patagonie 50"
     },
     {

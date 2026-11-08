@@ -13,15 +13,6 @@ const chiloe = {
     },
 
 
-
-
-
-
-
-
-
-
-
   photos: [
     {
       id: "chiloe-3",
