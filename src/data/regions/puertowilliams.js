@@ -12,16 +12,6 @@ const puertowilliams = {
         source: "Cabo de Hornos, 1941",
     },
 
-
-
-
-
-
-
-
-
-
-
   photos: [
     {
       id: "puerto-williams-3",
@@ -29,6 +19,7 @@ const puertowilliams = {
       previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_3.webp`,
       fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO_WILLIAMS_3.jpg`,
       title: "Puerto Williams 3",
+      description:`Canal de Beagle.`,
       alt: "Puerto Williams 3"
     },
     {
@@ -37,6 +28,7 @@ const puertowilliams = {
       previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_4.webp`,
       fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO_WILLIAMS_4.jpg`,
       title: "Puerto Williams 4",
+      description:`Passe de Darwin.`,
       alt: "Puerto Williams 4"
     },
     {
@@ -53,6 +45,7 @@ const puertowilliams = {
       previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_7.webp`,
       fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO_WILLIAMS_7.jpg`,
       title: "Puerto Williams 7",
+      description:` Fondée initialement sous le nom de Puerto Luisa le 21 novembre 1953, la localité a été rebaptisée Puerto Williams en 1956 en hommage au marin britannique Juan Williams.`,
       alt: "Puerto Williams 7"
     },
     {
@@ -61,6 +54,7 @@ const puertowilliams = {
       previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_8.webp`,
       fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO_WILLIAMS_8.jpg`,
       title: "Puerto Williams 8",
+      description:`'Aéroport Guardia Marina Zañartu.`,
       alt: "Puerto Williams 8"
     },
     {
@@ -109,6 +103,7 @@ const puertowilliams = {
       previewSrc: `${BASE_PATH}assets/images/puertowilliams/thumb/PUERTO_WILLIAMS_14.webp`,
       fullSrc: `${BASE_PATH}assets/images/puertowilliams/full/PUERTO_WILLIAMS_14.jpg`,
       title: "Puerto Williams 14",
+      description:`Villa Ukika, petit village situé dans la banlieue de Puerto Williams , abrite les derniers descendants du peuple autochtone Yagán (ou Yamana).`,
       alt: "Puerto Williams 14"
     },
     {

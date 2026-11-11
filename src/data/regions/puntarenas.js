@@ -12,16 +12,6 @@ const puntarenas = {
         source: "Desolación , Paisajes de la Patagonia, 1922 ",
     },
 
-
-
-
-
-
-
-
-
-
-
   photos: [
     {
       id: "punta-arenas-1",
@@ -37,6 +27,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_2.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_2.jpeg`,
       title: "Punta Arenas 2",
+      description:`Vue de Punta Arenas depuis le belvédère du Cerro de la Cruz avec le détroit de Magellan en arrière plan.`,
       alt: "Punta Arenas 2"
     },
     {
@@ -53,6 +44,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_4.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_4.jpeg`,
       title: "Punta Arenas 4",
+      description:` Monument de la Circumnavigation, créé par le sculpteur chilien Francisco Gazitúa pour commémorer les 500 ans de la première traversée du détroit de Magellan par Fernand de Magellan en 1520.`,
       alt: "Punta Arenas 4"
     },
     {
@@ -77,6 +69,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_7.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_7.jpeg`,
       title: "Punta Arenas 7",
+      description:`Le monument à Ferdinand de Magellan sur la Plaza Muñoz Gamero, dont la base est ornée d'une sculpture d'homme autochtone tehuelche.`,
       alt: "Punta Arenas 7"
     },
     {
@@ -85,6 +78,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_8.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_8.jpeg`,
       title: "Punta Arenas 8",
+      description:` Une tradition locale veut que les voyageurs qui touchent le gros orteil de la statue indienne sont assurés de revenir un jour en Patagonie.`,
       alt: "Punta Arenas 8"
     },
     {
@@ -93,6 +87,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_9.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_9.jpeg`,
       title: "Punta Arenas 9",
+      description:` Mémorial de la goélette Ancud situé sur la promenade côtière (Costanera del Estrecho). `,
       alt: "Punta Arenas 9"
     },
     {
@@ -101,6 +96,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_10.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_10.jpeg`,
       title: "Punta Arenas 10",
+      description:` Le monument rend hommage au capitaine Juan Williams et à l'équipage de la goélette envoyée par le Chili en 1843 pour affirmer sa souveraineté sur le détroit de Magellan.`,
       alt: "Punta Arenas 10"
     },
     {
@@ -109,6 +105,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_11.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_11.jpeg`,
       title: "Punta Arenas 11",
+      description:`le Monumento al Ovejero, œuvre du sculpteur chilien Germán Montero Carvallo inaugurée en 1944 pour le centenaire de l'occupation du détroit de Magellan.`,
       alt: "Punta Arenas 11"
     },
     {
@@ -117,6 +114,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_12.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_12.jpeg`,
       title: "Punta Arenas 12",
+      description:` L'œuvre s'étend sur une trentaine de mètres et comprend 12 sculptures grandeur nature en bronze représentant un berger (ovejero), son cheval, deux chiens et un troupeau de huit moutons.`,
       alt: "Punta Arenas 12"
     },
     {
@@ -125,6 +123,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_13.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_13.jpeg`,
       title: "Punta Arenas 13",
+      description:`Il rend hommage aux bergers et aux pionniers ruraux de la région de Magallanes dont le travail a façonné l'histoire de l'élevage ovin dans la pampa.`,
       alt: "Punta Arenas 13"
     },
     {
@@ -141,6 +140,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_15.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_15.jpeg`,
       title: "Punta Arenas 15",
+      description:`Statue en bronze de Magellan sur la place Muñoz Gamero, œuvre du sculpteur Guillermo Córdova inaugurée en novembre 1920 pour le 400e anniversaire de la découverte du détroit.`,
       alt: "Punta Arenas 15"
     },
     {
@@ -149,6 +149,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_16.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_16.jpeg`,
       title: "Punta Arenas 16",
+      description:`Fresques en mosaïque de verre et de céramique dans la Ruta Cultural du quartier Cerro de la Cruz qui racontent l'histoire, la culture, l'identité et le patrimoine des différents quartiers et vagues migratoires de la région de Magallanes. `,
       alt: "Punta Arenas 16"
     },
     {
@@ -157,6 +158,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_17.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_17.jpeg`,
       title: "Punta Arenas 17",
+      description:`Ces mosaïque ont été réalisées grâce à une initiative citoyenne par les habitants du quartier sous la coordination de l'artiste Daniela Bascuñán, avec le soutien de fonds culturels tels que le FONDART.`,
       alt: "Punta Arenas 17"
     },
     {
@@ -165,6 +167,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_18.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_18.jpeg`,
       title: "Punta Arenas 18",
+      description:`Mosaïque s'inspirant de la célèbre carte du XVIIe siècle Tabula Magellanica (représentant la Patagonie, le détroit de Magellan et la Terre de Feu).`,
       alt: "Punta Arenas 18"
     },
     {
@@ -237,6 +240,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_27.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_27.jpeg`,
       title: "Punta Arenas 27",
+      description:`Mosaïque inspirée de la première représentation connue du Fort Bulnes réalisé par le peintre Alejandro Cicarelli en 1849, qui représente une vue panoramique de la Patagonie et de l'implantation originelle du fort.`,
       alt: "Punta Arenas 27"
     },
     {
@@ -293,6 +297,7 @@ const puntarenas = {
       previewSrc: `${BASE_PATH}assets/images/punta_arenas/thumb/punta_arenas_34.webp`,
       fullSrc: `${BASE_PATH}assets/images/punta_arenas/full/punta_arenas_34.jpeg`,
       title: "Punta Arenas 34",
+      description:`Mosaïque qui rend hommage aux milliers d'immigrants croates (principalement venus de Dalmatie) qui sont arrivés dans la région de Magallanes à la fin du XIXe siècle et au début du XXe siècle pour y travailler et bâtir leur vie.`,
       alt: "Punta Arenas 34"
     },
     {
