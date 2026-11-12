@@ -233,6 +233,14 @@
     margin-top: 15px;
 }
 
+.modal-counter {
+    display: none;
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
 .modal-dash {
     // Zone cliquable confortable, invisible elle-même
     position: relative;
@@ -282,6 +290,25 @@
 
     .modal-nav {
         display: none;
+    }
+
+    .modal-content {
+        touch-action: pan-y;
+    }
+
+
+
+    .modal-nav {
+        display: none;
+    }
+
+    // Les traits cèdent la place au compteur
+    .modal-dots {
+        display: none;
+    }
+
+    .modal-counter {
+        display: block;
     }
 
     .modal-content {

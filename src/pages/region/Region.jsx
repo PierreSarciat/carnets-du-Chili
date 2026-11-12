@@ -372,7 +372,21 @@ function Region() {
 
                             {/* compteur */}
 
+                            {/* compteur : traits sur ordinateur,
+    compteur numérique en tablette et mobile */}
+
                             <div className="modal-info">
+
+                                {/* Compteur numérique (visible en dessous de 900px) */}
+
+                                <div
+                                    className="modal-counter"
+                                    aria-live="polite"
+                                >
+                                    {selectedPhotoIndex + 1} / {photos.length}
+                                </div>
+
+                                {/* Traits (visibles au-dessus de 900px) */}
 
                                 <div
                                     className="modal-dots"
