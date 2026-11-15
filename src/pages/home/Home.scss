@@ -42,7 +42,7 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
 
-        filter:var(--filter);
+        /*filter:var(--filter);*/
 
         z-index: -1;
     }
@@ -54,7 +54,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--background-color-region);
+        background-color: var(--background-color-home);
         z-index: 0;
         pointer-events: none;
     }
