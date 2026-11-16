@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
-
 import "./Navbar.scss";
 import CompassRose from "@assets/icons/rose-des-vents.png";
 
@@ -39,6 +38,26 @@ export default function Navbar() {
 
     const [activeLink, setActiveLink] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [navbarMounted, setNavbarMounted] = useState(false);
+
+    // =======================================
+    // Montage différé de la Navbar
+    // =======================================
+
+    useEffect(() => {
+
+        const DELAY = 12.5;
+
+        const timer = window.setTimeout(() => {
+            setNavbarMounted(true);
+        }, DELAY * 1000);
+
+        return () => {
+            window.clearTimeout(timer);
+        };
+
+    }, []);
+
 
 
     // =======================================
@@ -156,7 +175,7 @@ export default function Navbar() {
 
         setMenuOpen(false);
 
-    }, [location.pathname]);
+    }, [location.pathname, navbarMounted]);
 
 
     // =======================================
@@ -192,6 +211,9 @@ export default function Navbar() {
 
     }, [menuOpen]);
 
+    if (!navbarMounted) {
+        return null;
+    }
 
     // =======================================
     // Rendu
@@ -208,7 +230,7 @@ export default function Navbar() {
 
             <NavLink
                 to="/"
-                className="incipit animation-fade-blur-in"
+                className="incipit animation-fade-blur-in-navbar"
                 onClick={cancelHomeIntro}
             >
 
@@ -271,7 +293,7 @@ export default function Navbar() {
             ================================= */}
 
             <nav
-                className={`navbar animation-fade-blur-in ${menuOpen ? "is-open" : ""}`}
+                className={`navbar animation-fade-blur-in-navbar ${menuOpen ? "is-open" : ""}`}
                 ref={navRef}
             >
 
@@ -300,11 +322,6 @@ export default function Navbar() {
                             SANTIAGO DE CHILE
                         </NavLink>
                     </li>
-
-
-
-
-
                     <li>
                         <NavLink
                             to="/region/chiloe"
@@ -312,8 +329,6 @@ export default function Navbar() {
                             CHILOÉ
                         </NavLink>
                     </li>
-
-
                     <li>
                         <NavLink
                             to="/region/patagonie"
@@ -321,8 +336,6 @@ export default function Navbar() {
                             PATAGONIE
                         </NavLink>
                     </li>
-
-
                     <li>
                         <NavLink
                             to="/region/puertowilliams"
@@ -330,7 +343,6 @@ export default function Navbar() {
                             PUERTO WILLIAMS
                         </NavLink>
                     </li>
-
                     <li>
                         <NavLink
                             to="/region/puntarenas"
@@ -338,8 +350,6 @@ export default function Navbar() {
                             PUNTA ARENAS
                         </NavLink>
                     </li>
-
-
                     <li>
                         <NavLink
                             to="/region/torresdelpaine"
@@ -347,7 +357,6 @@ export default function Navbar() {
                             TORRES DEL PAINE
                         </NavLink>
                     </li>
-
                 </ul>
 
 
