@@ -6,9 +6,17 @@ import CompassRose from "@assets/icons/rose-des-vents.png";
 
 export default function Navbar() {
 
-    // =======================================
+    // Préchargement de la rose des vents
+
+    useEffect(() => {
+
+        const image = new Image();
+
+        image.src = CompassRose;
+
+    }, []);
+
     // Annulation de l'animation d'accueil
-    // =======================================
 
     const cancelHomeIntro = () => {
 
@@ -221,7 +229,7 @@ export default function Navbar() {
 
     return (
 
-        <header className="navbar-container">
+        <header className="navbar-container animation-fade-blur-in">
 
 
             {/* =================================
@@ -230,7 +238,7 @@ export default function Navbar() {
 
             <NavLink
                 to="/"
-                className="incipit animation-fade-blur-in-navbar"
+                className="incipit "
                 onClick={cancelHomeIntro}
             >
 
@@ -238,7 +246,7 @@ export default function Navbar() {
 
                     <img
                         src={CompassRose}
-                        alt="Rose des vents"
+                        alt="rose des vents"
                         className="logo"
                     />
 
@@ -293,7 +301,7 @@ export default function Navbar() {
             ================================= */}
 
             <nav
-                className={`navbar animation-fade-blur-in-navbar ${menuOpen ? "is-open" : ""}`}
+                className={`navbar ${menuOpen ? "is-open" : ""}`}
                 ref={navRef}
             >
 

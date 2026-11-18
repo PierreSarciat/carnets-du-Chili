@@ -17,7 +17,7 @@
     z-index: 1000;
     box-sizing: border-box;
     padding: 10px 20px 10px 10px;
-
+ --reveal-delay: 0s;
 
 
 }
@@ -167,26 +167,17 @@
 .hamburger {
 
     display: none;
-
     position: absolute;
-
     top: 25px;
     right: 20px;
-
     width: 40px;
     height: 40px;
-
     padding: 8px;
-
     border: none;
-
     background: transparent;
-
     cursor: pointer;
-
     z-index: 1100;
 }
-
 
 .hamburger span {
 
