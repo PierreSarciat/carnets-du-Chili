@@ -1,7 +1,3 @@
-// =======================================
-// NAVBAR
-// =======================================
-
 .navbar-container {
 
     position: fixed;
@@ -13,18 +9,12 @@
     background: var(--background-color-navbar);
     backdrop-filter: blur(6px);
     box-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.08);
+        0 2px 20px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     box-sizing: border-box;
     padding: 10px 20px 10px 10px;
- --reveal-delay: 0s;
-
-
+    --reveal-delay: 0s;
 }
-
-// =======================================
-// Logo
-// =======================================
 
 .incipit {
 
@@ -33,7 +23,6 @@
     gap: 15px;
     margin-right: 60px;
     text-decoration: none;
-
 
 
     .logo {
@@ -67,75 +56,63 @@
             color: #6B5B4F;
         }
     }
-
-
 }
-
-
-// =======================================
-// Navigation
-// =======================================
 
 .navbar {
 
     position: relative;
     flex: 1;
 
+    .navbar-links {
+
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .navbar-links li {
+
+        position: relative;
+    }
+
+
+    .navbar-links a {
+
+        display: block;
+        padding: 12px 0;
+        text-decoration: none;
+        color: #3A312C;
+        font-family:
+            var(--font-body);
+        font-size: .82rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        transition:
+            color .25s ease;
+    }
+
+
+    .navbar-links a:hover {
+
+        color: #8C6A43;
+    }
+
+
+    .navbar-links a.active {
+
+        color: #8C6A43;
+    }
+
 
 }
 
-// =======================================
-// Liens
-// =======================================
-
-.navbar-links {
-
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
 
 
-.navbar-links li {
 
-    position: relative;
-}
-
-
-.navbar-links a {
-
-    display: block;
-    padding: 12px 0;
-    text-decoration: none;
-    color: #3A312C;
-    font-family:
-        var(--font-body);
-    font-size: .82rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    transition:
-        color .25s ease;
-}
-
-
-.navbar-links a:hover {
-
-    color: #8C6A43;
-}
-
-
-.navbar-links a.active {
-
-    color: #8C6A43;
-}
-
-
-// =======================================
-// Barre active
-// =======================================
 
 .navbar-border {
 
@@ -160,9 +137,9 @@
 }
 
 
-// =======================================
+
 // Hamburger
-// =======================================
+
 
 .hamburger {
 
@@ -192,9 +169,9 @@
 }
 
 
-// =======================================
+
 // Animation hamburger → X
-// =======================================
+
 
 .hamburger.is-open span:nth-child(1) {
 
@@ -216,9 +193,7 @@
 }
 
 
-// =======================================
-// Responsive
-// =======================================
+
 @media (max-width: 1350px) {
 
     .navbar-links {
@@ -236,9 +211,6 @@
         display: block;
     }
 
-    // -----------------------------------
-    // Logo
-    // -----------------------------------
 
     .incipit {
 
@@ -248,19 +220,12 @@
     }
 
 
-    // -----------------------------------
-    // Hamburger
-    // -----------------------------------
-
     .hamburger {
 
         display: block;
     }
 
 
-    // -----------------------------------
-    // Navigation
-    // -----------------------------------
     .navbar {
 
         overflow: hidden;
@@ -276,9 +241,6 @@
             visibility .3s ease;
     }
 
-    // -----------------------------------
-    // Menu ouvert
-    // -----------------------------------
 
     .navbar.is-open {
 
@@ -291,10 +253,6 @@
 
     }
 
-
-    // -----------------------------------
-    // Liste
-    // -----------------------------------
 
     .navbar-links {
 
@@ -320,10 +278,6 @@
         font-size: .85rem;
     }
 
-
-    // -----------------------------------
-    // Barre active
-    // -----------------------------------
 
     .navbar-border {
 
