@@ -14,14 +14,6 @@ const torresdelpaine = {
 
 
 
-
-
-
-
-
-
-
-
   photos: [
     {
       id: "torres-del-paine-1",
