@@ -439,6 +439,15 @@ function Gallery3D({
     ] = useState(false);
 
 
+    // =======================================
+    // Références des flèches de navigation
+    // =======================================
+
+    const controlsRef = useRef(null);
+
+    const navigationAnimationRef = useRef(null);
+
+
     useEffect(() => {
 
         const mediaQuery =
@@ -466,6 +475,30 @@ function Gallery3D({
                 "change",
                 updatePreference
             );
+        };
+
+    }, []);
+
+
+    // =======================================
+    // Nettoyage de l'animation de navigation
+    // =======================================
+
+    useEffect(() => {
+
+        return () => {
+
+            if (navigationAnimationRef.current !== null) {
+
+                cancelAnimationFrame(
+                    navigationAnimationRef.current
+                );
+
+                if (controlsRef.current) {
+                    controlsRef.current.enabled = true;
+                }
+            }
+
         };
 
     }, []);
@@ -504,6 +537,137 @@ function Gallery3D({
 
     const cameraDistance =
         radius + CAMERA_MARGIN;
+
+
+    // =======================================
+    // Navigation précédente / suivante
+    // =======================================
+
+    const navigateGallery = (direction) => {
+
+        const controls = controlsRef.current;
+
+        if (!controls || photos.length < 2) {
+            return;
+        }
+
+
+        // Annuler une éventuelle animation précédente
+
+        if (navigationAnimationRef.current !== null) {
+
+            cancelAnimationFrame(
+                navigationAnimationRef.current
+            );
+
+            navigationAnimationRef.current = null;
+
+            controls.enabled = true;
+        }
+
+
+        // Position initiale de la caméra
+
+        const target = controls.target.clone();
+
+        const startOffset =
+            controls.object.position.clone().sub(target);
+
+
+        // Angle correspondant à une photo
+
+        const angleStep =
+            (Math.PI * 2) / photos.length;
+
+        const targetAngle =
+            direction * angleStep;
+
+        const rotationAxis =
+            new THREE.Vector3(0, 1, 0);
+
+
+        // -----------------------------------
+        // Réduction des animations
+        // -----------------------------------
+
+        if (reducedMotion) {
+
+            const rotatedOffset =
+                startOffset.clone().applyAxisAngle(
+                    rotationAxis,
+                    targetAngle
+                );
+
+            controls.object.position
+                .copy(target)
+                .add(rotatedOffset);
+
+            controls.update();
+
+            return;
+        }
+
+
+        // -----------------------------------
+        // Animation de rotation
+        // -----------------------------------
+
+        const controlsWasEnabled = controls.enabled;
+
+        controls.enabled = false;
+
+        const startTime = performance.now();
+
+        const duration = 550;
+
+
+        const animate = (currentTime) => {
+
+            const elapsed =
+                currentTime - startTime;
+
+            const progress =
+                Math.min(elapsed / duration, 1);
+
+
+            // Ease-out quartique
+
+            const eased =
+                1 - Math.pow(1 - progress, 4);
+
+
+            // Rotation progressive de la caméra
+
+            const rotatedOffset =
+                startOffset.clone().applyAxisAngle(
+                    rotationAxis,
+                    targetAngle * eased
+                );
+
+            controls.object.position
+                .copy(target)
+                .add(rotatedOffset);
+
+            controls.update();
+
+
+            if (progress < 1) {
+
+                navigationAnimationRef.current =
+                    requestAnimationFrame(animate);
+
+            } else {
+
+                navigationAnimationRef.current = null;
+
+                controls.enabled = controlsWasEnabled;
+            }
+        };
+
+
+        navigationAnimationRef.current =
+            requestAnimationFrame(animate);
+    };
 
 
     // =======================================
@@ -560,6 +724,8 @@ function Gallery3D({
 
                 <OrbitControls
 
+                    ref={controlsRef}
+
                     enableZoom={true}
 
                     enablePan={false}
@@ -609,6 +775,42 @@ function Gallery3D({
                 />
 
             </Canvas>
+
+
+            {/* =================================
+                FLÈCHE PRÉCÉDENTE
+            ================================= */}
+
+            <button
+                type="button"
+                className="gallery3d-arrow gallery3d-prev"
+                onClick={(event) => {
+                    event.stopPropagation();
+                    navigateGallery(-1);
+                }}
+                aria-label="Photo précédente"
+                disabled={photos.length < 2}
+            >
+                ‹
+            </button>
+
+
+            {/* =================================
+                FLÈCHE SUIVANTE
+            ================================= */}
+
+            <button
+                type="button"
+                className="gallery3d-arrow gallery3d-next"
+                onClick={(event) => {
+                    event.stopPropagation();
+                    navigateGallery(1);
+                }}
+                aria-label="Photo suivante"
+                disabled={photos.length < 2}
+            >
+                ›
+            </button>
 
 
         </div>
