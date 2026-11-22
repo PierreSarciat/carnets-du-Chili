@@ -54,7 +54,7 @@ export default function Navbar() {
 
     useEffect(() => {
 
-        const DELAY = 13.5;
+        const DELAY = 15;
 
         const timer = window.setTimeout(() => {
             setNavbarMounted(true);
