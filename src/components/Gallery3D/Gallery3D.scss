@@ -10,17 +10,6 @@
      */
     touch-action: pan-y;
 
-    cursor: grab;
-
-    user-select: none;
-
-    -webkit-user-select: none;
-
-
-    &:active {
-        cursor: grabbing;
-    }
-
 
     canvas {
         display: block;
@@ -33,53 +22,56 @@
 }
 
 
-// =======================================
+/* =====================================================
+   ZONE ACTIVE DE ROTATION
+
+   Classe posée dynamiquement par le composant
+   lorsque le pointeur survole la bande centrale
+   (ROTATION_ZONE_RATIO). Le curseur "grab" et la
+   sélection restreinte ne s'appliquent qu'ici.
+===================================================== */
+
+.gallery3d-rotation-zone {
+    cursor: grab;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
 // Flèches de navigation
-// =======================================
+
 
 .gallery3d-arrow {
 
     position: absolute;
-
     top: 50%;
-
     z-index: 10;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     width: 48px;
     height: 70px;
-
     padding: 0;
-
     background: transparent;
-
     border: none;
-
     color: #6B5B4F;
-
     font-family: var(--font-title);
-
     font-size: 3.5rem;
-
     font-weight: 300;
-
     line-height: 1;
-
     cursor: pointer;
-
     transform: translateY(-50%);
-
     transition:
         color 0.3s ease,
         transform 0.3s ease,
         opacity 0.3s ease;
-
     user-select: none;
-
     -webkit-tap-highlight-color: transparent;
 
 

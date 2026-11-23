@@ -33,8 +33,9 @@ const PHOTO_SPACING = 3.2;
 
 const CAMERA_MARGIN = 7;
 
-// Hauteur de la zone active pour la rotation
-const ROTATION_ZONE_RATIO = 0.6;
+// Hauteur de la zone active pour la rotation.
+
+const ROTATION_ZONE_RATIO = 0.4;
 
 // Dimensions du plan photo.
 
@@ -64,6 +65,38 @@ const SHADOW_OPACITY = 0.08;
 function computeGalleryRadius(totalPhotos) {
     return PHOTO_SPACING /
         (2 * Math.sin(Math.PI / totalPhotos));
+}
+
+
+/* =========================================================
+   Vérifie que le pointeur se trouve dans la zone
+   de rotation (bande horizontale centrale de hauteur
+   ROTATION_ZONE_RATIO × 100 % de la galerie).
+========================================================= */
+
+function isPointerInRotationZone(
+    currentTarget,
+    clientY
+) {
+
+    const rect =
+        currentTarget.getBoundingClientRect();
+
+
+    const activeHeight =
+        rect.height * ROTATION_ZONE_RATIO;
+
+    const activeTop =
+        (rect.height - activeHeight) / 2;
+
+    const pointerY =
+        clientY - rect.top;
+
+
+    return (
+        pointerY >= activeTop &&
+        pointerY <= activeTop + activeHeight
+    );
 }
 
 
@@ -450,6 +483,12 @@ function Gallery3D({
 
     const navigationAnimationRef = useRef(null);
 
+    // Référence du conteneur de la galerie,
+    // utilisée pour appliquer le curseur "grab"
+    // uniquement dans la zone de rotation.
+
+    const galleryRef = useRef(null);
+
     // État des contrôles avant le déplacement
     const controlsEnabledBeforePointerRef = useRef(true);
 
@@ -560,30 +599,21 @@ function Gallery3D({
 
         if (!controls) return;
 
-        const rect = event.currentTarget.getBoundingClientRect();
-
-        // Hauteur de la zone autorisée
-        const activeHeight =
-            rect.height * ROTATION_ZONE_RATIO;
-
-        // Position verticale de cette zone
-        const activeTop =
-            (rect.height - activeHeight) / 2;
-
-        // Position du pointeur dans la galerie
-        const pointerY =
-            event.clientY - rect.top;
 
         // Mémoriser l'état initial
+
         controlsEnabledBeforePointerRef.current =
             controls.enabled;
 
         activePointerRef.current = event.pointerId;
 
         // Autoriser ou interdire la rotation
+
         controls.enabled =
-            pointerY >= activeTop &&
-            pointerY <= activeTop + activeHeight &&
+            isPointerInRotationZone(
+                event.currentTarget,
+                event.clientY
+            ) &&
             controlsEnabledBeforePointerRef.current;
     };
 
@@ -609,6 +639,34 @@ function Gallery3D({
 
         activePointerRef.current = null;
     };
+
+
+    // =======================================
+    // Curseur "grab" limité à la zone
+    // de rotation
+
+    // La classe gallery3d-rotation-zone est posée
+    // sur le conteneur uniquement lorsque le pointeur
+    // survole la bande centrale active.
+    // =======================================
+
+    const handleRotationPointerMove = (event) => {
+
+        if (!galleryRef.current) return;
+
+        galleryRef.current.classList.toggle(
+            "gallery3d-rotation-zone",
+            isPointerInRotationZone(
+                event.currentTarget,
+                event.clientY
+            )
+        );
+    };
+
+
+    // =======================================
+    // SUPPRIMÉ : le drag 3D remplace les flèches
+    // =======================================
 
 
     // =======================================
@@ -749,8 +807,10 @@ function Gallery3D({
     return (
 
         <div
+            ref={galleryRef}
             className="gallery3d"
             onPointerDownCapture={handleRotationPointerDown}
+            onPointerMoveCapture={handleRotationPointerMove}
             onPointerUpCapture={handleRotationPointerEnd}
             onPointerCancelCapture={handleRotationPointerEnd}
         >
