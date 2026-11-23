@@ -33,6 +33,9 @@ const PHOTO_SPACING = 3.2;
 
 const CAMERA_MARGIN = 7;
 
+// Hauteur de la zone active pour la rotation
+const ROTATION_ZONE_RATIO = 0.6;
+
 // Dimensions du plan photo.
 
 const PHOTO_WIDTH = 2.5;
@@ -447,6 +450,11 @@ function Gallery3D({
 
     const navigationAnimationRef = useRef(null);
 
+    // État des contrôles avant le déplacement
+    const controlsEnabledBeforePointerRef = useRef(true);
+
+    const activePointerRef = useRef(null);
+
 
     useEffect(() => {
 
@@ -537,6 +545,70 @@ function Gallery3D({
 
     const cameraDistance =
         radius + CAMERA_MARGIN;
+
+
+    // =======================================
+    // Limitation de la zone active de rotation
+    // =======================================
+
+    const handleRotationPointerDown = (event) => {
+
+        // Ne pas intervenir sur les boutons
+        if (!event.target.closest("canvas")) return;
+
+        const controls = controlsRef.current;
+
+        if (!controls) return;
+
+        const rect = event.currentTarget.getBoundingClientRect();
+
+        // Hauteur de la zone autorisée
+        const activeHeight =
+            rect.height * ROTATION_ZONE_RATIO;
+
+        // Position verticale de cette zone
+        const activeTop =
+            (rect.height - activeHeight) / 2;
+
+        // Position du pointeur dans la galerie
+        const pointerY =
+            event.clientY - rect.top;
+
+        // Mémoriser l'état initial
+        controlsEnabledBeforePointerRef.current =
+            controls.enabled;
+
+        activePointerRef.current = event.pointerId;
+
+        // Autoriser ou interdire la rotation
+        controls.enabled =
+            pointerY >= activeTop &&
+            pointerY <= activeTop + activeHeight &&
+            controlsEnabledBeforePointerRef.current;
+    };
+
+
+    // =======================================
+    // Réactivation des contrôles
+    // =======================================
+
+    const handleRotationPointerEnd = (event) => {
+
+        if (
+            activePointerRef.current !== event.pointerId
+        ) {
+            return;
+        }
+
+        const controls = controlsRef.current;
+
+        if (controls) {
+            controls.enabled =
+                controlsEnabledBeforePointerRef.current;
+        }
+
+        activePointerRef.current = null;
+    };
 
 
     // =======================================
@@ -676,7 +748,12 @@ function Gallery3D({
 
     return (
 
-        <div className="gallery3d">
+        <div
+            className="gallery3d"
+            onPointerDownCapture={handleRotationPointerDown}
+            onPointerUpCapture={handleRotationPointerEnd}
+            onPointerCancelCapture={handleRotationPointerEnd}
+        >
 
             <Canvas
 
@@ -786,7 +863,7 @@ function Gallery3D({
                 className="gallery3d-arrow gallery3d-prev"
                 onClick={(event) => {
                     event.stopPropagation();
-                    navigateGallery(-1);
+                    navigateGallery(1);
                 }}
                 aria-label="Photo précédente"
                 disabled={photos.length < 2}
@@ -804,7 +881,7 @@ function Gallery3D({
                 className="gallery3d-arrow gallery3d-next"
                 onClick={(event) => {
                     event.stopPropagation();
-                    navigateGallery(1);
+                    navigateGallery(-1);
                 }}
                 aria-label="Photo suivante"
                 disabled={photos.length < 2}
