@@ -1,12 +1,55 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
+
 import "./Navbar.scss";
 import CompassRose from "@assets/icons/rose-des-vents.png";
 
 
 export default function Navbar() {
 
+    // =======================================
+    // Route actuelle
+    // =======================================
+
+    const location = useLocation();
+
+
+    // =======================================
+    // États
+    // =======================================
+
+    const [activeLink, setActiveLink] = useState(null);
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const [navbarMounted, setNavbarMounted] = useState(() =>
+        location.pathname !== "/" ||
+        window.matchMedia("(max-width: 1050px)").matches
+    );
+
+    // =======================================
+    // Animation d'apparition : uniquement à la
+    // première arrivée sur l'accueil de la session
+    // =======================================
+
+    const [playReveal, setPlayReveal] = useState(() =>
+        location.pathname === "/" &&
+        sessionStorage.getItem("skip-home-intro") !== "true"
+    );
+
+    // =======================================
+    // Classe d'apparition conditionnelle
+    // =======================================
+
+    const animationClass =
+        playReveal && location.pathname === "/"
+            ? "animation-fade-blur-in"
+            : "";
+
+
+    // =======================================
     // Préchargement de la rose des vents
+    // =======================================
 
     useEffect(() => {
 
@@ -16,85 +59,145 @@ export default function Navbar() {
 
     }, []);
 
+
+    // =======================================
     // Annulation de l'animation d'accueil
+    // =======================================
 
     const cancelHomeIntro = () => {
 
         // Cas navigation depuis une autre page
         sessionStorage.setItem(
-            'skip-home-intro',
-            'true'
+            "skip-home-intro",
+            "true"
         );
 
         // Cas clic déjà sur l'accueil
         window.dispatchEvent(
-            new CustomEvent('home:cancel-intro')
+            new CustomEvent("home:cancel-intro")
         );
     };
+
 
     // =======================================
     // Références
     // =======================================
 
     const navRef = useRef(null);
+
     const borderRef = useRef(null);
 
 
     // =======================================
-    // États
-    // =======================================
-
-    const [activeLink, setActiveLink] = useState(null);
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [navbarMounted, setNavbarMounted] = useState(false);
-
-    // =======================================
     // Montage différé de la Navbar
-    // Immédiat en format mobile, différé sur les grands écrans
+    // Accueil desktop uniquement
     // =======================================
 
     useEffect(() => {
 
-        const MOBILE_BREAKPOINT = '(max-width: 1050px)';
-        const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT);
+        const MOBILE_BREAKPOINT = "(max-width: 1050px)";
+
+        const mediaQuery = window.matchMedia(
+            MOBILE_BREAKPOINT
+        );
+
         const DELAY = 15;
 
         let timer = null;
 
-        const mountNow = () => setNavbarMounted(true);
 
-        // Format mobile : navbar toujours montée, sans délai
-        if (mediaQuery.matches) {
-            mountNow();
-            return;
+        // ===================================
+        // Montage immédiat si nécessaire
+        // ===================================
+
+        if (!navbarMounted) {
+
+            // Page régionale ou autre route
+            if (location.pathname !== "/") {
+
+                setNavbarMounted(true);
+
+            }
+
+            // Format mobile
+            else if (mediaQuery.matches) {
+
+                setNavbarMounted(true);
+            }
+
+            // ===================================
+            // Accueil desktop : délai de 15 secondes
+            // ===================================
+
+            else {
+
+                timer = window.setTimeout(() => {
+
+                    setNavbarMounted(true);
+
+                }, DELAY * 1000);
+            }
         }
 
-        // Format desktop : délai synchronisé avec l'intro
-        timer = window.setTimeout(mountNow, DELAY * 1000);
 
-        // Passage desktop → mobile pendant l'attente : montage immédiat
+        // =======================================
+        // Passage desktop → mobile
+        // =======================================
+
         const handleBreakpointChange = (event) => {
+
             if (event.matches) {
-                window.clearTimeout(timer);
-                mountNow();
+
+                if (timer !== null) {
+
+                    window.clearTimeout(timer);
+                }
+
+                setNavbarMounted(true);
             }
         };
 
-        mediaQuery.addEventListener('change', handleBreakpointChange);
+
+        mediaQuery.addEventListener(
+            "change",
+            handleBreakpointChange
+        );
+
+
+        // =======================================
+        // Nettoyage
+        // =======================================
 
         return () => {
-            window.clearTimeout(timer);
-            mediaQuery.removeEventListener('change', handleBreakpointChange);
+
+            if (timer !== null) {
+
+                window.clearTimeout(timer);
+            }
+
+            mediaQuery.removeEventListener(
+                "change",
+                handleBreakpointChange
+            );
         };
 
-    }, []);
+    }, [location.pathname, navbarMounted]);
 
 
     // =======================================
-    // Route actuelle
+    // Mise à jour de l'animation selon la route
+    // Joue uniquement à la première arrivée sur
+    // l'accueil de la session (drapeau absent)
     // =======================================
 
-    const location = useLocation();
+    useEffect(() => {
+
+        setPlayReveal(
+            location.pathname === "/" &&
+            sessionStorage.getItem("skip-home-intro") !== "true"
+        );
+
+    }, [location.pathname]);
 
 
     // =======================================
@@ -148,6 +251,10 @@ export default function Navbar() {
 
     useEffect(() => {
 
+        // Attendre que la navbar soit montée
+        if (!navbarMounted) return;
+
+
         const active =
             navRef.current?.querySelector("a.active");
 
@@ -194,7 +301,7 @@ export default function Navbar() {
             );
         };
 
-    }, [location.pathname]);
+    }, [location.pathname, navbarMounted]);
 
 
     // =======================================
@@ -241,9 +348,16 @@ export default function Navbar() {
 
     }, [menuOpen]);
 
+
+    // =======================================
+    // Aucun montage avant le déclenchement
+    // =======================================
+
     if (!navbarMounted) {
+
         return null;
     }
+
 
     // =======================================
     // Rendu
@@ -251,7 +365,7 @@ export default function Navbar() {
 
     return (
 
-        <header className="navbar-container animation-fade-blur-in">
+        <header className={`navbar-container ${animationClass}`}>
 
 
             {/* =================================
@@ -260,7 +374,7 @@ export default function Navbar() {
 
             <NavLink
                 to="/"
-                className="incipit animation-fade-blur-in"
+                className={`incipit ${animationClass}`}
                 onClick={cancelHomeIntro}
             >
 
@@ -294,9 +408,7 @@ export default function Navbar() {
 
             <button
                 type="button"
-
-                className={`hamburger animation-fade-blur-in ${menuOpen ? "is-open" : ""
-                    }`}
+                className={`hamburger ${animationClass} ${menuOpen ? "is-open" : ""}`}
 
                 onClick={() =>
                     setMenuOpen((previous) => !previous)
@@ -323,7 +435,8 @@ export default function Navbar() {
             ================================= */}
 
             <nav
-                className={`navbar ${menuOpen ? "is-open" : ""}`}
+                className={`navbar ${menuOpen ? "is-open" : ""
+                    }`}
                 ref={navRef}
             >
 
@@ -338,55 +451,56 @@ export default function Navbar() {
                             ACCUEIL
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/galerie"
-                        >
+                        <NavLink to="/galerie">
                             GALERIE
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/santiago"
-                        >
+                        <NavLink to="/region/santiago">
                             SANTIAGO DE CHILE
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/chiloe"
-                        >
+                        <NavLink to="/region/chiloe">
                             CHILOÉ
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/patagonie"
-                        >
+                        <NavLink to="/region/patagonie">
                             PATAGONIE
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/puertowilliams"
-                        >
+                        <NavLink to="/region/puertowilliams">
                             PUERTO WILLIAMS
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/puntarenas"
-                        >
+                        <NavLink to="/region/puntarenas">
                             PUNTA ARENAS
                         </NavLink>
                     </li>
+
+
                     <li>
-                        <NavLink
-                            to="/region/torresdelpaine"
-                        >
+                        <NavLink to="/region/torresdelpaine">
                             TORRES DEL PAINE
                         </NavLink>
                     </li>
+
                 </ul>
 
 
