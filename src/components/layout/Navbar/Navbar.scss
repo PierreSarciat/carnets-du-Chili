@@ -209,20 +209,22 @@
 
     .navbar-container {
         display: block;
+        
     }
 
 
     .incipit {
 
         margin-right: 0;
-
         margin-bottom: 0;
+         --reveal-delay: 15s;
     }
 
 
     .hamburger {
 
         display: block;
+          --reveal-delay: 15s;
     }
 
 

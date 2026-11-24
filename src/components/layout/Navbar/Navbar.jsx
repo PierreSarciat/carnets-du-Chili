@@ -50,22 +50,44 @@ export default function Navbar() {
 
     // =======================================
     // Montage différé de la Navbar
+    // Immédiat en format mobile, différé sur les grands écrans
     // =======================================
 
     useEffect(() => {
 
+        const MOBILE_BREAKPOINT = '(max-width: 1050px)';
+        const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT);
         const DELAY = 15;
 
-        const timer = window.setTimeout(() => {
-            setNavbarMounted(true);
-        }, DELAY * 1000);
+        let timer = null;
+
+        const mountNow = () => setNavbarMounted(true);
+
+        // Format mobile : navbar toujours montée, sans délai
+        if (mediaQuery.matches) {
+            mountNow();
+            return;
+        }
+
+        // Format desktop : délai synchronisé avec l'intro
+        timer = window.setTimeout(mountNow, DELAY * 1000);
+
+        // Passage desktop → mobile pendant l'attente : montage immédiat
+        const handleBreakpointChange = (event) => {
+            if (event.matches) {
+                window.clearTimeout(timer);
+                mountNow();
+            }
+        };
+
+        mediaQuery.addEventListener('change', handleBreakpointChange);
 
         return () => {
             window.clearTimeout(timer);
+            mediaQuery.removeEventListener('change', handleBreakpointChange);
         };
 
     }, []);
-
 
 
     // =======================================
@@ -238,7 +260,7 @@ export default function Navbar() {
 
             <NavLink
                 to="/"
-                className="incipit "
+                className="incipit animation-fade-blur-in"
                 onClick={cancelHomeIntro}
             >
 
@@ -273,7 +295,7 @@ export default function Navbar() {
             <button
                 type="button"
 
-                className={`hamburger ${menuOpen ? "is-open" : ""
+                className={`hamburger animation-fade-blur-in ${menuOpen ? "is-open" : ""
                     }`}
 
                 onClick={() =>
