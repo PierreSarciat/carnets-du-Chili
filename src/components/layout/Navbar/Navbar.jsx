@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useLayoutEffect, useState } from "react";
 
 import "./Navbar.scss";
 import CompassRose from "@assets/icons/rose-des-vents.png";
@@ -86,6 +86,8 @@ export default function Navbar() {
     const navRef = useRef(null);
 
     const borderRef = useRef(null);
+
+    const borderInitializedRef = useRef(false);
 
 
     // =======================================
@@ -249,11 +251,15 @@ export default function Navbar() {
     // Mise à jour de la bordure active
     // =======================================
 
-    useEffect(() => {
+    useLayoutEffect(() => {
 
         // Attendre que la navbar soit montée
         if (!navbarMounted) return;
 
+
+        // ===================================
+        // Position initiale de la bordure
+        // ===================================
 
         const active =
             navRef.current?.querySelector("a.active");
@@ -263,8 +269,36 @@ export default function Navbar() {
 
             setActiveLink(active);
 
-            moveBorder(active, true);
+            // Première position sans transition :
+            // la bordure apparaît directement sous le lien actif.
+            // Les changements de route suivants restent animés.
+            moveBorder(
+                active,
+                borderInitializedRef.current
+            );
+
+            borderInitializedRef.current = true;
         }
+
+
+        // ===================================
+        // Recalcul après chargement des polices
+        // ===================================
+
+        let cancelled = false;
+
+        document.fonts.ready.then(() => {
+
+            if (cancelled) return;
+
+            const currentActive =
+                navRef.current?.querySelector("a.active");
+
+            if (currentActive) {
+                moveBorder(currentActive, false);
+            }
+
+        });
 
 
         // ===================================
@@ -294,6 +328,8 @@ export default function Navbar() {
 
 
         return () => {
+
+            cancelled = true;
 
             window.removeEventListener(
                 "resize",
