@@ -92,7 +92,39 @@ function Region() {
     // =======================================
 
     const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
+    const [previousPhotoIndex, setPreviousPhotoIndex] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+    // =======================================
+    // Première photo de la session de modale :
+    // défilement de haut en bas ; les suivantes : fondu
+    // =======================================
+
+    const [isFirstPhotoShown, setIsFirstPhotoShown] = useState(true);
+
+
+    // =======================================
+    // Préchargement des photos voisines :
+    // évite le rectangle noir pendant le fondu
+    // =======================================
+
+    useEffect(() => {
+
+        if (selectedPhotoIndex === null) return;
+
+        const neighbours = [
+            photos[(selectedPhotoIndex + 1) % photos.length],
+            photos[(selectedPhotoIndex - 1 + photos.length) % photos.length]
+        ];
+
+        for (const photo of neighbours) {
+            if (!photo) continue;
+            const image = new Image();
+            image.src = photo.fullSrc || photo.previewSrc;
+        }
+
+    }, [selectedPhotoIndex, photos.length]);
 
 
     // =======================================
@@ -143,8 +175,18 @@ function Region() {
 
     // Fonction pour ouvrir la modale avec une photo
     const openModal = (index) => {
+        setPreviousPhotoIndex(null);
+        setIsFirstPhotoShown(true);
         setSelectedPhotoIndex(index);
         setIsModalOpen(true);
+    };
+
+
+    // Sélection directe d'une photo (traits du compteur)
+    const selectPhoto = (index) => {
+        setIsFirstPhotoShown(false);
+        setPreviousPhotoIndex(selectedPhotoIndex);
+        setSelectedPhotoIndex(index);
     };
 
 
@@ -157,17 +199,34 @@ function Region() {
     // Fonction pour naviguer vers la photo précédente ou suivante
 
     const goToPrevPhoto = () => {
+        setIsFirstPhotoShown(false);
+        setPreviousPhotoIndex(selectedPhotoIndex);
         setSelectedPhotoIndex((currentIndex) =>
             (currentIndex - 1 + photos.length) % photos.length
         );
     };
 
     const goToNextPhoto = () => {
+        setIsFirstPhotoShown(false);
+        setPreviousPhotoIndex(selectedPhotoIndex);
         setSelectedPhotoIndex((currentIndex) =>
             (currentIndex + 1) % photos.length
         );
     };
 
+    // Libération de sécurité de la photo sortante, après le fondu
+    useEffect(() => {
+
+        if (previousPhotoIndex === null) return;
+
+        const timeoutId = setTimeout(
+            () => setPreviousPhotoIndex(null),
+            1500
+        );
+
+        return () => clearTimeout(timeoutId);
+
+    }, [previousPhotoIndex]);
 
     // Gestion des touches clavier
     useEffect(() => {
@@ -316,11 +375,38 @@ function Region() {
                             onTouchEnd={handleTouchEnd}
                         >
 
-                            {/* Image en plein écran */}
+                            {/* Image en plein écran : superposition sortante / entrante
+                                Aucun key sur le conteneur : React réutilise le nœud de la
+                                photo sortante, qui était l'entrante du rendu précédent */}
                             <div
-                                className="modal-image-description"
-                                key={photos[selectedPhotoIndex].id}
+                                className={
+                                    `modal-image-description ${isFirstPhotoShown
+                                        ? "modal-image-description--scroll"
+                                        : ""}`
+                                }
                             >
+
+                                {/* Photo sortante : même clé que lors de son affichage entrant.
+    React réutilise le nœud DOM : zoom figé à sa position, et
+    fondu de sortie par transition d'opacité. */}
+                                {previousPhotoIndex !== null && (
+                                    <img
+                                        key={photos[previousPhotoIndex].id}
+                                        src={
+                                            photos[previousPhotoIndex].fullSrc ||
+                                            photos[previousPhotoIndex].previewSrc
+                                        }
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="modal-image modal-image--outgoing"
+                                        onTransitionEnd={(event) => {
+                                            if (event.propertyName === "opacity") {
+                                                setPreviousPhotoIndex(null);
+                                            }
+                                        }}
+                                    />
+                                )}
+
                                 <img
                                     key={photos[selectedPhotoIndex].id}
                                     src={
@@ -331,7 +417,9 @@ function Region() {
                                         photos[selectedPhotoIndex].alt ||
                                         "Photo en plein écran"
                                     }
-                                    className="modal-image"
+                                    className={
+                                        `modal-image ${isFirstPhotoShown ? "" : "modal-image--fade"}`
+                                    }
                                 />
                                 {/* Description incrustée : bas droite, au survol */}
 
@@ -402,7 +490,7 @@ function Region() {
                                                     ? "modal-dash active"
                                                     : "modal-dash"
                                             }
-                                            onClick={() => setSelectedPhotoIndex(index)}
+                                            onClick={() => selectPhoto(index)}
                                             aria-label={`Afficher la photo ${index + 1}`}
                                             aria-current={
                                                 index === selectedPhotoIndex ? "true" : undefined
