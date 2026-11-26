@@ -94,6 +94,7 @@ function Region() {
     const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
     const [previousPhotoIndex, setPreviousPhotoIndex] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
 
     // =======================================
@@ -177,6 +178,7 @@ function Region() {
     const openModal = (index) => {
         setPreviousPhotoIndex(null);
         setIsFirstPhotoShown(true);
+        setIsDescriptionVisible(false);
         setSelectedPhotoIndex(index);
         setIsModalOpen(true);
     };
@@ -185,6 +187,7 @@ function Region() {
     // Sélection directe d'une photo (traits du compteur)
     const selectPhoto = (index) => {
         setIsFirstPhotoShown(false);
+        setIsDescriptionVisible(false);
         setPreviousPhotoIndex(selectedPhotoIndex);
         setSelectedPhotoIndex(index);
     };
@@ -193,6 +196,7 @@ function Region() {
     // Fonction pour fermer la modale
     const closeModal = () => {
         setIsModalOpen(false);
+        setIsDescriptionVisible(false);
     };
 
 
@@ -200,6 +204,7 @@ function Region() {
 
     const goToPrevPhoto = () => {
         setIsFirstPhotoShown(false);
+        setIsDescriptionVisible(false);
         setPreviousPhotoIndex(selectedPhotoIndex);
         setSelectedPhotoIndex((currentIndex) =>
             (currentIndex - 1 + photos.length) % photos.length
@@ -208,6 +213,7 @@ function Region() {
 
     const goToNextPhoto = () => {
         setIsFirstPhotoShown(false);
+        setIsDescriptionVisible(false);
         setPreviousPhotoIndex(selectedPhotoIndex);
         setSelectedPhotoIndex((currentIndex) =>
             (currentIndex + 1) % photos.length
@@ -384,14 +390,17 @@ function Region() {
                                         ? "modal-image-description--scroll"
                                         : ""}`
                                 }
+                                onClick={() => {
+                                    if (window.matchMedia("(max-width: 900px)").matches) {
+                                        setIsDescriptionVisible((previous) => !previous);
+                                    }
+                                }}
                             >
 
-                                {/* Photo sortante : même clé que lors de son affichage entrant.
-    React réutilise le nœud DOM : zoom figé à sa position, et
-    fondu de sortie par transition d'opacité. */}
+                                {/* Photo sortante : reste affichée sous l'entrante
+                                    pendant le fondu, puis libérée */}
                                 {previousPhotoIndex !== null && (
                                     <img
-                                        key={photos[previousPhotoIndex].id}
                                         src={
                                             photos[previousPhotoIndex].fullSrc ||
                                             photos[previousPhotoIndex].previewSrc
@@ -399,11 +408,6 @@ function Region() {
                                         alt=""
                                         aria-hidden="true"
                                         className="modal-image modal-image--outgoing"
-                                        onTransitionEnd={(event) => {
-                                            if (event.propertyName === "opacity") {
-                                                setPreviousPhotoIndex(null);
-                                            }
-                                        }}
                                     />
                                 )}
 
@@ -418,13 +422,22 @@ function Region() {
                                         "Photo en plein écran"
                                     }
                                     className={
-                                        `modal-image ${isFirstPhotoShown ? "" : "modal-image--fade"}`
+                                        `modal-image ${isFirstPhotoShown
+                                            ? "modal-image--scroll"
+                                            : "modal-image--fade"}`
                                     }
                                 />
                                 {/* Description incrustée : bas droite, au survol */}
 
                                 {photos[selectedPhotoIndex].description && (
-                                    <p className="modal-description">
+                                    <p
+                                        className="modal-description"
+                                        style={
+                                            window.matchMedia("(max-width: 900px)").matches
+                                                ? { opacity: isDescriptionVisible ? 1 : 0 }
+                                                : undefined
+                                        }
+                                    >
                                         {photos[selectedPhotoIndex].description}
                                     </p>
                                 )}
