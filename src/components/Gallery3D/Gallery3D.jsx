@@ -37,6 +37,14 @@ const CAMERA_MARGIN = 7;
 
 const ROTATION_ZONE_RATIO = 0.4;
 
+// Vitesse de rotation des contrôles, adaptée
+// au format : réduite sur mobile pour un geste
+// plus précis.
+
+const ROTATE_SPEED_DESKTOP = 1.0;
+
+const ROTATE_SPEED_MOBILE = 0.4;
+
 // Dimensions du plan photo.
 
 const PHOTO_WIDTH = 2.5;
@@ -476,6 +484,51 @@ function Gallery3D({
 
 
     // =======================================
+    // Détection du format mobile
+
+    // Utilisée pour réduire la vitesse de
+    // rotation des contrôles sur petit écran.
+    // =======================================
+
+    const [
+        isMobile,
+        setIsMobile
+    ] = useState(false);
+
+
+    useEffect(() => {
+
+        const mediaQuery =
+            window.matchMedia(
+                "(max-width: 768px)"
+            );
+
+        const updateFormat = () => {
+
+            setIsMobile(
+                mediaQuery.matches
+            );
+        };
+
+        updateFormat();
+
+        mediaQuery.addEventListener(
+            "change",
+            updateFormat
+        );
+
+        return () => {
+
+            mediaQuery.removeEventListener(
+                "change",
+                updateFormat
+            );
+        };
+
+    }, []);
+
+
+    // =======================================
     // Références des flèches de navigation
     // =======================================
 
@@ -868,6 +921,16 @@ function Gallery3D({
                     enablePan={false}
 
                     enableRotate={true}
+
+                    // Vitesse de rotation réduite
+                    // sur mobile pour un geste
+                    // plus précis.
+
+                    rotateSpeed={
+                        isMobile
+                            ? ROTATE_SPEED_MOBILE
+                            : ROTATE_SPEED_DESKTOP
+                    }
 
                     // Verrouillage de la distance :
                     // l'observateur ne peut jamais
